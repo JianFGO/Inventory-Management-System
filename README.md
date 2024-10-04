@@ -1,1 +1,1 @@
-<h1>Candy Atlas Inventory Mangement System</h1>
+<h1>Candy Atlas Inventory Management System</h1>
