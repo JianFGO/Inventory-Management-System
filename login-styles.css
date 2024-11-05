@@ -1,0 +1,106 @@
+/* default setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* this is the body and font styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #C5EBC3;
+    
+}
+
+/* header */
+header {
+    
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #F4D7E4;
+    color: #fff;
+}
+
+/* logo styling */
+.logo img {
+    width: 200px; /* Adjust logo size as needed */
+}
+
+
+/* main content */
+main {
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    min-height: 25vh;
+    margin-top: 25vh;
+}
+
+/* wrapper for main content */
+.content-wrapper {
+    background-color: #c0e4be;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* input styling */
+.input-box {
+    display: flex;
+    gap: 10px; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 250px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/* Style for inputs inside input-box */
+.input-box input {
+    flex: 1; 
+    background: none;
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    padding: 5px;
+}
+
+.login-wrapper .btn{
+    width:100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.remember-forgot {
+    font-size: 13px;
+}
+
+.btn {
+    display: inline-block; 
+    padding: 10px 20px; 
+    background-color: #F4D7E4; 
+    color: #333; 
+    text-align: center; 
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; 
+    transition: background-color 0.3s; 
+}
+
+.btn:hover {
+    background-color: #D6B4C2; 
+}
