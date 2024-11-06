@@ -6,14 +6,14 @@
     font-family: "Poppins", sans-serif;
 }
 
-/* body and font stuff */
+/* body and font */
 body {
     font-family: Arial, sans-serif;
     color: #333;
     line-height: 1.6;
     background-color: #C5EBC3;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 /* header */
@@ -69,11 +69,122 @@ header {
     background-color: #6C9BA5;
 }
 
-/* Main content styling */
+/* main content styling */
 main {
     padding: 20px;
     margin-left: 220px; 
     margin-top: 80px; 
     text-align: center;
     min-height: 100vh;
+}
+
+/* table styles */
+.table-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px 10px;
+    width: 20%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+th {
+    font-size: 15px;
+    border-bottom: 3px solid;
+}
+
+/* button styles */
+button,
+input[type=submit] {
+    color: black;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    width: 30%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+button:hover,
+input[type=submit]:hover {
+    background-color: #F4D7E4;
+}
+
+input,
+select {
+    width: 100%;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+/* toolbar styles */
+.toolbar {
+    background-color: #f0f0f0;
+    font-size: 14px;
+    text-align: left;
+    padding: 13px;
+    margin: 12px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.toolbar h2 {
+    margin: 0;
+}
+
+/* icon styles */
+.icon {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.icon:hover {
+    background-color: #F4D7E4;
+}
+
+/* link colours */
+a {
+    color: #0000FF;
+}
+
+a:visited {
+    color: #551A8B;
+}
+
+a:active {
+    color: #0000ff;
+}
+
+a:hover {
+    color: #1E90FF;
+}
+
+.number-records {
+    text-align: left;
+    padding: 13px;
+    margin: 13px;
 }
