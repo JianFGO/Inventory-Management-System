@@ -13,21 +13,30 @@
         <div class="logo">
             <img src="images/Screenshot 2024-11-05 162943.png" alt="Logo">
         </div>
-        
     </header>
 
     <!-- main content -->
     <main>
         <div class="content-wrapper">
             <h1>Login</h1>
-            <!-- input login details -->
+
+            <!-- User role selection -->
             <div class="input-box">
-                <input type ="text" placeholder="Username">
+                <select id="role" name="role">
+                    <option value="normal">Normal Login</option>
+                    <option value="manager">Manager Login</option>
+                    <option value="admin">Admin Login</option>
+                </select>
+            </div>
+
+            <!-- Input login details -->
+            <div class="input-box">
+                <input type="text" placeholder="Username">
                 <box-icon type='solid' name='user'></box-icon>
             </div>
             
             <div class="input-box">
-                <input type="text" placeholder="Password">
+                <input type="password" placeholder="Password">
                 <box-icon type='solid' name='lock-alt'></box-icon>
             </div>
 
@@ -35,9 +44,9 @@
 
             <div class="remember-forgot">
                 <label>
-                    <input type ="checkbox"> Remember me
+                    <input type="checkbox"> Remember me
                 </label>
-            <a href="#"> Forgot Password? </a>
+                <a href="#"> Forgot Password? </a>
             </div>
         </div>
     </main>

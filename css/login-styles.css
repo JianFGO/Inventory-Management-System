@@ -12,12 +12,10 @@ body {
     color: #333;
     line-height: 1.6;
     background-color: #C5EBC3;
-    
 }
 
 /* header */
 header {
-    
     justify-content: space-between;
     padding: 15px 20px;
     background-color: #F4D7E4;
@@ -28,7 +26,6 @@ header {
 .logo img {
     width: 200px; /* Adjust logo size as needed */
 }
-
 
 /* main content */
 main {
@@ -52,7 +49,8 @@ main {
 /* input styling */
 .input-box {
     display: flex;
-    gap: 10px; 
+    align-items: center;
+    gap: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 25px;
@@ -62,46 +60,59 @@ main {
     margin-bottom: 15px;
 }
 
-/* Style for inputs inside input-box */
-.input-box input {
-    flex: 1; 
+/* Style for inputs and select inside input-box */
+.input-box input,
+.input-box select {
+    flex: 1;
     background: none;
     outline: none;
     border: none;
     border-radius: 40px;
     padding: 5px;
+    font-size: 16px;
 }
 
-.login-wrapper .btn{
-    width:100%;
+/* Dropdown (select) styling */
+.input-box select {
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 25px;
+}
+
+/* Login button styling */
+.login-wrapper .btn {
+    width: 100%;
     height: 45px;
     background: #fff;
     border: none;
     outline: none;
     border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0,0,0, .1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
     color: #333;
     font-weight: 600;
 }
 
+/* Remember me and forgot password styling */
 .remember-forgot {
     font-size: 13px;
     margin-top: 10px;
 }
 
+/* General button styling */
 .btn {
-    display: inline-block; 
-    padding: 10px 20px; 
-    background-color: #F4D7E4; 
-    color: #333; 
-    text-align: center; 
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #F4D7E4;
+    color: #333;
+    text-align: center;
     border-radius: 5px; /* Rounded corners */
-    text-decoration: none; 
-    transition: background-color 0.3s; 
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
 .btn:hover {
-    background-color: #D6B4C2; 
+    background-color: #D6B4C2;
 }
