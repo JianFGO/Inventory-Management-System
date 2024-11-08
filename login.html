@@ -31,16 +31,17 @@
 
             <!-- Input login details -->
             <div class="input-box">
-                <input type="text" placeholder="Username">
+                <input type="text" placeholder="Username" id="username">
                 <box-icon type='solid' name='user'></box-icon>
             </div>
             
             <div class="input-box">
-                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Password" id="password">
                 <box-icon type='solid' name='lock-alt'></box-icon>
             </div>
 
-            <div class="login-wrapper"><a href="dashboard.html" class="btn">Login</a></div>
+            <!-- Login button with an ID for JavaScript access -->
+            <div class="login-wrapper"><button id="loginBtn" class="btn">Login</button></div>
 
             <div class="remember-forgot">
                 <label>
@@ -50,5 +51,21 @@
             </div>
         </div>
     </main>
+
+    <script>
+        // JavaScript for role-based redirection
+        document.getElementById("loginBtn").addEventListener("click", function() {
+            const role = document.getElementById("role").value;
+
+            // Redirect based on role
+            if (role === "admin") {
+                window.location.href = "admin_dashboard.html";
+            } else if (role === "manager") {
+                window.location.href = "manager_dashboard.html";
+            } else {
+                window.location.href = "normal_dashboard.html";
+            }
+        });
+    </script>
 </body>
 </html>
