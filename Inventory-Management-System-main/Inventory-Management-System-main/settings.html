@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <style>
+        /* default setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* body and font */
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #C5EBC3;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* header */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background-color: #F4D7E4;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
+        /* logo styling */
+        .logo img {
+            width: 200px; 
+        }
+
+        /* vertical navbar */
+        .vertical-navbar {
+            width: 200px;
+            background-color: #87AAB9;
+            height: 100vh;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            padding-top: 20px;
+        }
+
+        /* navbar list styling */
+        .vertical-navbar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .vertical-navbar ul li {
+            margin: 15px 0;
+        }
+
+        .vertical-navbar ul li a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .vertical-navbar ul li a:hover {
+            background-color: #6C9BA5;
+        }
+
+        /* main content styling */
+        main {
+            padding: 20px;
+            margin-left: 220px;
+            margin-top: 80px;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        /* User details box */
+        .user-details-box {
+            width: 80%;
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title in user details box */
+        .user-details-box h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.5em;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        /* Individual details in the user details box */
+        .user-details-box .detail {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .user-details-box .detail strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- header  -->
+    <header>
+        <div class="logo">
+            <img src="images/Screenshot 2024-11-05 162943.png" alt="Logo">
+        </div>
+    </header>
+
+    <!-- vertical navbar -->
+    <nav class="vertical-navbar">
+        <ul>
+            <li><a href="dashboard.html"><box-icon name='dashboard' type='solid'></box-icon>Dashboard ></a></li>
+            <li><a href="inventory.html"><box-icon name='table'></box-icon>Inventory ></a></li>
+            <li><a href="teamtalks.html"><box-icon name='chat'></box-icon>Team Talk ></a></li>
+            <li><a href="users.html"><box-icon name='user-circle'></box-icon>User Overview ></a></li>
+            <li><a href="settings.html"><box-icon name='cog'></box-icon>Settings ></a></li>
+            <li><a href="login.html"><box-icon name='log-out-circle'></box-icon>Logout ></a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Settings</h1>
+        
+
+        <!-- User details box -->
+        <div class="user-details-box">
+            <h2>User Login Details</h2>
+            <div class="detail"><strong>Username:</strong> jonsnow</div>
+            <div class="detail"><strong>Name:</strong> Jon Snow</div>
+            <div class="detail"><strong>Password:</strong> ••••••••</div>
+            <div class="detail"><strong>Email:</strong> johnsnow@got.com</div>
+        </div>
+    </main>
+</body>
+</html>

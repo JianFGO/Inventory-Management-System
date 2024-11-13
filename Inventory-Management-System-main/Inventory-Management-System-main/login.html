@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="css/login-styles.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="logo">
+            <img src="images/Screenshot 2024-11-05 162943.png" alt="Logo">
+        </div>
+    </header>
+
+    <!-- main content -->
+    <main>
+        <div class="content-wrapper">
+            <h1>Login</h1>
+
+            <!-- User role selection -->
+            <div class="input-box">
+                <select id="role" name="role">
+                    <option value="normal">Normal Login</option>
+                    <option value="manager">Manager Login</option>
+                    <option value="admin">Admin Login</option>
+                </select>
+            </div>
+
+            <!-- Input login details -->
+            <div class="input-box">
+                <input type="text" placeholder="Username" id="username">
+                <box-icon type='solid' name='user'></box-icon>
+            </div>
+            
+            <div class="input-box">
+                <input type="password" placeholder="Password" id="password">
+                <box-icon type='solid' name='lock-alt'></box-icon>
+            </div>
+
+            <!-- Login button with an ID for JavaScript access -->
+            <div class="login-wrapper"><button id="loginBtn" class="btn">Login</button></div>
+
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#"> Forgot Password? </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // JavaScript for role-based redirection
+        document.getElementById("loginBtn").addEventListener("click", function() {
+            const role = document.getElementById("role").value;
+
+            // Redirect based on role
+            if (role === "admin") {
+                window.location.href = "admin_dashboard.html";
+            } else if (role === "manager") {
+                window.location.href = "manager_dashboard.html";
+            } else {
+                window.location.href = "normal_dashboard.html";
+            }
+        });
+    </script>
+</body>
+</html>
