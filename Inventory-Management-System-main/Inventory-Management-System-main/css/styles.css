@@ -1,0 +1,234 @@
+/* default setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* body and font */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #C5EBC3;
+    display: flex;
+    flex-direction: column;
+}
+
+/* header */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #F4D7E4;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* logo styling */
+.logo img {
+    width: 200px; 
+}
+
+/* navbar*/
+.vertical-navbar {
+    width: 200px;
+    background-color: #87AAB9;
+    height: 100vh;
+    position: fixed;
+    top: 60px; 
+    left: 0;
+    padding-top: 20px;
+}
+
+/* navbar list styling */
+.vertical-navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.vertical-navbar ul li {
+    margin: 15px 0;
+}
+
+.vertical-navbar ul li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.vertical-navbar ul li a:hover {
+    background-color: #6C9BA5;
+}
+
+/* main content styling */
+main {
+    padding: 20px;
+    margin-left: 220px; 
+    margin-top: 80px; 
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* table styles */
+.table-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px 10px;
+    width: 20%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+th {
+    font-size: 15px;
+    border-bottom: 3px solid;
+}
+
+/* button styles */
+button,
+input[type=submit] {
+    color: black;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    width: 30%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+button:hover,
+input[type=submit]:hover {
+    background-color: #F4D7E4;
+}
+
+input,
+select {
+    width: 100%;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+/* toolbar styles */
+.toolbar {
+    background-color: #f0f0f0;
+    font-size: 14px;
+    text-align: left;
+    padding: 13px;
+    margin: 12px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.toolbar h2 {
+    margin: 0;
+}
+
+/* icon styles */
+.icon {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.icon:hover {
+    background-color: #F4D7E4;
+}
+
+/* link colours */
+a {
+    color: #0000FF;
+}
+
+a:visited {
+    color: #551A8B;
+}
+
+a:active {
+    color: #0000ff;
+}
+
+a:hover {
+    color: #1E90FF;
+}
+
+.number-records {
+    text-align: left;
+    padding: 13px;
+    margin: 13px;
+}
+
+
+/* dashboard grid format */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* three equal-width columns */
+    grid-template-rows: auto auto; 
+    gap: 20px; 
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* rectangle formats */
+.small-rectangle, .large-rectangle {
+    background-color: #87AAB9; 
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.small-rectangle {
+    height: 200px; /* top row rectangles */
+}
+
+.large-rectangle {
+    height: 400px; /* bottom row large rectangle */
+    grid-column: span 2; 
+}
+
+
+.grid-container > .small-rectangle.bottom-row {
+    height: 400px; 
+}
+
+/* Custom style for Google Chart element */
+#piechart {
+    width: 100%;
+    height: 100%;
+}
+
+

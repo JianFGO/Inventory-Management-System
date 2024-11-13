@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Website</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+        
+    </head>
+    <body>
+        <!-- header  -->
+        <header>
+            <div class="logo">
+                <img src="images/Screenshot 2024-11-05 162943.png" alt="Logo">
+            </div>
+            
+        </header>
+    
+        <!-- vertical navbar -->
+        <nav class="vertical-navbar">
+            <ul>
+                <li><a href="dashboard.html"><box-icon name='dashboard' type='solid' ></box-icon>Dashboard ></a></li>
+                <li><a href="inventory.html"><box-icon name='table' ></box-icon>Inventory ></a></li>
+                <li><a href="teamtalks.html"><box-icon name='chat' ></box-icon>Team Talk ></a></li>
+                <li><a href="users.html"><box-icon name='user-circle' ></box-icon>User Overview ></a></li>
+                <li><a href="settings.html"><box-icon name='cog' ></box-icon>Settings ></a></li>
+                <li><a href="login.html"><box-icon name='log-out-circle' ></box-icon>Logout ></a></li>
+            </ul>
+        </nav>
+
+    <main>
+        <h1>Welcome to the Inventory Catalog</h1>
+        
+        <div class="toolbar">
+            <h2>Database Product Listing</h2>
+            
+            <!--icons from Icons8 website-->
+            <img src="./images/download-icon.png" alt="download icon" class="icon">
+            <img src="./images/print-icon.png" alt="print icon" class="icon">
+        </div>
+
+        <!--Button-->
+        <form action="addProduct.html">
+            <input type="submit" value="Add New Product">
+        </form>
+
+        <div class="table-container">
+            <table>
+                <!--table headers-->
+                <thead>
+                    <tr>
+                        <th>Product No.</th>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <!--table body-->
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Candy</td>
+                        <td>Lemon Sherbet</td>
+                        <td>5</td>
+                        <td>
+                            <a href="orderProduct.html">Order</a>
+                            <a href="editProduct.html">Edit</a>
+                            <a href="removeProduct.html">Remove</a>
+                        </td>
+                    </tr>
+
+                    <!--2nd row(for test) - can be deleted later-->
+                    <tr>
+                        <td>2</td>
+                        <td>Candy</td>
+                        <td>Humbug</td>
+                        <td>10</td>
+                        <td>
+                            <a href="orderProduct.html">Order</a>
+                            <a href="editProduct.html">Edit</a>
+                            <a href="removeProduct.html">Remove</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <p class="number-records">Displaying n of n Records</p>
+
+    </main>
+</body>
+</html>
