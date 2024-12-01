@@ -17,6 +17,7 @@ An inventory management web application built using Laravel and Bootstrap.
 - Users @sumayyah19 ?
 - Branches @sumayyah19 or someone
 - Personal Profile?
+- Orders?
 - Other
 
 ## For Team
