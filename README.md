@@ -2,6 +2,21 @@
 
 An inventory management web application built using Laravel and Bootstrap.
 
+## Done
+- Template remastering @Shelly855
+
+## Need to be Done
+- Login & register page mastering @JianFGO or someone
+- Authentication @JianFGO or someone
+- Category & Products, maybe Unit @Shelly855
+- Invoice @SWE-SAM
+- Reports @SWE-SAM or someone
+- Dashboard @SWE-SAM
+- Users @sumayyah19 ?
+- Branches @sumayyah19 or someone
+- Personal Profile?
+- Other
+
 ## For Team
 Make sure to have Laravel Artisan, composer etc. installed, and that you have a mysql database created called candy in PHPMyAdmin.
 
@@ -23,20 +38,10 @@ Make sure to have Laravel Artisan, composer etc. installed, and that you have a 
 - Run **npm run dev**
 - Keep this terminal, don't delete it. Use other terminals for running the website
 
-## Done
-- Template remastering @Shelly855
-
-## Need to be Done
-- Login & register page mastering @JianFGO or someone
-- Authentication @JianFGO or someone
-- Category & Products, maybe Unit @Shelly855
-- Invoice @SWE-SAM
-- Reports @SWE-SAM or someone
-- Dashboard @SWE-SAM
-- Users @sumayyah19 ?
-- Branches @sumayyah19 or someone
-- Personal Profile?
-- Other
+### 5. To backup your changes:
+- Create a new repository
+- Run in VSC terminal: git remote add backup your-backup-repo-url
+- Then: git push --mirror backup
 
 ## Acknowledgements
 - [Bootstrap](https://getbootstrap.com)
