@@ -50,7 +50,7 @@ Make sure to have **Laravel Artisan**, **composer etc.** installed, and that you
 ### 5. To backup your changes:
 - Create a new repository
 - Run in VSC terminal: **git remote add backup your-backup-repo-url**
-- Then: **git push --mirror backup**
+- Then: **git push --mirror backup** (If you have backed up your changes before, just use this step)
 
 ## Acknowledgements
 - [Bootstrap](https://getbootstrap.com)
