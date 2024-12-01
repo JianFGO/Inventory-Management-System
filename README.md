@@ -5,7 +5,7 @@ An inventory management web application built using Laravel and Bootstrap.
 ## For Team
 Make sure to have Laravel Artisan, composer etc. installed, and that you have a mysql database created called candy in PHPMyAdmin.
 
-###1. After cloning, run in VSC terminal (open using Ctrl + J if you have Windows):
+### 1. After cloning, run in VSC terminal (open using Ctrl + J if you have Windows):
 - composer install
 - cp .env.example .env
 - php artisan key:generate
