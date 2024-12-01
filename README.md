@@ -10,14 +10,14 @@ Make sure to have Laravel Artisan, composer etc. installed, and that you have a 
 - cp .env.example .env
 - php artisan key:generate
 
-2. Modify env. file (not env.example) to link to the mysql database
+### 2. Modify env. file (not env.example) to link to the mysql database
 - DB_CONNECTION name is **mysql**
 - DB_DATABASE name is **candy**
 - Username is usually root, and password is empty
 
-3. Start XAMPP Apache & MySQL. Run in terminal **php artisan serve** and Ctrl + Click on the link that appears
+### 3. Start XAMPP Apache & MySQL. Run in terminal **php artisan serve** and Ctrl + Click on the link that appears
 
-4. If you encounter an error related to vite:
+### 4. If you encounter an error related to vite:
 - Create a *separate* VSC terminal using the + icon
 - Run **npm install**
 - Run **npm run dev**
