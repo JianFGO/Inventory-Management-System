@@ -8,11 +8,17 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="dropdown active">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            <!--Changes navbar link colour when user is on the page-->
+            <li class="dropdown {{ request()->routeIs('home') ? 'active' : '' }}">
+                <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
+            <li class="dropdown {{ request()->is('category/*') || request()->is('category') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Category</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-                    <li class=active><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
+                    <li class="{{ request()->routeIs('category.create') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('category.create') }}">Add Category</a></li>
+                    <li class="{{ request()->routeIs('category.index') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('category.index') }}">All Categories</a></li>
                 </ul>
             </li>
             <li class="menu-header">Log Out</li>
