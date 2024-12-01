@@ -15,7 +15,10 @@
                     <li class=active><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
                 </ul>
             </li>
-            <li class="menu-header">Starter</li>
+            <li class="menu-header">Log Out</li>
+            <li>
+                <a href="{{ route('logout') }}" class="nav-link"><i class="fas fa-fire"></i><span>Log Out</span></a>
+            </li>
         </ul>
     </aside>
 </div>
