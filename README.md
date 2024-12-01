@@ -32,7 +32,10 @@ Make sure to have Laravel Artisan, composer etc. installed, and that you have a 
 - DB_DATABASE name is **candy**
 - Username is usually root, and password is empty
 
-### 3. Start XAMPP Apache & MySQL. Run in terminal **php artisan serve** and Ctrl + Click on the link that appears
+### 3. Running the website
+- Start XAMPP Apache & MySQL
+- Run in terminal **php artisan serve** and Ctrl + Click on the link that appears
+- Any antivirus you have active may cause issues
 
 ### 4. If you encounter an error related to vite:
 - Create a *separate* VSC terminal using the + icon
