@@ -33,6 +33,13 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required|string'
         ]);
+
+        Category::create([
+            'name' => $request->name
+        ]);
+
+        // Redirect to category homepage
+        return redirect()->route('category.index');
     }
 
     /**
