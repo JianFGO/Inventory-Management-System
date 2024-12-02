@@ -56,3 +56,4 @@ Make sure to have **Laravel Artisan**, **composer etc.** installed, and that you
 - [Bootstrap](https://getbootstrap.com)
 - [Laravel Framework](https://laravel.com)
 - [Stisla Bootstrap Admin Template](https://github.com/stisla/stisla)
+- [DataTables](https://datatables.net)
