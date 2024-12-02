@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $page_title = "Category";
+        $page_title = "Categories";
         return view('category.index', compact('categories', 'page_title'));
     }
 
