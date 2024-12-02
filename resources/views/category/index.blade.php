@@ -12,11 +12,23 @@
                         <h4>{{ $page_title }}</h4>
                     </div>
                     <div class="card-body">
+                        {{-- Categories table --}}
                         <table id="myTable" class="table table-striped">
+                            {{-- Table headers --}}
                             <thead>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Action</th>
                             </thead>
+                            {{-- Table content --}}
+                            <tbody>
+                                @foreach ($categories as $category)
+                                    <tr>
+                                        <td>{{ $loop->index + 1 }}</td>
+                                        <td>{{ $loop->index + 1 }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>
