@@ -40,11 +40,12 @@
     </div>
 @endsection
 
+{{-- Doesn't work right now --}}
 @section('scripts')
     <script>
         // For datatable plugin
-        $(document).ready(function() {
-            $('#myTable').DataTable();
+        document.addEventListener('DOMContentLoaded', function() {
+            let table = new DataTable('#myTable');
         });
     </script>
 @endsection
