@@ -3,7 +3,6 @@
 @section('title', 'Category')
 
 @section('content')
-    <h1>Category</h1>
     <div class="section-body">
         <div class="row">
             <div class="col-12">
@@ -25,7 +24,11 @@
                                 @foreach ($categories as $category)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $loop->index + 1 }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>
+                                            <a class="btn btn-primary" href="#">Edit</a>
+                                            <a class="btn btn-danger" href="#">Delete</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
