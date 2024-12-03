@@ -7,7 +7,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Input Text</h4>
+                        <h4>Add Category</h4>
                     </div>
                     <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
