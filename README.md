@@ -17,7 +17,7 @@ An inventory management web application built using Laravel and Bootstrap.
 - Dashboard @SWE-SAM
 - Users @sumayyah19
 - Branches @sumayyah19
-- Personal Profile @FGO
+- Personal Profile @JianFGO
 - Orders @sumayyah19
 - Other
 
