@@ -55,7 +55,9 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // Find the specific category using ID
+        $category = Category::findOrFail($id);
+        return view('category.edit', compact('category'));
     }
 
     /**
@@ -63,7 +65,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        $category->update([
+            'name' => $request->name
+        ]);
+
+        // Redirect to category homepage
+        return redirect()->route('category.index');
     }
 
     /**
