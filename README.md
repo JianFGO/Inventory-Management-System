@@ -29,7 +29,7 @@ Make sure to have **Laravel Artisan**, **composer etc.** installed, and that you
 - cp .env.example .env
 - php artisan key:generate
 
-### 2. npm install & npm run dev
+### 2. npm install & npm run dev:
 - Create a *separate* VSC terminal using the + icon
 - Run **npm install**
 - Run **npm run dev**
