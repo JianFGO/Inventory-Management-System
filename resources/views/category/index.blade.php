@@ -26,7 +26,8 @@
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $category->name }}</td>
                                         <td>
-                                            <a class="btn btn-primary" href="#">Edit</a>
+                                            <a class="btn btn-primary"
+                                                href="{{ route('category.edit', $category->id) }}">Edit</a>
                                             <a class="btn btn-danger" href="#">Delete</a>
                                         </td>
                                     </tr>
