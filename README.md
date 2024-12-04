@@ -17,7 +17,7 @@ An inventory management web application built using Laravel and Bootstrap.
 - Dashboard @SWE-SAM
 - Users @sumayyah19 ?
 - Branches @sumayyah19 or someone
-- Personal Profile?
+- Personal Profile
 - Orders?
 - Other
 
@@ -29,23 +29,23 @@ Make sure to have **Laravel Artisan**, **composer etc.** installed, and that you
 - cp .env.example .env
 - php artisan key:generate
 
-### 2. Modify env. file (not env.example) to link to the mysql database:
+### 2. npm install & npm run dev
+- Create a *separate* VSC terminal using the + icon
+- Run **npm install**
+- Run **npm run dev**
+- Keep this terminal, don't delete it. Use other terminals for running the website
+
+### 3. Modify env. file (not env.example) to link to the mysql database:
 - DB_CONNECTION name is **mysql**
 - DB_DATABASE name is **candy**
 - Username is usually **root**, and password is empty
 - If there are migrations, run **php artisan migrate** in terminal
 - If there are seeders, run **php artisan db:seed**
 
-### 3. Running the website:
+### 4. Running the website:
 - Start **XAMPP Apache** & **MySQL**
 - Run in terminal **php artisan serve** and **Ctrl + Click** on the link that appears
 - Any antivirus you have active may cause issues
-
-### 4. If you encounter an error related to vite:
-- Create a *separate* VSC terminal using the + icon
-- Run **npm install**
-- Run **npm run dev**
-- Keep this terminal, don't delete it. Use other terminals for running the website
 
 ### 5. To backup your changes:
 - Create a new repository
