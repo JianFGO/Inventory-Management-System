@@ -9,16 +9,16 @@ An inventory management web application built using Laravel and Bootstrap.
 - Category Crud @Shelly855
 
 ## Need to be Done
-- Login page mastering @JianFGO or someone
-- Authentication @JianFGO or someone
-- Products, maybe Unit @Shelly855
+- Login page mastering @JianFGO
+- Authentication @JianFGO
+- Products @Shelly855
 - Invoice @SWE-SAM
-- Reports @SWE-SAM or someone
+- Reports @sumayyah19
 - Dashboard @SWE-SAM
-- Users @sumayyah19 ?
-- Branches @sumayyah19 or someone
-- Personal Profile
-- Orders?
+- Users @sumayyah19
+- Branches @sumayyah19
+- Personal Profile @FGO
+- Orders @sumayyah19
 - Other
 
 ## For Team
