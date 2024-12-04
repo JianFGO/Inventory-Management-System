@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body">
                         {{-- Categories table --}}
-                        <table id="myTable" class="table table-striped">
+                        <table id="categoryTable" class="table table-striped">
                             {{-- Table headers --}}
                             <thead>
                                 <th>ID</th>
@@ -40,12 +40,12 @@
     </div>
 @endsection
 
-{{-- Doesn't work right now --}}
+{{-- Enables pagination & search --}}
 @section('scripts')
     <script>
         // For datatable plugin
         document.addEventListener('DOMContentLoaded', function() {
-            let table = new DataTable('#myTable');
+            let table = new DataTable('#categoryTable');
         });
     </script>
 @endsection
