@@ -13,3 +13,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Category routes
 Route::resource('/category', App\Http\Controllers\CategoryController::class, ['names' => 'category']);
+
+// Product routes
+Route::resource('/product', App\Http\Controllers\ProductController::class, ['names' => 'product']);
