@@ -20,7 +20,7 @@
 
                             {{-- Table headers --}}
                             <thead>
-                                <th>ID</th>
+                                <th>Category Code</th>
                                 <th>Name</th>
                                 <th>Action</th>
                             </thead>
