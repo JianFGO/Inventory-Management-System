@@ -7,11 +7,16 @@
             <a href="index.html">St</a>
         </div>
         <ul class="sidebar-menu">
+
+            {{-- Link for dashboard --}}
             <li class="menu-header">Dashboard</li>
+
             <!--Changes navbar link colour when user is on the page-->
             <li class="dropdown {{ request()->routeIs('home') ? 'active' : '' }}">
                 <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
+
+            {{-- Link for category --}}
             <li class="dropdown {{ request()->is('category/*') || request()->is('category') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Category</span></a>
                 <ul class="dropdown-menu">
@@ -19,6 +24,17 @@
                             href="{{ route('category.create') }}">Add Category</a></li>
                     <li class="{{ request()->routeIs('category.index') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('category.index') }}">All Categories</a></li>
+                </ul>
+            </li>
+
+            {{-- Link for products --}}
+            <li class="dropdown {{ request()->is('product/*') || request()->is('product') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Products</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ request()->routeIs('product.create') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('product.create') }}">Add Product</a></li>
+                    <li class="{{ request()->routeIs('product.index') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('product.index') }}">All Products</a></li>
                 </ul>
             </li>
             <li class="menu-header">Log Out</li>
