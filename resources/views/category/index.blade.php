@@ -11,14 +11,17 @@
                         <h4>{{ $page_title }}</h4>
                     </div>
                     <div class="card-body">
+
                         {{-- Categories table --}}
                         <table id="categoryTable" class="table table-striped">
+
                             {{-- Table headers --}}
                             <thead>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Action</th>
                             </thead>
+
                             {{-- Table content --}}
                             <tbody>
                                 @foreach ($categories as $category)
@@ -26,9 +29,16 @@
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $category->name }}</td>
                                         <td>
+
+                                            {{-- Edit button --}}
                                             <a class="btn btn-primary"
                                                 href="{{ route('category.edit', $category->id) }}">Edit</a>
-                                            <a class="btn btn-danger" href="#">Delete</a>
+
+                                            {{-- Delete button --}}
+                                            <button type="button" class="btn btn-danger delete" data-toggle="modal"
+                                                data-target="#exampleModal" id="{{ $category->id }}">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -39,6 +49,30 @@
             </div>
         </div>
     </div>
+
+    {{-- Modal: A type of pop-up box - for confirming deletion --}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form id="deleteModal" method="POST">
+
+                {{-- CSRF token: Protects form from cross-site request forgery attacks --}}
+                @csrf
+                @method('DELETE')
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Deletion</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p>This action will delete the category. Are you sure you want to proceed?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
 
 {{-- Enables pagination & search --}}
@@ -47,6 +81,16 @@
         // For datatable plugin
         document.addEventListener('DOMContentLoaded', function() {
             let table = new DataTable('#categoryTable');
+
+            // For deleting the category
+            $('.delete').on('click', function() {
+
+                // ID of the category user wants to delete
+                const id = this.id;
+
+                // Dynamic URL
+                $('#deleteModal').attr('action', '{{ route('category.destroy', '') }}' + '/' + id);
+            });
         });
     </script>
 @endsection
