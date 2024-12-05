@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+{{-- Browser tab title --}}
 @section('title', 'Category')
 
 @section('content')
@@ -7,6 +8,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+
+                    {{-- Page title --}}
                     <div class="card-header">
                         <h4>{{ $page_title }}</h4>
                     </div>
@@ -26,7 +29,7 @@
                             <tbody>
                                 @foreach ($categories as $category)
                                     <tr>
-                                        <td>{{ $loop->index + 1 }}</td>
+                                        <td>{{ $loop->index + 1 }}</td> {{-- ID --}}
                                         <td>{{ $category->name }}</td>
                                         <td>
 

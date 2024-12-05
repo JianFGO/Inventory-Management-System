@@ -22,7 +22,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        $page_title = 'Add Category';
+        return view('category.create', compact('page_title'));
     }
 
     /**
@@ -30,10 +31,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate request to make sure the name field is provided and is a string
         $request->validate([
             'name' => 'required|string'
         ]);
 
+        // Create new category
         Category::create([
             'name' => $request->name
         ]);
@@ -55,9 +58,12 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        // Find the specific category using ID
+        $page_title = 'Edit Category';
+
+        // Find category by ID or throw error if not found
         $category = Category::findOrFail($id);
-        return view('category.edit', compact('category'));
+
+        return view('category.edit', compact('category', 'page_title'));
     }
 
     /**
@@ -71,6 +77,7 @@ class CategoryController extends Controller
             'name' => 'required|string'
         ]);
 
+        // Update category name with validated input
         $category->update([
             'name' => $request->name
         ]);
@@ -86,8 +93,10 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
+        // Delete category from database
         $category->delete();
 
+        // Redirect to previous page
         return back();
     }
 }

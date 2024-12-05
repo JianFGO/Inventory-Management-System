@@ -1,14 +1,23 @@
 @extends('layouts.master');
 
+{{-- Browser tab title --}}
+@section('title', 'Edit Category');
+
 @section('content')
     <div class="section-body">
         <div class="row">
             <div class="col-12">
                 <div class="card">
+
+                    {{-- Page title --}}
                     <div class="card-header">
-                        <h4>Add Category</h4>
+                        <h4>{{ $page_title }}</h4>
                     </div>
+
+                    {{-- Form for updating category --}}
                     <form action="{{ route('category.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+
+                        {{-- CSRF token: Protects form from cross-site request forgery attacks --}}
                         @csrf
                         @method('PUT')
                         <div class="card-body">
