@@ -25,15 +25,15 @@ An inventory management web application built using Laravel and Bootstrap.
 Make sure to have **Laravel Artisan**, **composer**, **node.js etc.** installed, and that you have a **mysql** database created called **candy** in PHPMyAdmin.
 
 ### 1. After cloning into htdocs folder, run in VSC terminal (open using Ctrl + J if you have Windows):
-- composer install
-- cp .env.example .env
-- php artisan key:generate
+1. composer install
+2. cp .env.example .env
+3. php artisan key:generate
 
 ### 2. npm install & npm run dev:
-- Create a *separate* VSC terminal using the + icon
-- Run **npm install**
-- Run **npm run dev**
-- Keep this terminal, don't delete it. Use other terminals for running the website
+1. Create a *separate* VSC terminal using the + icon
+2. Run **npm install**
+3. Run **npm run dev**
+4. Keep this terminal, don't delete it. Use other terminals for running the website
 
 ### 3. Modify env. file (not env.example) to link to the mysql database:
 - DB_CONNECTION name is **mysql**
@@ -43,14 +43,14 @@ Make sure to have **Laravel Artisan**, **composer**, **node.js etc.** installed,
 - If there are seeders, run **php artisan db:seed**
 
 ### 4. Running the website:
-- Start **XAMPP Apache** & **MySQL**
-- Run in terminal **php artisan serve** and **Ctrl + Click** on the link that appears
-- Any antivirus you have active may cause issues
+1. Start **XAMPP Apache** & **MySQL**
+2. Run in terminal **php artisan serve** and **Ctrl + Click** on the link that appears
+3. Any antivirus you have active may cause issues
 
 ### 5. To backup your changes:
-- Create a new repository
-- Run in VSC terminal: **git remote add backup your-backup-repo-url**
-- Then: **git push --mirror backup** (If you have backed up your changes before, just use this step)
+1. Create a new repository
+2. Run in VSC terminal: **git remote add backup your-backup-repo-url**
+3. Then: **git push --mirror backup** (If you have backed up your changes before, just use this step)
 
 ## Acknowledgements
 - [Bootstrap](https://getbootstrap.com)
