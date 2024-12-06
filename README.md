@@ -22,7 +22,7 @@ An inventory management web application built using Laravel and Bootstrap.
 - Other
 
 ## For Team
-Make sure to have **Laravel Artisan**, **composer etc.** installed, and that you have a **mysql** database created called **candy** in PHPMyAdmin.
+Make sure to have **Laravel Artisan**, **composer**, **node.js etc.** installed, and that you have a **mysql** database created called **candy** in PHPMyAdmin.
 
 ### 1. After cloning into htdocs folder, run in VSC terminal (open using Ctrl + J if you have Windows):
 - composer install
