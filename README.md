@@ -45,7 +45,7 @@ Make sure to have **Laravel Artisan**, **composer**, **node.js etc.** installed,
 ### 4. Running the website:
 1. Start **XAMPP Apache** & **MySQL**
 2. Run in terminal **php artisan serve** and **Ctrl + Click** on the link that appears
-3. Any antivirus you have active may cause issues
+- Any antivirus you have active may cause issues
 
 ### 5. To backup your changes:
 1. Create a new repository
