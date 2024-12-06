@@ -16,3 +16,6 @@ Route::resource('/category', App\Http\Controllers\CategoryController::class, ['n
 
 // Product routes
 Route::resource('/product', App\Http\Controllers\ProductController::class, ['names' => 'product']);
+
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('dashboard');
+
