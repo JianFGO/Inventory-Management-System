@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -24,6 +25,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $branches = Branch::all();
         $page_title = "Add Product";
         return view('product.create', compact('categories', 'page_title'));
     }
@@ -33,15 +35,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate request to make sure the fields are provided in correct data type
         $request->validate([
             'name' => 'required|string',
-            'price' => 'required',
-            'quantity' => 'required'
+            'category_id' => 'required',
+            'branch_id' => 'required',
+            'price' => 'required|numeric',
+            'quantity' => 'required|numeric'
         ]);
 
+        // Create new product
         Product::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+            'branch_id' => $request->branch_id,
+            'price' => $request->price,
+            'quantity' => $request->quantity
         ]);
+
+        // Redirect to product homepage
+        return redirect()->route('product.index');
     }
 
     /**
