@@ -18,7 +18,7 @@
 
             {{-- Link for category --}}
             <li class="dropdown {{ request()->is('category/*') || request()->is('category') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Category</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-tags"></i><span>Category</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ request()->routeIs('category.create') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('category.create') }}">Add Category</a></li>
@@ -29,7 +29,7 @@
 
             {{-- Link for products --}}
             <li class="dropdown {{ request()->is('product/*') || request()->is('product') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Products</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-box-open"></i><span>Products</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ request()->routeIs('product.create') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('product.create') }}">Add Product</a></li>
