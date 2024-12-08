@@ -39,7 +39,7 @@
 
                                             {{-- Delete button --}}
                                             <button type="button" class="btn btn-danger delete" data-toggle="modal"
-                                                data-target="#exampleModal" id="{{ $category->id }}">
+                                                data-target="#categoryModal" id="{{ $category->id }}">
                                                 Delete
                                             </button>
                                         </td>
@@ -54,7 +54,7 @@
     </div>
 
     {{-- Modal: A type of pop-up box - for confirming deletion --}}
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <form id="deleteModal" method="POST">
 
@@ -63,7 +63,7 @@
                 @method('DELETE')
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Deletion</h1>
+                        <h1 class="modal-title fs-5" id="categoryModalLabel">Confirm Deletion</h1>
                     </div>
                     <div class="modal-body">
                         <p>This action will delete the category. Are you sure you want to proceed?</p>
