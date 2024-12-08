@@ -37,8 +37,14 @@
 
 <body>
     <div id="app">
+    @guest
+    @yield('content')
+    @else
         <div class="main-wrapper main-wrapper-1">
             <div class="navbar-bg"></div>
+
+            
+            
 
             {{-- navbar section start --}}
             @include('partials.navbar')
@@ -47,6 +53,10 @@
             {{-- sidebar section start --}}
             @include('partials.sidebar')
             {{-- sidebar section end --}}
+            
+
+
+            
 
             <!-- Main Content -->
             <div class="main-content">
@@ -62,6 +72,7 @@
                 </div>
             </footer>
         </div>
+        @endguest
     </div>
 
     <!-- General JS Scripts -->
