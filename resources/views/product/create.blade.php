@@ -46,6 +46,19 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
 
+                            {{-- Branch selection --}}
+                            <div class="form-group">
+                                <label>Branch</label>
+                                <select class="form-control" name="branch_id" id="branch_id">
+                                    @foreach ($branches as $branch)
+                                        <option value="{{ $branch->id }}">{{ $branch->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('branch_id')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+
                             {{-- Price input --}}
                             <div class="form-group">
                                 <label>Price</label>

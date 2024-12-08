@@ -46,31 +46,43 @@
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
 
-                                {{-- Price input --}}
+                                {{-- Branch selection --}}
                                 <div class="form-group">
-                                    <label>Price</label>
-                                    <input type="text" name="price" id="price" class="form-control"
-                                        value="{{ $product->price }}">
-                                </div>
-                                @error('price')
-                                    <p class="text-danger">{{ $message }}</p>
-                                @enderror
+                                    <label>Branch</label>
+                                    <select name="branch_id" id="branch_id">
+                                        @foreach ($branches as $branch)
+                                            <option value="{{ $branch->id }}">{{ $branch->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('branch_id')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
 
-                                {{-- Quantity input --}}
-                                <div class="form-group">
-                                    <label>Quantity</label>
-                                    <input type="text" name="quantity" id="quantity" class="form-control"
-                                        value="{{ $product->quantity }}">
-                                </div>
-                                @error('quantity')
-                                    <p class="text-danger">{{ $message }}</p>
-                                @enderror
+                                    {{-- Price input --}}
+                                    <div class="form-group">
+                                        <label>Price</label>
+                                        <input type="text" name="price" id="price" class="form-control"
+                                            value="{{ $product->price }}">
+                                    </div>
+                                    @error('price')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
 
-                                {{-- Submit button for form --}}
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    {{-- Quantity input --}}
+                                    <div class="form-group">
+                                        <label>Quantity</label>
+                                        <input type="text" name="quantity" id="quantity" class="form-control"
+                                            value="{{ $product->quantity }}">
+                                    </div>
+                                    @error('quantity')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+
+                                    {{-- Submit button for form --}}
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </div>
                                 </div>
-                            </div>
                     </form>
                 </div>
             </div>
