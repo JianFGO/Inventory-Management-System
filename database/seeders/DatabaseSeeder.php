@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
 
         // Seed category table with default data
         $this->call([CategorySeeder::class]);
+
+        // Seed branch table with default data
+        $this->call([BranchSeeder::class]);
     }
 }
