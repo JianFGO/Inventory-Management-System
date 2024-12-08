@@ -37,52 +37,58 @@
                             {{-- Category selection --}}
                             <div class="form-group">
                                 <label>Category</label>
-                                <select name="category_id" id="category_id">
+                                <select class="form-control" name="category_id" id="category_id">
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}"
+                                            {{ $category->id == $product->category_id ? 'selected' : '' }}>
+                                            {{ $category->name }}
                                     @endforeach
                                 </select>
-                                @error('category_id')
-                                    <p class="text-danger">{{ $message }}</p>
-                                @enderror
+                            </div>
+                            @error('category_id')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
 
-                                {{-- Branch selection --}}
-                                <div class="form-group">
-                                    <label>Branch</label>
-                                    <select name="branch_id" id="branch_id">
-                                        @foreach ($branches as $branch)
-                                            <option value="{{ $branch->id }}">{{ $branch->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('branch_id')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
+                            {{-- Branch selection --}}
+                            <div class="form-group">
+                                <label>Branch</label>
+                                <select class="form-control" name="branch_id" id="branch_id">
+                                    @foreach ($branches as $branch)
+                                        <option value="{{ $branch->id }}"
+                                            {{ $branch->id == $product->branch_id ? 'selected' : '' }}>
+                                            {{ $branch->name }}
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('branch_id')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
 
-                                    {{-- Price input --}}
-                                    <div class="form-group">
-                                        <label>Price</label>
-                                        <input type="text" name="price" id="price" class="form-control"
-                                            value="{{ $product->price }}">
-                                    </div>
-                                    @error('price')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
+                            {{-- Price input --}}
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="text" name="price" id="price" class="form-control"
+                                    value="{{ $product->price }}">
+                            </div>
+                            @error('price')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
 
-                                    {{-- Quantity input --}}
-                                    <div class="form-group">
-                                        <label>Quantity</label>
-                                        <input type="text" name="quantity" id="quantity" class="form-control"
-                                            value="{{ $product->quantity }}">
-                                    </div>
-                                    @error('quantity')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
+                            {{-- Quantity input --}}
+                            <div class="form-group">
+                                <label>Quantity</label>
+                                <input type="text" name="quantity" id="quantity" class="form-control"
+                                    value="{{ $product->quantity }}">
+                            </div>
+                            @error('quantity')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
 
-                                    {{-- Submit button for form --}}
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Update</button>
-                                    </div>
-                                </div>
+                            {{-- Submit button for form --}}
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

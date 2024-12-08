@@ -27,7 +27,7 @@ class ProductController extends Controller
         $categories = Category::all();
         $branches = Branch::all();
         $page_title = "Add Product";
-        return view('product.create', compact('categories', 'page_title'));
+        return view('product.create', compact('categories', 'branches', 'page_title'));
     }
 
     /**
@@ -40,8 +40,8 @@ class ProductController extends Controller
             'name' => 'required|string',
             'category_id' => 'required',
             'branch_id' => 'required',
-            'price' => 'required|numeric',
-            'quantity' => 'required|numeric'
+            'price' => 'required',
+            'quantity' => 'required'
         ]);
 
         // Create new product
@@ -67,7 +67,14 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $page_title = 'Edit Product';
+
+        // Find product by ID or throw error if not found
+        $product = Product::findOrFail($id);
+        $categories = Category::all();
+        $branches = Branch::all();
+
+        return view('product.edit', compact('product', 'categories', 'branches', 'page_title'));
     }
 
     /**
@@ -75,7 +82,27 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|string',
+            'category_id' => 'required',
+            'branch_id' => 'required',
+            'price' => 'required',
+            'quantity' => 'required'
+        ]);
+
+        // Update product with validated input
+        $product->update([
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+            'branch_id' => $request->branch_id,
+            'price' => $request->price,
+            'quantity' => $request->quantity
+        ]);
+
+        // Redirect to product homepage
+        return redirect()->route('product.index');
     }
 
     /**
@@ -83,6 +110,12 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        // Delete product from database
+        $product->delete();
+
+        // Redirect to previous page
+        return back();
     }
 }

@@ -22,6 +22,7 @@
                             <thead>
                                 <th>Product Code</th>
                                 <th>Name</th>
+                                <th>Category</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Action</th>
@@ -33,6 +34,7 @@
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td> {{-- ID --}}
                                         <td>{{ $product->name }}</td>
+                                        <td>{{ $product->category->name }}</td>
                                         <td>{{ $product->price }}</td>
                                         <td>{{ $product->quantity }}</td>
                                         <td>
@@ -43,7 +45,7 @@
 
                                             {{-- Delete button --}}
                                             <button type="button" class="btn btn-danger delete" data-toggle="modal"
-                                                data-target="#exampleModal" id="{{ $product->id }}">
+                                                data-target="#productModal" id="{{ $product->id }}">
                                                 Delete
                                             </button>
                                         </td>
@@ -58,7 +60,7 @@
     </div>
 
     {{-- Modal: A type of pop-up box - for confirming deletion --}}
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <form id="deleteModal" method="POST">
 
@@ -67,7 +69,7 @@
                 @method('DELETE')
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Deletion</h1>
+                        <h1 class="modal-title fs-5" id="productModalLabel">Confirm Deletion</h1>
                     </div>
                     <div class="modal-body">
                         <p>This action will delete the product. Are you sure you want to proceed?</p>
