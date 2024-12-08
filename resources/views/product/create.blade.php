@@ -36,7 +36,7 @@
                             {{-- Category selection --}}
                             <div class="form-group">
                                 <label>Category</label>
-                                <select name="category_id" id="category_id">
+                                <select class="form-control" name="category_id" id="category_id">
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
@@ -49,7 +49,8 @@
                             {{-- Price input --}}
                             <div class="form-group">
                                 <label>Price</label>
-                                <input type="number" name="price" id="price" class="form-control">
+                                <input type="number" name="price" id="price" min="0" step="0.01"
+                                    class="form-control">
                             </div>
                             @error('price')
                                 <p class="text-danger">{{ $message }}</p>
