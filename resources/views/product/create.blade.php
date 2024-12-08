@@ -37,6 +37,7 @@
                             <div class="form-group">
                                 <label>Category</label>
                                 <select class="form-control" name="category_id" id="category_id">
+                                    <option value="" disabled selected>Select Category</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
@@ -50,6 +51,7 @@
                             <div class="form-group">
                                 <label>Branch</label>
                                 <select class="form-control" name="branch_id" id="branch_id">
+                                    <option value="" disabled selected>Select Branch</option>
                                     @foreach ($branches as $branch)
                                         <option value="{{ $branch->id }}">{{ $branch->name }}</option>
                                     @endforeach
