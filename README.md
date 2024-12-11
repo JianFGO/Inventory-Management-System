@@ -5,9 +5,9 @@ An inventory management web application built using Laravel and Bootstrap.
 ## Done
 - Template remastering @Shelly855
 - Category @Shelly855
+- Products @Shelly855
 
 ## Doing
-- Products @Shelly855
 
 ## Need to be Done
 - Login page mastering @JianFGO
