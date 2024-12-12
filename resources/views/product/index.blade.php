@@ -89,7 +89,7 @@
     <script>
         // For datatable plugin
         document.addEventListener('DOMContentLoaded', function() {
-            let table = new DataTable('#categoryTable');
+            let table = new DataTable('#productTable');
 
             // For deleting the product
             $('.delete').on('click', function() {
