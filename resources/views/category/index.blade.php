@@ -16,37 +16,39 @@
                     <div class="card-body">
 
                         {{-- Categories table --}}
-                        <table id="categoryTable" class="table table-striped">
+                        <div class="table-responsive">
+                            <table id="categoryTable" class="table table-striped">
 
-                            {{-- Table headers --}}
-                            <thead>
-                                <th>Category Code</th>
-                                <th>Name</th>
-                                <th>Action</th>
-                            </thead>
+                                {{-- Table headers --}}
+                                <thead>
+                                    <th>Category Code</th>
+                                    <th>Name</th>
+                                    <th>Action</th>
+                                </thead>
 
-                            {{-- Table content --}}
-                            <tbody>
-                                @foreach ($categories as $category)
-                                    <tr>
-                                        <td>{{ $loop->index + 1 }}</td> {{-- ID --}}
-                                        <td>{{ $category->name }}</td>
-                                        <td>
+                                {{-- Table content --}}
+                                <tbody>
+                                    @foreach ($categories as $category)
+                                        <tr>
+                                            <td>{{ $loop->index + 1 }}</td> {{-- ID --}}
+                                            <td>{{ $category->name }}</td>
+                                            <td>
 
-                                            {{-- Edit button --}}
-                                            <a class="btn btn-primary"
-                                                href="{{ route('category.edit', $category->id) }}">Edit</a>
+                                                {{-- Edit button --}}
+                                                <a class="btn btn-primary"
+                                                    href="{{ route('category.edit', $category->id) }}">Edit</a>
 
-                                            {{-- Delete button --}}
-                                            <button type="button" class="btn btn-danger delete" data-toggle="modal"
-                                                data-target="#categoryModal" id="{{ $category->id }}">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                                {{-- Delete button --}}
+                                                <button type="button" class="btn btn-danger delete" data-toggle="modal"
+                                                    data-target="#categoryModal" id="{{ $category->id }}">
+                                                    Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

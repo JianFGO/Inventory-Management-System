@@ -16,43 +16,45 @@
                     <div class="card-body">
 
                         {{-- Product table --}}
-                        <table id="productTable" class="table table-striped">
+                        <div class="table-responsive">
+                            <table id="productTable" class="table table-striped">
 
-                            {{-- Table headers --}}
-                            <thead>
-                                <th>Product Code</th>
-                                <th>Name</th>
-                                <th>Category</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Action</th>
-                            </thead>
+                                {{-- Table headers --}}
+                                <thead>
+                                    <th>Product Code</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Action</th>
+                                </thead>
 
-                            {{-- Table content --}}
-                            <tbody>
-                                @foreach ($products as $product)
-                                    <tr>
-                                        <td>{{ $loop->index + 1 }}</td> {{-- ID --}}
-                                        <td>{{ $product->name }}</td>
-                                        <td>{{ $product->category->name }}</td>
-                                        <td>{{ $product->price }}</td>
-                                        <td>{{ $product->quantity }}</td>
-                                        <td>
+                                {{-- Table content --}}
+                                <tbody>
+                                    @foreach ($products as $product)
+                                        <tr>
+                                            <td>{{ $loop->index + 1 }}</td> {{-- ID --}}
+                                            <td>{{ $product->name }}</td>
+                                            <td>{{ $product->category->name }}</td>
+                                            <td>{{ $product->price }}</td>
+                                            <td>{{ $product->quantity }}</td>
+                                            <td>
 
-                                            {{-- Edit button --}}
-                                            <a class="btn btn-primary"
-                                                href="{{ route('product.edit', $product->id) }}">Edit</a>
+                                                {{-- Edit button --}}
+                                                <a class="btn btn-primary"
+                                                    href="{{ route('product.edit', $product->id) }}">Edit</a>
 
-                                            {{-- Delete button --}}
-                                            <button type="button" class="btn btn-danger delete" data-toggle="modal"
-                                                data-target="#productModal" id="{{ $product->id }}">
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                                {{-- Delete button --}}
+                                                <button type="button" class="btn btn-danger delete" data-toggle="modal"
+                                                    data-target="#productModal" id="{{ $product->id }}">
+                                                    Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,7 +92,6 @@
         // For datatable plugin
         document.addEventListener('DOMContentLoaded', function() {
             let table = new DataTable('#productTable');
-
             // For deleting the product
             $('.delete').on('click', function() {
 
