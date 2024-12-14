@@ -44,7 +44,7 @@
                     <li class="{{ request()->routeIs('order.create') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('order.create') }}">New Order</a></li>
                     <li class="{{ request()->routeIs('order.index') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('order.index') }}">View Orders</a></li>
+                            href="{{ route('order.index') }}">All Orders</a></li>
                 </ul>
             </li>
 
