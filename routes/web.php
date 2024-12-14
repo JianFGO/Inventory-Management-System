@@ -19,3 +19,7 @@ Route::resource('/product', App\Http\Controllers\ProductController::class, ['nam
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('dashboard');
 
+//Order routes
+Route::resource('/order', App\Http\Controllers\OrderController::class, ['names' => 'order']);
+
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('dashboard');
