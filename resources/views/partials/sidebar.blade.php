@@ -37,6 +37,17 @@
                             href="{{ route('product.index') }}">All Products</a></li>
                 </ul>
             </li>
+            {{-- Link for orders --}}
+            <li class="dropdown {{ request()->is('order/*') || request()->is('order') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-receipt"></i><span>Order</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ request()->routeIs('order.create') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('order.create') }}">New Order</a></li>
+                    <li class="{{ request()->routeIs('order.index') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('order.index') }}">View Orders</a></li>
+                </ul>
+            </li>
+
             <li class="menu-header">Log Out</li>
             <li>
                 <a href="{{ route('logout') }}" class="nav-link"
