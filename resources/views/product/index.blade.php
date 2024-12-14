@@ -21,7 +21,7 @@
 
                                 {{-- Table headers --}}
                                 <thead>
-                                    <th>Product Cod</th>
+                                    <th>Product Code</th>
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Price</th>
