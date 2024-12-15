@@ -11,7 +11,7 @@ An inventory management web application built using Laravel and Bootstrap.
 ## Doing
 - Invoice @SWE-SAM
 - Dashboard @SWE-SAM
-- - Orders @sumayyah19
+- Orders @sumayyah19
 
 
 ## Need to be Done
