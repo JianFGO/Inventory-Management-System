@@ -21,7 +21,7 @@
 
                                 {{-- Table headers --}}
                                 <thead>
-                                    <th>Category Code</th>
+                                    <th>Category ID</th>
                                     <th>Name</th>
                                     <th>Action</th>
                                 </thead>
