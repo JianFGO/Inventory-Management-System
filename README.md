@@ -14,12 +14,12 @@ An inventory management web application built using Laravel and Bootstrap.
 ## Doing
 - Invoice @SWE-SAM
 - Dashboard @SWE-SAM
+- Supporting multiple users @Shelly855
 
 
 ## Need to be Done
 - Personal Profile @JianFGO
 - Reports @sumayyah19
-- Supporting multiple users
 - Supporting multiple branches
 - Testing
 - Other
