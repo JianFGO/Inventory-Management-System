@@ -78,9 +78,9 @@
                         <h1 class="modal-title fs-5" id="employeeModalLabel">Confirm Deletion</h1>
                     </div>
                     <div class="modal-body">
-                        <p>This action will delete the product. Are you sure you want to proceed?</p>
+                        <p>This action will delete the user. Are you sure you want to proceed?</p>
                     </div>
-                    <div class="modal-footer">                        
+                    <div class="modal-footer">
                         <button type="submit" class="btn btn-danger">Delete</button>
                         <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                     </div>
