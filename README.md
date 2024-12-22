@@ -21,8 +21,10 @@ An inventory management web application built using Laravel and Bootstrap.
 - Personal Profile @JianFGO
 - Reports @sumayyah19
 - Supporting multiple branches
+- Prevent self-deletion of account
 - Testing
 - Other
+
 
 ## For Team
 Make sure to have **Laravel Artisan**, **composer**, **node.js etc.** installed, and that you have a **mysql** database created called **candy** in PHPMyAdmin.
