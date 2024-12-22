@@ -19,10 +19,10 @@ Route::resource('/product', App\Http\Controllers\ProductController::class, ['nam
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('dashboard');
 
-//Order routes
+// Order routes
 Route::resource('/order', App\Http\Controllers\OrderController::class, ['names' => 'order']);
 
 Route::get('/category/product/{id}', [App\Http\Controllers\OrderController::class, 'getProduct'])->name('product.get');
 
-//Employee routes
-Route::resource('/employees', App\Http\Controllers\EmployeeController::class, ['names' => 'employees']);
+// User routes
+Route::resource('/user', App\Http\Controllers\UserController::class, ['names' => 'user']);

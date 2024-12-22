@@ -47,14 +47,15 @@
                             href="{{ route('order.index') }}">All Orders</a></li>
                 </ul>
             </li>
-            {{-- Link for employees --}}
-            <li class="dropdown {{ request()->is('employees/*') || request()->is('employees') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-friends"></i><span>Users</span></a>
+            {{-- Link for users --}}
+            <li class="dropdown {{ request()->is('user/*') || request()->is('user') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i
+                        class="fas fa-user-friends"></i><span>Users</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ request()->routeIs('employees.create') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('employees.create') }}">Add User</a></li>
-                    <li class="{{ request()->routeIs('employees.index') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('employees.index') }}">All Users</a></li>
+                    <li class="{{ request()->routeIs('user.create') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('user.create') }}">Add User</a></li>
+                    <li class="{{ request()->routeIs('user.index') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('user.index') }}">All Users</a></li>
                 </ul>
             </li>
             <li class="menu-header">Log Out</li>

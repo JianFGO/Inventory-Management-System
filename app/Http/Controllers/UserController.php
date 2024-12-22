@@ -1,20 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\User;
 use App\Models\Branch;
-use App\Models\Employees;
 use Illuminate\Http\Request;
 
-class EmployeeController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $employees = Employees::all();
+        $users = User::all();
         $page_title = 'Users';
-        return view('employee.index', compact('employees', 'page_title'));
+        return view('user.index', compact('users', 'page_title'));
     }
 
     /**
@@ -24,8 +25,9 @@ class EmployeeController extends Controller
     {
         $branches = Branch::all();
         $page_title = 'Add User';
-        return view('employee.create', compact('branches','page_title'));
+        return view('user.create', compact('branches', 'page_title'));
     }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -33,26 +35,24 @@ class EmployeeController extends Controller
     {
         // Validate request to make sure the fields are provided in correct data type
         $request->validate([
-            'full_name'=>'required|string',            
+            'name' => 'required|string',
             'email' => 'required',
-            'username' => 'required',
-            'password' => 'required',        
+            'password' => 'required',
             'role' => 'required',
             'branch_id' => 'required',
         ]);
 
-         // Create new employee
-         Employees::create([
-            'full_name' => $request->full_name,
+        // Create new user
+        User::create([
+            'name' => $request->name,
             'email' => $request->email,
-            'username' => $request->username,
             'password' => $request->password,
             'role' => $request->role,
             'branch_id' => $request->branch_id
         ]);
 
-        // Redirect to employee homepage
-        return redirect()->route('employees.index');
+        // Redirect to user homepage
+        return redirect()->route('user.index');
     }
 
     /**
@@ -67,12 +67,13 @@ class EmployeeController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {        
-        // Find employee by ID or throw error if not found
-        $employee = Employees::findOrFail($id);
+    {
+        // Find user by ID or throw error if not found
+        $user = User::findOrFail($id);
         $branches = Branch::all();
         $page_title = 'Edit User';
-        return view('employee.edit', compact('employee','branches','page_title'));
+        $roles = ['Admin', 'Manager', 'Sales Clerk'];
+        return view('user.edit', compact('user', 'branches', 'roles', 'page_title'));
     }
 
     /**
@@ -80,28 +81,24 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $employee = Employees::findOrFail($id);
+        $user = User::findOrFail($id);
         $request->validate([
-            'full_name'=>'required|string',            
+            'name' => 'required|string',
             'email' => 'required',
-            'username' => 'required',
-            'password' => 'required',        
             'role' => 'required',
             'branch_id' => 'required',
         ]);
 
-        // Update changes made to employee with validated input
-         $employee->update([
-            'full_name' => $request->full_name,
+        // Update changes made to user with validated input
+        $user->update([
+            'name' => $request->name,
             'email' => $request->email,
-            'username' => $request->username,
-            'password' => $request->password,
             'role' => $request->role,
             'branch_id' => $request->branch_id
         ]);
 
-        // Redirect to employee homepage
-        return redirect()->route('employees.index');
+        // Redirect to user homepage
+        return redirect()->route('user.index');
     }
 
     /**
@@ -109,10 +106,10 @@ class EmployeeController extends Controller
      */
     public function destroy(string $id)
     {
-        $employee = Employees::findOrFail($id);
+        $user = User::findOrFail($id);
 
-        // Delete employee from database
-        $employee->delete();
+        // Delete user from database
+        $user->delete();
 
         // Redirect to previous page
         return back();

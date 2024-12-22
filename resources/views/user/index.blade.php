@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 {{-- Browser tab title --}}
-@section('title', 'Users')
+@section('title', 'User')
 
 @section('content')
     <div class="section-body">
@@ -17,15 +17,13 @@
 
                         {{-- Employee table --}}
                         <div class="table-responsive">
-                            <table id="employeesTable" class="table table-striped">
+                            <table id="userTable" class="table table-striped">
 
                                 {{-- Table headers --}}
                                 <thead>
-                                    <th>User Code</th>
+                                    <th>User ID</th>
                                     <th>Full Name</th>
                                     <th>Email</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
                                     <th>Role</th>
                                     <th>Branch</th>
                                     <th>Action</th>
@@ -33,24 +31,22 @@
 
                                 {{-- Table content --}}
                                 <tbody>
-                                    @foreach ($employees as $employee)
+                                    @foreach ($users as $user)
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td> {{-- ID --}}
-                                            <td>{{ $employee->full_name }}</td>
-                                            <td>{{ $employee->email }}</td>
-                                            <td>{{ $employee->username }}</td>
-                                            <td>{{ $employee->password }}</td>
-                                            <td>{{ $employee->role }}</td>
-                                            <td>{{ $employee->branch->name }}</td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->role }}</td>
+                                            <td>{{ $user->branch->name }}</td>
                                             <td>
 
                                                 {{-- Edit button --}}
                                                 <a class="btn btn-primary"
-                                                    href="{{ route('employees.edit', $employee->id) }}">Edit</a>
+                                                    href="{{ route('user.edit', $user->id) }}">Edit</a>
 
                                                 {{-- Delete button --}}
                                                 <button type="button" class="btn btn-danger delete" data-toggle="modal"
-                                                    data-target="#employeeModal" id="{{ $employee->id }}">
+                                                    data-target="#userModal" id="{{ $user->id }}">
                                                     Delete
                                                 </button>
                                             </td>
@@ -66,7 +62,7 @@
     </div>
 
     {{-- Modal: A type of pop-up box - for confirming deletion --}}
-    <div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
+    <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <form id="deleteModal" method="POST">
 
@@ -75,7 +71,7 @@
                 @method('DELETE')
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="employeeModalLabel">Confirm Deletion</h1>
+                        <h1 class="modal-title fs-5" id="userModalLabel">Confirm Deletion</h1>
                     </div>
                     <div class="modal-body">
                         <p>This action will delete the user. Are you sure you want to proceed?</p>
@@ -95,15 +91,15 @@
     <script>
         // For datatable plugin
         document.addEventListener('DOMContentLoaded', function() {
-            let table = new DataTable('#employeeTable');
-            // For deleting the selected employee
+            let table = new DataTable('#userTable');
+            // For deleting the selected user
             $('.delete').on('click', function() {
 
-                // ID of the employee, admin wants to delete
+                // ID of the user, admin wants to delete
                 const id = this.id;
 
                 // Dynamic URL
-                $('#deleteModal').attr('action', '{{ route('employees.destroy', '') }}' + '/' + id);
+                $('#deleteModal').attr('action', '{{ route('user.destroy', '') }}' + '/' + id);
             });
         });
     </script>

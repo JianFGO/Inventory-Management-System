@@ -15,8 +15,8 @@
                         <h4>{{ $page_title }}</h4>
                     </div>
 
-                    {{-- Form for adding creating new employee details --}}
-                    <form action="{{ route('employees.store') }}" method="POST" enctype="multipart/form-data">
+                    {{-- Form for adding creating new user details --}}
+                    <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
 
                         {{-- CSRF token: Protects form from cross-site request forgery attacks --}}
                         @csrf
@@ -25,10 +25,10 @@
                             {{-- Full Name input --}}
                             <div class="form-group">
                                 <label>Full Name</label>
-                                <input type="text" name="full_name" id="full_name" class="form-control">
+                                <input type="text" name="name" id="name" class="form-control">
                             </div>
                             {{-- Display an error message if 'full name' field is invalid --}}
-                            @error('full_name')
+                            @error('name')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
 
@@ -39,16 +39,6 @@
                             </div>
                             {{-- Display an error message if 'email' field is invalid --}}
                             @error('email')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-
-                            {{-- Username input --}}
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" name="username" id="username" class="form-control">
-                            </div>
-                            {{-- Display an error message if 'username' field is invalid --}}
-                            @error('username')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
 
@@ -67,10 +57,9 @@
                                 <label>Role</label>
                                 <select name="role" id="role" class="form-control">
                                     <option value="" disabled selected>Select Role</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="manager">Manager</option>
-                                    <option value="sales clerk">Sales Clerk</option>
-                                    <option value="auditor">Auditor</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Manager">Manager</option>
+                                    <option value="Sales Clerk">Sales Clerk</option>
                                 </select>
                             </div>
                             {{-- Display an error message if 'role' field is invalid --}}

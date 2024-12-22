@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         // Seed category table with default data
-        $this->call([CategorySeeder::class]);
+        // $this->call([CategorySeeder::class]);
 
         // Seed branch table with default data
-        $this->call([BranchSeeder::class]);
+        // $this->call([BranchSeeder::class]);
     }
 }
