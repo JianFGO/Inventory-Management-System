@@ -22,4 +22,7 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 //Order routes
 Route::resource('/order', App\Http\Controllers\OrderController::class, ['names' => 'order']);
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('dashboard');
+Route::get('/category/product/{id}', [App\Http\Controllers\OrderController::class, 'getProduct'])->name('product.get');
+
+//Employee routes
+Route::resource('/employees', App\Http\Controllers\EmployeeController::class, ['names' => 'employees']);
