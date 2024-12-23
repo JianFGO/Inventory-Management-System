@@ -1,22 +1,20 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">Stisla</a>
+            <a href="index.html">Candy Atlas</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="index.html">CA</a>
         </div>
         <ul class="sidebar-menu">
 
             {{-- Link for dashboard --}}
-            <li class="menu-header">Dashboard</li>
-
             <!--Changes navbar link colour when user is on the page-->
             <li class="dropdown {{ request()->routeIs('home') ? 'active' : '' }}">
                 <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
 
-            {{-- Link for category --}}
+            {{-- Link for categories --}}
             <li class="dropdown {{ request()->is('category/*') || request()->is('category') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-tags"></i><span>Category</span></a>
                 <ul class="dropdown-menu">
