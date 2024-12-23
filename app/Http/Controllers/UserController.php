@@ -77,7 +77,6 @@ class UserController extends Controller
         $roles = Role::all();
         $branches = Branch::all();
         $page_title = 'Edit User';
-        // $roles = ['Admin', 'Manager', 'Sales Clerk'];
         return view('user.edit', compact('user', 'roles', 'branches', 'page_title'));
     }
 
