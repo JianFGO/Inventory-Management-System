@@ -66,7 +66,6 @@
                     </ul>
                 </li>
             @endrole
-            <li class="menu-header">Log Out</li>
             <li>
                 <a href="{{ route('logout') }}" class="nav-link"
                     onclick="event.preventDefault();

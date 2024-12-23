@@ -2,7 +2,109 @@
  *
  * You can write your CSS code here, DO NOT touch the default JavaScript file
  * because it will make it harder for you to update.
- * 
+ *
  */
 
 /*# sourceMappingURL=custom.css.map */
+
+body {
+    background-color: #D9BACB;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background-color: #68777A;
+    color: white;
+    top: 0;
+}
+
+.navbar-bg{
+    background-color: #D9BACB;
+}
+
+.main-sidebar {
+    background: #FFECD4;
+    padding-top: 20px;
+}
+
+/* Links */
+.sidebar-menu li a {
+    color: #594C53 !important;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #ffeb3b;
+}
+
+/* Active */
+.sidebar-menu li.active a {
+    background-color: #F2CEE2 !important;
+    color: white;
+}
+
+.dropdown.active > a {
+    border-left: 5px solid #ff6ec7;
+}
+
+.dropdown-menu{
+    background-color: #F2E0C9 !important;
+}
+
+/* Remove default blue line */
+.sidebar-menu .dropdown.active > a.nav-link::before {
+    content: none !important;
+}
+
+.dropdown-menu li.active a{
+    background-color: #F2CEE2 !important;
+}
+
+/* .table th, .table td {
+    border: 1px solid #f4d3f4;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #ff6ec7;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fff5fa;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #ffffff;
+}
+
+.table tbody tr:hover {
+    background-color: #ffe6f5;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #D18706;
+    border-color: #D18706;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #FFA408 !important;
+}
+
+.btn-danger {
+    background-color: #AD2B1F;
+    border-color: #AD2B1F;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #E33829;
+} */
+
+/* input, select, textarea {
+    border: 2px solid #ff6ec7;
+    background-color: #fff5fa;
+} */
+

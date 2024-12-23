@@ -20,6 +20,10 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+
+    {{-- Custom CSS --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+
     <!-- Start GA -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
     <script>
@@ -37,41 +41,41 @@
 
 <body>
     <div id="app">
-    @guest
-    @yield('content')
-    @else
-        <div class="main-wrapper main-wrapper-1">
-            <div class="navbar-bg"></div>
-
-            
-            
-
-            {{-- navbar section start --}}
-            @include('partials.navbar')
-            {{-- navbar section end --}}
-
-            {{-- sidebar section start --}}
-            @include('partials.sidebar')
-            {{-- sidebar section end --}}
-            
+        @guest
+            @yield('content')
+        @else
+            <div class="main-wrapper main-wrapper-1">
+                <div class="navbar-bg"></div>
 
 
-            
 
-            <!-- Main Content -->
-            <div class="main-content">
-                @yield('content')
+
+                {{-- navbar section start --}}
+                @include('partials.navbar')
+                {{-- navbar section end --}}
+
+                {{-- sidebar section start --}}
+                @include('partials.sidebar')
+                {{-- sidebar section end --}}
+
+
+
+
+
+                <!-- Main Content -->
+                <div class="main-content">
+                    @yield('content')
+                </div>
+                <footer class="main-footer">
+                    <div class="footer-left">
+                        Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad
+                            Nauval Azhar</a>
+                    </div>
+                    <div class="footer-right">
+
+                    </div>
+                </footer>
             </div>
-            <footer class="main-footer">
-                <div class="footer-left">
-                    Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad
-                        Nauval Azhar</a>
-                </div>
-                <div class="footer-right">
-
-                </div>
-            </footer>
-        </div>
         @endguest
     </div>
 
