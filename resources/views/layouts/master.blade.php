@@ -47,9 +47,6 @@
             <div class="main-wrapper main-wrapper-1">
                 <div class="navbar-bg"></div>
 
-
-
-
                 {{-- navbar section start --}}
                 @include('partials.navbar')
                 {{-- navbar section end --}}
@@ -57,10 +54,6 @@
                 {{-- sidebar section start --}}
                 @include('partials.sidebar')
                 {{-- sidebar section end --}}
-
-
-
-
 
                 <!-- Main Content -->
                 <div class="main-content">
