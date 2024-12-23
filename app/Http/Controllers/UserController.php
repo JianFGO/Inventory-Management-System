@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Branch;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -23,9 +24,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        $roles = Role::all();
         $branches = Branch::all();
         $page_title = 'Add User';
-        return view('user.create', compact('branches', 'page_title'));
+        return view('user.create', compact('branches', 'roles', 'page_title'));
     }
 
     /**
@@ -38,18 +40,20 @@ class UserController extends Controller
             'name' => 'required|string',
             'email' => 'required',
             'password' => 'required',
-            'role' => 'required',
+            'role' => 'required|exists:roles,name',
             'branch_id' => 'required',
         ]);
 
         // Create new user
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
-            'role' => $request->role,
             'branch_id' => $request->branch_id
         ]);
+
+        // Assign role to user
+        $user->assignRole($request->role);
 
         // Redirect to user homepage
         return redirect()->route('user.index');
@@ -70,10 +74,11 @@ class UserController extends Controller
     {
         // Find user by ID or throw error if not found
         $user = User::findOrFail($id);
+        $roles = Role::all();
         $branches = Branch::all();
         $page_title = 'Edit User';
-        $roles = ['Admin', 'Manager', 'Sales Clerk'];
-        return view('user.edit', compact('user', 'branches', 'roles', 'page_title'));
+        // $roles = ['Admin', 'Manager', 'Sales Clerk'];
+        return view('user.edit', compact('user', 'roles', 'branches', 'page_title'));
     }
 
     /**
@@ -85,7 +90,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required',
-            'role' => 'required',
+            'role' => 'nullable|exists:roles,name',
             'branch_id' => 'required',
         ]);
 
@@ -93,9 +98,11 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'role' => $request->role,
             'branch_id' => $request->branch_id
         ]);
+
+        // Update user's role
+        $user->syncRoles($request->role);
 
         // Redirect to user homepage
         return redirect()->route('user.index');

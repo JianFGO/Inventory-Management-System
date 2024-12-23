@@ -57,9 +57,9 @@
                                 <label>Role</label>
                                 <select name="role" id="role" class="form-control">
                                     <option value="" disabled selected>Select Role</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="Manager">Manager</option>
-                                    <option value="Sales Clerk">Sales Clerk</option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->name }}">{{ ucfirst($role->name) }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             {{-- Display an error message if 'role' field is invalid --}}

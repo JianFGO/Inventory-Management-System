@@ -47,14 +47,17 @@
                             {{-- Role selection --}}
                             <div class="form-group">
                                 <label>Role</label>
-                                <select class="form-control" name="role" id="role">
+                                <select name="role" id="role" class="form-control">
+                                    <option value="" disabled>Select Role</option>
                                     @foreach ($roles as $role)
-                                        <option value="{{ $role }}" {{ $role === $user->role ? 'selected' : '' }}>
-                                            {{ $role }}
+                                        <option value="{{ $role->name }}"
+                                            {{ $user->getRoleNames()->first() === $role->name ? 'selected' : '' }}>
+                                            {{ ucfirst($role->name) }}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
+                            {{-- Display an error message if 'role' field is invalid --}}
                             @error('role')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror

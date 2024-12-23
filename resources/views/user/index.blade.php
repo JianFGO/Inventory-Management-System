@@ -36,7 +36,7 @@
                                             <td>{{ $loop->index + 1 }}</td> {{-- ID --}}
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->role }}</td>
+                                            <td>{{ $user->getRoleNames()->first() ?? 'No Role Assigned' }}</td>
                                             <td>{{ $user->branch->name }}</td>
                                             <td>
 

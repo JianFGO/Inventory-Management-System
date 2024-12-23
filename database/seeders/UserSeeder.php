@@ -21,7 +21,6 @@ class UserSeeder extends Seeder
                 'email' => 'adel@gmail.com',
                 'password' => Hash::make('Password1'),
                 'branch_id' => 1,
-                'role' => 'Admin',
                 'email_verified_at' => now()
             ],
             [
@@ -29,7 +28,6 @@ class UserSeeder extends Seeder
                 'email' => 'mannie@gmail.com',
                 'password' => Hash::make('Password1'),
                 'branch_id' => 2,
-                'role' => 'Manager',
                 'email_verified_at' => now()
             ],
             [
@@ -37,7 +35,6 @@ class UserSeeder extends Seeder
                 'email' => 'sal@gmail.com',
                 'password' => Hash::make('Password1'),
                 'branch_id' => 3,
-                'role' => 'Sales Clerk',
                 'email_verified_at' => now()
             ],
         ];
