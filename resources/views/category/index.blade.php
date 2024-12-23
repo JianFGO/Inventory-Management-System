@@ -33,16 +33,17 @@
                                             <td>{{ $loop->index + 1 }}</td> {{-- ID --}}
                                             <td>{{ $category->name }}</td>
                                             <td>
+                                                @role('Admin|Manager')
+                                                    {{-- Edit button --}}
+                                                    <a class="btn btn-primary"
+                                                        href="{{ route('category.edit', $category->id) }}">Edit</a>
 
-                                                {{-- Edit button --}}
-                                                <a class="btn btn-primary"
-                                                    href="{{ route('category.edit', $category->id) }}">Edit</a>
-
-                                                {{-- Delete button --}}
-                                                <button type="button" class="btn btn-danger delete" data-toggle="modal"
-                                                    data-target="#categoryModal" id="{{ $category->id }}">
-                                                    Delete
-                                                </button>
+                                                    {{-- Delete button --}}
+                                                    <button type="button" class="btn btn-danger delete" data-toggle="modal"
+                                                        data-target="#categoryModal" id="{{ $category->id }}">
+                                                        Delete
+                                                    </button>
+                                                @endrole
                                             </td>
                                         </tr>
                                     @endforeach
