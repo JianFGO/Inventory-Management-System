@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        // Allow viewing products for all users
+        $this->middleware('custom_permission:view products')->only('index');
+
+        // Restrict access for adding, editing, and deleting products to only admin and manager
+        $this->middleware('custom_permission:manage products')->only('create', 'store', 'edit', 'update', 'destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */

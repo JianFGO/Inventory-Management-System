@@ -20,10 +20,19 @@ Route::resource('/product', App\Http\Controllers\ProductController::class, ['nam
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('dashboard');
 
-// Order routes
-Route::resource('/order', App\Http\Controllers\OrderController::class, ['names' => 'order']);
+// Order routes (only manager and admin can access)
+Route::middleware(['custom_permission:manage orders'])->group(function () {
+    Route::resource('/order', App\Http\Controllers\OrderController::class, ['names' => 'order']);
+});
 
+// Category routes
 Route::get('/category/product/{id}', [App\Http\Controllers\OrderController::class, 'getProduct'])->name('product.get');
 
-// User routes
-Route::resource('/user', App\Http\Controllers\UserController::class, ['names' => 'user']);
+// User routes (only admin can access)
+Route::middleware(['custom_permission:manage users'])->group(function () {
+    Route::resource('/user', App\Http\Controllers\UserController::class, ['names' => 'user']);
+});
+
+Route::get('/access-denied', function () {
+    return view('errors.access-denied');
+});

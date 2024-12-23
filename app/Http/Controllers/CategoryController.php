@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        // Allow viewing categories for all users
+        $this->middleware('custom_permission:view categories')->only('index');
+
+        // Restrict access for adding, editing, and deleting categories to only admin and manager
+        $this->middleware('custom_permission:manage categories')->only('create', 'store', 'edit', 'update', 'destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */
