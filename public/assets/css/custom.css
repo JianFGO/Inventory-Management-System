@@ -8,7 +8,7 @@
 /*# sourceMappingURL=custom.css.map */
 
 body {
-    background-color: #D9BACB;
+    background-color: #EDCCDE;
     color: #333;
     font-family: 'Poppins', sans-serif;
 }
@@ -20,7 +20,7 @@ body {
 }
 
 .navbar-bg{
-    background-color: #D9BACB;
+    background-color: #EDCCDE;
 }
 
 .main-sidebar {
@@ -31,10 +31,11 @@ body {
 /* Links */
 .sidebar-menu li a {
     color: #594C53 !important;
+    font-size: 16px;
 }
 
 .sidebar-menu li a:hover {
-    background-color: #ffeb3b;
+    background-color: #fff !important;
 }
 
 /* Active */
@@ -43,6 +44,12 @@ body {
     color: white;
 }
 
+/* Keep dropdown menu unaffected by active link colour */
+.sidebar-menu > li.active .dropdown-menu a {
+    background-color: transparent !important;
+}
+
+/* Left border of active link */
 .dropdown.active > a {
     border-left: 5px solid #ff6ec7;
 }
@@ -51,13 +58,21 @@ body {
     background-color: #F2E0C9 !important;
 }
 
-/* Remove default blue line */
+/* Hover colour for dropdown menu links */
+.sidebar-menu > li .dropdown-menu a:hover {
+    background-color: #fff !important;
+}
+
+/* Remove default blue border */
 .sidebar-menu .dropdown.active > a.nav-link::before {
     content: none !important;
 }
 
-.dropdown-menu li.active a{
-    background-color: #F2CEE2 !important;
+/* Font size for dropdown menu links */
+.sidebar-menu > li .dropdown-menu a {
+    font-size: 14px;
+    font-weight: normal;
+    padding: 18px;
 }
 
 /* .table th, .table td {
