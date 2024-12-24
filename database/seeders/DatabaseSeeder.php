@@ -15,10 +15,15 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        // Seed category table with default data
-        // $this->call([CategorySeeder::class]);
+        // Seed database table with default data
+        // Seed first
+        $this->call([PermissionSeeder::class]);
 
-        // Seed branch table with default data
-        // $this->call([BranchSeeder::class]);
+        // Seed second (comment out permission seeder call)
+        $this->call([CategorySeeder::class]);
+        $this->call([BranchSeeder::class]);
+        $this->call([UserSeeder::class]);
+        $this->call([RoleSeeder::class]);
+        $this->call([AssignRolesToExistingUsersSeeder::class]);
     }
 }
