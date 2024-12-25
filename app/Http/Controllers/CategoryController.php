@@ -46,12 +46,12 @@ class CategoryController extends Controller
         ]);
 
         // Create new category
-        Category::create([
+        $category = Category::create([
             'name' => $request->name
         ]);
 
         // Redirect to category homepage
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('success', "Category '{$category->name}' successfully created.");
     }
 
     /**
@@ -92,7 +92,7 @@ class CategoryController extends Controller
         ]);
 
         // Redirect to category homepage
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('success', "Category '{$category->name}' successfully updated.");
     }
 
     /**
@@ -106,6 +106,6 @@ class CategoryController extends Controller
         $category->delete();
 
         // Redirect to previous page
-        return back();
+        return back()->with('success', "Category '{$category->name}' successfully deleted.");
     }
 }

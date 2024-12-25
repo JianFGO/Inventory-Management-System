@@ -54,7 +54,7 @@ class ProductController extends Controller
         ]);
 
         // Create new product
-        Product::create([
+        $product = Product::create([
             'name' => $request->name,
             'category_id' => $request->category_id,
             'branch_id' => $request->branch_id,
@@ -63,7 +63,7 @@ class ProductController extends Controller
         ]);
 
         // Redirect to product homepage
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', "Product '{$product->name}' successfully created.");
     }
 
     /**
@@ -111,7 +111,7 @@ class ProductController extends Controller
         ]);
 
         // Redirect to product homepage
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', "Product '{$product->name}' successfully updated.");
     }
 
     /**
@@ -125,6 +125,6 @@ class ProductController extends Controller
         $product->delete();
 
         // Redirect to previous page
-        return back();
+        return back()->with('success', "Product '{$product->name}' successfully deleted.");
     }
 }
