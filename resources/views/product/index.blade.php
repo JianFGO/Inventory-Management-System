@@ -78,8 +78,8 @@
                         <p>This action will delete the product. Are you sure you want to proceed?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </form>
@@ -93,14 +93,23 @@
         // For datatable plugin
         document.addEventListener('DOMContentLoaded', function() {
             let table = new DataTable('#productTable');
-            // For deleting the product
-            $('.delete').on('click', function() {
 
-                // ID of the product user wants to delete
-                const id = this.id;
+            // Reinitialise event listeners for delete buttons
+            function reinitialiseDeleteButtons() {
+                $('.delete').off('click').on('click', function() {
 
-                // Dynamic URL
-                $('#deleteModal').attr('action', '{{ route('product.destroy', '') }}' + '/' + id);
+                    // ID of the product user wants to delete
+                    const id = this.id;
+
+                    // Dynamic URL
+                    $('#deleteModal').attr('action', '{{ route('product.destroy', '') }}' + '/' + id);
+                });
+            }
+
+            reinitialiseDeleteButtons();
+
+            table.on('draw', function() {
+                reinitialiseDeleteButtons();
             });
         });
     </script>

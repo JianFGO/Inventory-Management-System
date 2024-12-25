@@ -92,14 +92,23 @@
         // For datatable plugin
         document.addEventListener('DOMContentLoaded', function() {
             let table = new DataTable('#userTable');
-            // For deleting the selected user
-            $('.delete').on('click', function() {
 
-                // ID of the user, admin wants to delete
-                const id = this.id;
+            // Reinitialise event listeners for delete buttons
+            function reinitialiseDeleteButtons() {
+                $('.delete').off('click').on('click', function() {
 
-                // Dynamic URL
-                $('#deleteModal').attr('action', '{{ route('user.destroy', '') }}' + '/' + id);
+                    // ID of the user that admin wants to delete
+                    const id = this.id;
+
+                    // Dynamic URL
+                    $('#deleteModal').attr('action', '{{ route('user.destroy', '') }}' + '/' + id);
+                });
+            }
+
+            reinitialiseDeleteButtons();
+
+            table.on('draw', function() {
+                reinitialiseDeleteButtons();
             });
         });
     </script>
