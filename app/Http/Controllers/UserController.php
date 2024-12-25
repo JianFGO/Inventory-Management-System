@@ -86,12 +86,21 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $user = User::findOrFail($id);
+
+        // Get current authenticated user's ID
+        $currentUserId = auth()->id();
+
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email,' . $id, // Makes sure email is unique except for the current user
             'role' => 'nullable|exists:roles,name',
             'branch_id' => 'required|exists:branches,id',
         ]);
+
+        // Check if the user is trying to update their own role
+        if ($currentUserId == $id && $request->role !== null) {
+            return back()->with('error', 'You cannot change your own role.');
+        }
 
         // Update changes made to user with validated input
         $user->update([
