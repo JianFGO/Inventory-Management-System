@@ -38,10 +38,10 @@ class UserController extends Controller
         // Validate request to make sure the fields are provided in correct data type
         $request->validate([
             'name' => 'required|string',
-            'email' => 'required',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'role' => 'required|exists:roles,name',
-            'branch_id' => 'required',
+            'branch_id' => 'required|exists:branches,id',
         ]);
 
         // Create new user
@@ -56,7 +56,7 @@ class UserController extends Controller
         $user->assignRole($request->role);
 
         // Redirect to user homepage
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success', "User '{$user->name}' successfully created.");
     }
 
     /**
@@ -88,9 +88,9 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $request->validate([
             'name' => 'required|string',
-            'email' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id, // Makes sure email is unique except for the current user
             'role' => 'nullable|exists:roles,name',
-            'branch_id' => 'required',
+            'branch_id' => 'required|exists:branches,id',
         ]);
 
         // Update changes made to user with validated input
@@ -104,7 +104,7 @@ class UserController extends Controller
         $user->syncRoles($request->role);
 
         // Redirect to user homepage
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success', "User '{$user->name}' successfully updated.");
     }
 
     /**
@@ -112,12 +112,20 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
+        // Get current authenticated user's ID
+        $currentUserId = auth()->id();
+
+        // Check if user is attempting to delete their own account
+        if ($currentUserId == $id) {
+            return back()->with('error', 'You cannot delete your own account.');
+        }
+
         $user = User::findOrFail($id);
 
         // Delete user from database
         $user->delete();
 
         // Redirect to previous page
-        return back();
+        return back()->with('success', "User '{$user->name}' successfully deleted.");
     }
 }

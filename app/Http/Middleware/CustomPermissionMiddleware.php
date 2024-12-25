@@ -19,7 +19,7 @@ class CustomPermissionMiddleware
         $user = Auth::guard($guard)->user();
 
         if (! $user || ! $user->hasPermissionTo($permission)) {
-            return redirect('/access-denied')->with('error', 'You do not have the necessary permissions.');
+            return redirect('/access-denied');
         }
 
         return $next($request);

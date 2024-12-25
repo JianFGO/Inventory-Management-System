@@ -57,6 +57,21 @@
 
                 <!-- Main Content -->
                 <div class="main-content">
+
+                    {{-- Success message box --}}
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    {{-- Error message box --}}
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
                     @yield('content')
                 </div>
                 <footer class="main-footer">
