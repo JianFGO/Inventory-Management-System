@@ -15,8 +15,14 @@ class AssignRolesToExistingUsersSeeder extends Seeder
     {
         $usersWithRoles = [
             ['email' => 'adel@gmail.com', 'role' => 'Admin'],
+            ['email' => 'helen@gmail.com', 'role' => 'Admin'],
+            ['email' => 'altan@gmail.com', 'role' => 'Admin'],
             ['email' => 'mannie@gmail.com', 'role' => 'Manager'],
+            ['email' => 'sue@gmail.com', 'role' => 'Manager'],
+            ['email' => 'taska@gmail.com', 'role' => 'Manager'],
             ['email' => 'sal@gmail.com', 'role' => 'Sales Clerk'],
+            ['email' => 'bill@gmail.com', 'role' => 'Sales Clerk'],
+            ['email' => 'penny@gmail.com', 'role' => 'Sales Clerk'],
         ];
 
         foreach ($usersWithRoles as $userData) {

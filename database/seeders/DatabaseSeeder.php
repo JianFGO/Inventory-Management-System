@@ -21,10 +21,9 @@ class DatabaseSeeder extends Seeder
         // Seed second (comment out permission seeder call)
         // $this->call([CategorySeeder::class]);
         // $this->call([BranchSeeder::class]);
-        // $this->call([UserSeeder::class]);
+        $this->call([UserSeeder::class]);
         // $this->call([RoleSeeder::class]);
-        // $this->call([AssignRolesToExistingUsersSeeder::class]);
-        // User::factory(10)->create();
-        $this->call([ProductSeeder::class]);
+        $this->call([AssignRolesToExistingUsersSeeder::class]);
+        // $this->call([ProductSeeder::class]);
     }
 }

@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
     {
         // Users to be seeded into database
         $users = [
+            // Admins
             [
                 'name' => 'Adel Mint',
                 'email' => 'adel@gmail.com',
@@ -24,6 +25,22 @@ class UserSeeder extends Seeder
                 'email_verified_at' => now()
             ],
             [
+                'name' => 'Helen Back',
+                'email' => 'helen@gmail.com',
+                'password' => Hash::make('Password2'),
+                'branch_id' => 2,
+                'email_verified_at' => now()
+            ],
+            [
+                'name' => 'Altan Right',
+                'email' => 'altan@gmail.com',
+                'password' => Hash::make('Password3'),
+                'branch_id' => 3,
+                'email_verified_at' => now()
+            ],
+
+            // Managers
+            [
                 'name' => 'Mannie Carter',
                 'email' => 'mannie@gmail.com',
                 'password' => Hash::make('Password1'),
@@ -31,15 +48,45 @@ class UserSeeder extends Seeder
                 'email_verified_at' => now()
             ],
             [
+                'name' => 'Sue Pervisor',
+                'email' => 'sue@gmail.com',
+                'password' => Hash::make('Password2'),
+                'branch_id' => 1,
+                'email_verified_at' => now()
+            ],
+            [
+                'name' => 'Taska Signer',
+                'email' => 'taska@gmail.com',
+                'password' => Hash::make('Password3'),
+                'branch_id' => 3,
+                'email_verified_at' => now()
+            ],
+
+            // Sales clerks
+            [
                 'name' => 'Sal Clarkson',
                 'email' => 'sal@gmail.com',
                 'password' => Hash::make('Password1'),
                 'branch_id' => 3,
                 'email_verified_at' => now()
             ],
+            [
+                'name' => 'Bill Board',
+                'email' => 'bill@gmail.com',
+                'password' => Hash::make('Password2'),
+                'branch_id' => 1,
+                'email_verified_at' => now()
+            ],
+            [
+                'name' => 'Penny Counter',
+                'email' => 'penny@gmail.com',
+                'password' => Hash::make('Password3'),
+                'branch_id' => 2,
+                'email_verified_at' => now()
+            ],
         ];
 
-        // Loop and insert each causer into database
+        // Loop and insert each user into database
         foreach ($users as $user) {
             User::create($user);
         }
