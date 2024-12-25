@@ -29,9 +29,10 @@
                                     @foreach ($orders as $order)
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td> {{-- Order ID --}}
-                                            <td>{{ $order->order_no}}</td> 
-                                            <td>{{ $order->paid_amount}}</td> 
-                                            <td>{{ \DateTime::createFromFormat('Y-m-d', $order->delivery_date)->format('d F Y')}}</td> 
+                                            <td>{{ $order->order_no }}</td>
+                                            <td>{{ $order->paid_amount }}</td>
+                                            <td>{{ \DateTime::createFromFormat('Y-m-d', $order->delivery_date)->format('d F Y') }}
+                                            </td>
                                             <td>
                                                 {{-- Edit button --}}
                                                 <a class="btn btn-primary"
@@ -42,8 +43,8 @@
                                                     Delete
                                                 </button>
                                                 {{-- View Order Details button --}}
-                                                <a class="btn btn-success"
-                                                href="{{ route('order.show', $order->id) }}">View Details</a>
+                                                <a class="btn btn-success" href="{{ route('order.show', $order->id) }}">View
+                                                    Details</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -69,9 +70,9 @@
                         <h1 class="modal-title fs-5" id="orderModalLabel">Confirm Deletion</h1>
                     </div>
                     <div class="modal-body">
-                        <p>This action will delete the category. Are you sure you want to proceed?</p>
+                        <p>This action will delete the order. Are you sure you want to proceed?</p>
                     </div>
-                    <div class="modal-footer">                        
+                    <div class="modal-footer">
                         <button type="submit" class="btn btn-danger">Delete</button>
                         <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                     </div>
