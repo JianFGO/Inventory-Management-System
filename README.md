@@ -22,7 +22,6 @@ An inventory management web application built using Laravel and Bootstrap.
 ## Need to be Done
 - Personal Profile @JianFGO
 - Reports @sumayyah19
-- Prevent self-deletion of account
 - Testing
 - Other
 

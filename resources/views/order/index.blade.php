@@ -18,7 +18,7 @@
                             <table id="categoryTable" class="table table-striped">
                                 {{-- Table headers --}}
                                 <thead>
-                                    <th>Order Code</th>
+                                    <th>Order ID</th>
                                     <th>Order No</th>
                                     <th>Paid Amount</th>
                                     <th>Expected Delivery</th>
@@ -89,14 +89,22 @@
         document.addEventListener('DOMContentLoaded', function() {
             let table = new DataTable('#categoryTable');
 
-            // For deleting the order
-            $('.delete').on('click', function() {
+            // Reinitialise event listeners for delete buttons
+            function reinitialiseDeleteButtons() {
+                $('.delete').off('click').on('click', function() {
 
-                // ID of the order user wants to delete
-                const id = this.id;
+                    // ID of the order user wants to delete
+                    const id = this.id;
 
-                // Dynamic URL
-                $('#deleteModal').attr('action', '{{ route('order.destroy', '') }}' + '/' + id);
+                    // Dynamic URL
+                    $('#deleteModal').attr('action', '{{ route('order.destroy', '') }}' + '/' + id);
+                });
+            }
+
+            reinitialiseDeleteButtons();
+
+            table.on('draw', function() {
+                reinitialiseDeleteButtons();
             });
         });
     </script>

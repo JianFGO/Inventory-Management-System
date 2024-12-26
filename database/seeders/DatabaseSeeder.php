@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Seed database table with default data
-        // Seed first
+        // Seed first (comment out other seeder calls)
         $this->call([PermissionSeeder::class]);
 
         // Seed second (comment out permission seeder call)

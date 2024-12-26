@@ -72,8 +72,8 @@
                         <p>This action will delete the category. Are you sure you want to proceed?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </form>
@@ -88,14 +88,22 @@
         document.addEventListener('DOMContentLoaded', function() {
             let table = new DataTable('#categoryTable');
 
-            // For deleting the category
-            $('.delete').on('click', function() {
+            // Reinitialise event listeners for delete buttons
+            function reinitialiseDeleteButtons() {
+                $('.delete').off('click').on('click', function() {
 
-                // ID of the category user wants to delete
-                const id = this.id;
+                    // ID of the category user wants to delete
+                    const id = this.id;
 
-                // Dynamic URL
-                $('#deleteModal').attr('action', '{{ route('category.destroy', '') }}' + '/' + id);
+                    // Dynamic URL
+                    $('#deleteModal').attr('action', '{{ route('category.destroy', '') }}' + '/' + id);
+                });
+            }
+
+            reinitialiseDeleteButtons();
+
+            table.on('draw', function() {
+                reinitialiseDeleteButtons();
             });
         });
     </script>
