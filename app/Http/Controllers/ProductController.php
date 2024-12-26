@@ -23,7 +23,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $usersBranchId = auth()->user()->branch_id;
+        $products = Product::where('branch_id', $usersBranchId)->get();
         $page_title = "Products";
         return view('product.index', compact('products', 'page_title'));
     }
@@ -33,8 +34,9 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $usersBranchId = auth()->user()->branch_id;
         $categories = Category::all();
-        $branches = Branch::all();
+        $branches = Branch::where('id', $usersBranchId)->get();
         $page_title = "Add Product";
         return view('product.create', compact('categories', 'branches', 'page_title'));
     }
@@ -44,11 +46,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $usersBranchId = auth()->user()->branch_id;
         // Validate request to make sure the fields are provided in correct data type
         $request->validate([
             'name' => 'required|string',
             'category_id' => 'required',
-            'branch_id' => 'required',
+            'branch_id' => 'required|exists:branches,id|in:' . $usersBranchId,
             'price' => 'required',
             'quantity' => 'required'
         ]);
@@ -57,7 +60,7 @@ class ProductController extends Controller
         $product = Product::create([
             'name' => $request->name,
             'category_id' => $request->category_id,
-            'branch_id' => $request->branch_id,
+            'branch_id' => $usersBranchId,
             'price' => $request->price,
             'quantity' => $request->quantity
         ]);
@@ -76,12 +79,13 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
+        $usersBranchId = auth()->user()->branch_id;
         $page_title = 'Edit Product';
 
         // Find product by ID or throw error if not found
         $product = Product::findOrFail($id);
         $categories = Category::all();
-        $branches = Branch::all();
+        $branches = Branch::where('id', $usersBranchId)->get();
 
         return view('product.edit', compact('product', 'categories', 'branches', 'page_title'));
     }
@@ -91,12 +95,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $usersBranchId = auth()->user()->branch_id;
         $product = Product::findOrFail($id);
 
         $request->validate([
             'name' => 'required|string',
             'category_id' => 'required',
-            'branch_id' => 'required',
+            'branch_id' => 'required|exists:branches,id',
             'price' => 'required',
             'quantity' => 'required'
         ]);
@@ -105,7 +110,7 @@ class ProductController extends Controller
         $product->update([
             'name' => $request->name,
             'category_id' => $request->category_id,
-            'branch_id' => $request->branch_id,
+            'branch_id' => $usersBranchId,
             'price' => $request->price,
             'quantity' => $request->quantity
         ]);
