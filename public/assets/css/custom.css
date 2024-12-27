@@ -143,14 +143,20 @@ table td:first-child {
     background-color: #28D484 !important;
 }
 
-/* Form field styles */
+/* Form fields */
 input, select, textarea {
     border: 1.5px solid #7C8E91 !important;
     font-size: 15px !important;
 }
 
+input:focus,
+select:focus {
+    background-color: #FFECD4 !important;
+}
+
 label {
     font-size: 14.3px !important;
+    font-weight: bold;
 }
 
 /* Form title */
@@ -162,6 +168,12 @@ h4 {
 .text-danger {
     margin-top: -20px;
     font-size: 14px;
+}
+
+/* 'Remember me' in login form */
+.form-check{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 

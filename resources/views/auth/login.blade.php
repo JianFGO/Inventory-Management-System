@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-5 offset-lg-5 col-xl-4 offset-xl-4">
                     <div class="branding text-center mb-4">
-                        <h1 style="font-weight: bold; font-size: 24px; color: #333;">Candy Atlas</h1>
+                        <h1 style="font-weight: bold; font-size: 26px; color: #333;">Candy Atlas</h1>
                     </div>
 
                     <div class="card card-primary">
@@ -30,8 +30,7 @@
                                     </span>
                                 @enderror
 
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                <label for="password" class="col-form-label text-md-end">{{ __('Password') }}</label>
 
                                 <input id="password" type="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password" required
@@ -43,18 +42,18 @@
                                     </span>
                                 @enderror
 
-
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                         {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                    <label style="font-weight: normal" class="form-check-label" for="remember">
+                                        {{ __('Remember me') }}
                                     </label>
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                                    <button type="submit" style="font-size: 16px" class="btn btn-primary btn-lg btn-block"
+                                        tabindex="4">
                                         Login
                                     </button>
                                 </div>
