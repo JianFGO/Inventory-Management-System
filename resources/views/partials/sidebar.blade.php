@@ -11,7 +11,7 @@
             {{-- Link for dashboard --}}
             <!--Changes navbar link colour when user is on the page-->
             <li class="dropdown {{ request()->routeIs('home') ? 'active' : '' }}">
-                <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
             </li>
 
             {{-- Link for categories --}}
@@ -70,7 +70,7 @@
                 <a href="{{ route('logout') }}" class="nav-link"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                    <i class="fas fa-fire"></i><span>Log Out</span>
+                    <i class="fas fa-sign-out-alt"></i><span>Log Out</span>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
