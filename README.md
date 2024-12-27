@@ -58,7 +58,7 @@ Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** inst
 ### 6. To backup your changes:
 1. Create a new repository
 2. Run in VSC terminal: **git remote add backup your-backup-repo-url**
-3. Then: **git push --mirror backup** (If you have backed up your changes before, just use this step)
+3. Then: **git push --mirror backup** (If your backup repo is added and you haven't newly cloned, just use this step)
 
 ## Acknowledgements
 - [Bootstrap](https://getbootstrap.com)
