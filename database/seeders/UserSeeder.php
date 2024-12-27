@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Altan Right',
-                'email' => 'alwas@gmail.com',
+                'email' => 'altan@gmail.com',
                 'password' => Hash::make('Password3'),
                 'branch_id' => 3,
                 'email_verified_at' => now()
