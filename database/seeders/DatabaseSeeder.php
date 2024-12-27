@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 
+// Seed database table with default data
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -15,11 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Seed database table with default data
-        // Seed first (comment out other seeder calls)
+        // SEED FIRST (comment out other seeder calls) - otherwise there may be error with permissions not seeding
         $this->call([PermissionSeeder::class]);
 
-        // Seed second (comment out permission seeder call)
+        // SEED SECOND (comment out permission seeder call)
         $this->call([CategorySeeder::class]);
         $this->call([BranchSeeder::class]);
         $this->call([UserSeeder::class]);

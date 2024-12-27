@@ -75,16 +75,25 @@ body {
     padding: 18px;
 }
 
-/* .table th, .table td {
+/* Table borders and text positioning */
+.table th, .table td {
     border: 1px solid #f4d3f4;
     text-align: left;
     vertical-align: middle;
 }
 
+/* Table header colour */
 .table th {
-    background-color: #ff6ec7;
+    background-color: #EDCCDE !important;
 }
 
+/* First table column */
+table th:first-child,
+table td:first-child {
+    text-align: left !important;
+}
+
+/* Table row colours */
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: #fff5fa;
 }
@@ -98,28 +107,61 @@ body {
     cursor: pointer;
 }
 
+/* Edit & submit button */
 .btn-primary {
     background-color: #D18706;
     border-color: #D18706;
     color: white;
+    font-size: 13px;
 }
 
 .btn-primary:hover {
     background-color: #FFA408 !important;
 }
 
+/* Delete button */
 .btn-danger {
     background-color: #AD2B1F;
     border-color: #AD2B1F;
     color: white;
+    font-size: 13px;
 }
 
 .btn-danger:hover {
     background-color: #E33829;
-} */
+}
 
-/* input, select, textarea {
-    border: 2px solid #ff6ec7;
-    background-color: #fff5fa;
-} */
+/* Close button */
+.btn-success {
+    background-color: #198754;
+    border-color: #198754;
+    color: white;
+    font-size: 13px;
+}
+
+.btn-success:hover {
+    background-color: #28D484 !important;
+}
+
+/* Form field styles */
+input, select, textarea {
+    border: 1.5px solid #7C8E91 !important;
+    font-size: 15px !important;
+}
+
+label {
+    font-size: 14.3px !important;
+}
+
+/* Form title */
+h4 {
+    font-size: 18px !important;
+}
+
+/* Form error message */
+.text-danger {
+    margin-top: -20px;
+    font-size: 14px;
+}
+
 
