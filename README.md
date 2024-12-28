@@ -17,9 +17,9 @@ An inventory management web application for a candy company built using Laravel 
 ## Doing
 - Invoice @SWE-SAM
 - Dashboard @SWE-SAM
+- Personal Profile @JianFGO
 
 ## Need to be Done
-- Personal Profile @JianFGO
 - Reports @sumayyah19
 - Testing
 - Other
