@@ -66,6 +66,14 @@
                     </ul>
                 </li>
             @endrole
+
+            {{-- Link for personal profile --}}
+            <li class="dropdown {{ request()->routeIs('profile.show') ? 'active' : '' }}">
+                <a href="{{ route('profile.show') }}" class="nav-link">
+                    <i class="fas fa-user"></i><span>Personal Profile</span>
+                </a>
+            </li>
+
             <li>
                 <a href="{{ route('logout') }}" class="nav-link"
                     onclick="event.preventDefault();
