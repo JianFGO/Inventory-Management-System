@@ -78,19 +78,13 @@ body {
 /* Table borders and text positioning */
 .table th, .table td {
     border: 1px solid #f4d3f4;
-    text-align: left;
-    vertical-align: middle;
+    text-align: left !important;
+    vertical-align: middle !important;
 }
 
 /* Table header colour */
 .table th {
     background-color: #EDCCDE !important;
-}
-
-/* First table column */
-table th:first-child,
-table td:first-child {
-    text-align: left !important;
 }
 
 /* Table row colours */
