@@ -14,11 +14,11 @@ An inventory management web application for a candy company built using Laravel 
 - Users @sumayyah19
 - Supporting multiple branches @sumayyah19
 - Personal Profile @JianFGO
+- Forgot Password @JianFGO
   
 ## Doing
 - Invoice @SWE-SAM
 - Dashboard @SWE-SAM
-- Forgot Password @JianFGO
 
 ## Need to be Done
 - Reports @sumayyah19
