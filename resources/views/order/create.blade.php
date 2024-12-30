@@ -116,7 +116,7 @@
                                                         id="price_1" placeholder="Enter Unit Price"
                                                         onkeyup="calculateTotal(event)"></td>
 
-                                                {{-- Displays Total price of selected product --}}
+                                                {{-- Displays total price of selected product --}}
                                                 <td><input class="form-control total" type="text" id="total_1"
                                                         placeholder="Total Price" disabled></td>
 
@@ -149,7 +149,7 @@
 
 @section('scripts')
     <script>
-        //CSRF token protection
+        // CSRF token protection
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -193,7 +193,7 @@
         }
 
         function calculateTotal(event) {
-            // Calulate total price for one product
+            // Calculate total price for one product
             let totalAmount = 0;
 
             const id = $(event.target).attr('id');
@@ -213,7 +213,7 @@
             $('#total').val(totalAmount);
         }
 
-        // Functionality to display products assoicated with the selected category
+        // Functionality to display products associated with the selected category
         $(document).on('change', '.category', function() {
             const id = $(this).val();
             const dataId = $(this).attr('id');

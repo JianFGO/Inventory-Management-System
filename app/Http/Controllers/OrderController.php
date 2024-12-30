@@ -18,7 +18,7 @@ class OrderController extends Controller
     {
         $usersBranchId = auth()->user()->branch_id;
 
-        // Only displays the orders made within the same branch as the users
+        // Only display the orders made within the same branch as the users
         $orders = Order::where('branch_id', $usersBranchId)->get();
         $page_title = 'All Orders';
         return view('order.index', compact('orders', 'page_title'));
@@ -29,7 +29,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        // Get the users assigned branch by its ID
+        // Get the user's assigned branch by its ID
         $usersBranchId = auth()->user()->branch_id;
         $branches = Branch::where('id', $usersBranchId)->get();
 
@@ -70,7 +70,7 @@ class OrderController extends Controller
             'delivery_date' => $delivery_date,
         ]);
 
-        //Create order details
+        // Create order details
         for ($i = 0; $i < count($request->category_id); $i++) {
 
             OrderDetails::create([
@@ -83,7 +83,7 @@ class OrderController extends Controller
         }
 
         // Redirect to order homepage
-        return redirect()->route('order.index')->with('success', 'Order successfully created.');
+        return redirect()->route('order.index')->with('success', "Order '{$order->order_no}' successfully created.");
     }
 
     /**
@@ -158,7 +158,7 @@ class OrderController extends Controller
         }
 
         // Redirect to order homepage
-        return redirect()->route('order.index')->with('success', 'Order successfully updated.');
+        return redirect()->route('order.index')->with('success', "Order '{$order->order_no}' successfully updated.");
     }
 
     /**
@@ -171,11 +171,12 @@ class OrderController extends Controller
         foreach ($order->orderDetails as $item) {
             $item->delete();
         }
+
         // Delete order from database
         $order->delete();
 
         // Redirect to previous page
-        return back()->with('success', 'Order successfully deleted.');
+        return back()->with('success', "Order '{$order->order_no}' successfully deleted.");
     }
 
     public function uniqueOrderNo()
@@ -192,7 +193,7 @@ class OrderController extends Controller
         return $order_no;
     }
 
-    // Displays product assoicated with the selected category
+    // Displays product associated with the selected category
     public function getProduct($id)
     {
         $products = Product::where('category_id', $id)->get();
