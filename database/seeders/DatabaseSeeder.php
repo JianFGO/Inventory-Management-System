@@ -16,10 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // SEED FIRST (comment out other seeder calls) - otherwise there may be error with permissions not seeding
         $this->call([PermissionSeeder::class]);
-
-        // SEED SECOND (comment out permission seeder call)
         $this->call([CategorySeeder::class]);
         $this->call([BranchSeeder::class]);
         $this->call([UserSeeder::class]);
