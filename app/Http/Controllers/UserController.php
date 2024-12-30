@@ -37,11 +37,14 @@ class UserController extends Controller
     {
         // Validate request to make sure the fields are provided in correct data type
         $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required',
+            'name' => 'required|string|max:255',
+            'email' => 'required|max:255|email|unique:users,email',
+            'password' => 'required|string|min:8',
             'role' => 'required|exists:roles,name',
-            'branch_id' => 'required|exists:branches,id',
+            'branch_id' => 'required|integer|exists:branches,id',
+        ], [], [
+            // Change error message from 'branch id' to 'branch'
+            'branch_id' => 'branch',
         ]);
 
         // Create new user
@@ -91,10 +94,12 @@ class UserController extends Controller
         $currentUserId = auth()->id();
 
         $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users,email,' . $id, // Makes sure email is unique except for the current user
+            'name' => 'required|string|max:255',
+            'email' => 'required|max:255|email|unique:users,email,' . $id, // Makes sure email is unique except for the current user
             'role' => 'nullable|exists:roles,name',
-            'branch_id' => 'required|exists:branches,id',
+            'branch_id' => 'required|integer|exists:branches,id',
+        ], [], [
+            'branch_id' => 'branch',
         ]);
 
         // Check if the user is trying to update their own role

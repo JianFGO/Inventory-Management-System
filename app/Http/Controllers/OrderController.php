@@ -17,7 +17,8 @@ class OrderController extends Controller
     public function index()
     {
         $usersBranchId = auth()->user()->branch_id;
-        //Only displays the orders made within the same branch as the users 
+
+        // Only displays the orders made within the same branch as the users
         $orders = Order::where('branch_id', $usersBranchId)->get();
         $page_title = 'All Orders';
         return view('order.index', compact('orders', 'page_title'));
@@ -28,9 +29,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //Get the users assigned branch by its ID
-        $usersBranchId = auth()->user()->branch_id;        
-        $branches = Branch::where('id', $usersBranchId)->get();  
+        // Get the users assigned branch by its ID
+        $usersBranchId = auth()->user()->branch_id;
+        $branches = Branch::where('id', $usersBranchId)->get();
 
         $order_no = $this->uniqueOrderNo();
         $page_title = 'New Order';
@@ -49,10 +50,10 @@ class OrderController extends Controller
         $request->validate([
             'order_no' => 'required',
             'branch_id' => 'required|exists:branches,id|in:' . $usersBranchId,
-            'paid_amount' => 'required',
+            'paid_amount' => 'required|numeric',
             'total_amount' => 'required',
-            'category_id' => 'required',
-            'product_id' => 'required',
+            'category_id' => 'required|exists:categories,id',
+            'product_id' => 'required|exists:products,id',
             'order_quantity' => 'required',
             'unit_price' => 'required',
         ]);
@@ -101,8 +102,8 @@ class OrderController extends Controller
      */
     public function edit(string $id)
     {
-        //Users can only modify the orders within the same branch as them
-        $usersBranchId = auth()->user()->branch_id;        
+        // Users can only modify the orders within the same branch as them
+        $usersBranchId = auth()->user()->branch_id;
         $branches = Branch::where('id', $usersBranchId)->get();
 
         // Find order by ID or throw error if not found
@@ -110,7 +111,7 @@ class OrderController extends Controller
         $page_title = 'Edit Order';
         $categories = Category::all();
         $products = Product::all();
-        
+
         return view('order.edit', compact('order', 'page_title', 'branches', 'categories', 'products'));
     }
 
@@ -119,14 +120,16 @@ class OrderController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $usersBranchId = auth()->user()->branch_id;
+
         $order = Order::findOrFail($id);
         $request->validate([
             'order_no' => 'required',
-            'branch_id' => 'required',
-            'paid_amount' => 'required',
+            'branch_id' => 'required|exists:branches,id|in:' . $usersBranchId,
+            'paid_amount' => 'required|numeric',
             'total_amount' => 'required',
-            'category_id' => 'required',
-            'product_id' => 'required',
+            'category_id' => 'required|exists:categories,id',
+            'product_id' => 'required|exists:products,id',
             'order_quantity' => 'required',
             'unit_price' => 'required',
         ]);
@@ -170,6 +173,7 @@ class OrderController extends Controller
         }
         // Delete order from database
         $order->delete();
+
         // Redirect to previous page
         return back()->with('success', 'Order successfully deleted.');
     }

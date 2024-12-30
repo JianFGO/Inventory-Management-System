@@ -8,14 +8,17 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+
                     {{-- Page title --}}
                     <div class="card-header">
                         <h4>{{ $page_title }}</h4>
                     </div>
                     <div class="card-body">
+
                         {{-- All Orders table --}}
                         <div class="table-responsive">
                             <table id="categoryTable" class="table table-striped">
+
                                 {{-- Table headers --}}
                                 <thead>
                                     <th>Order ID</th>
@@ -24,6 +27,7 @@
                                     <th>Expected Delivery</th>
                                     <th>Action</th>
                                 </thead>
+
                                 {{-- Table content --}}
                                 <tbody>
                                     @foreach ($orders as $order)
@@ -34,14 +38,17 @@
                                             <td>{{ \DateTime::createFromFormat('Y-m-d', $order->delivery_date)->format('d F Y') }}
                                             </td>
                                             <td>
+
                                                 {{-- Edit button --}}
                                                 <a class="btn btn-primary"
                                                     href="{{ route('order.edit', $order->id) }}">Edit</a>
+
                                                 {{-- Delete button --}}
                                                 <button type="button" class="btn btn-danger delete" data-toggle="modal"
                                                     data-target="#orderModal" id="{{ $order->id }}">
                                                     Delete
                                                 </button>
+
                                                 {{-- View Order Details button --}}
                                                 <a class="btn btn-success" href="{{ route('order.show', $order->id) }}">View
                                                     Details</a>

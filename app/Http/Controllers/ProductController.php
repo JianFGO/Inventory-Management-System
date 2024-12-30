@@ -60,10 +60,10 @@ class ProductController extends Controller
             'category_id' => 'required|integer|exists:categories,id',
             'branch_id' => 'required|integer|exists:branches,id|in:' . $usersBranchId,
             'price' => 'required|numeric|min:0',
-            'quantity' => 'required'
-        ], [
-            'category_id.required' => 'The category field is required.',
-            'branch_id.required' => 'The branch field is required.',
+            'quantity' => 'required|numeric|min:0'
+        ], [], [
+            'category_id' => 'category',
+            'branch_id' => 'branch',
         ]);
 
         // Create new product
@@ -111,10 +111,14 @@ class ProductController extends Controller
 
         $request->validate([
             'name' => 'required|string',
-            'category_id' => 'required',
-            'branch_id' => 'required|exists:branches,id',
-            'price' => 'required',
-            'quantity' => 'required'
+            'category_id' => 'required|integer|exists:categories,id',
+            'branch_id' => 'required|integer|exists:branches,id|in:' . $usersBranchId,
+            'price' => 'required|numeric|min:0',
+            'quantity' => 'required|numeric|min:0'
+        ], [], [
+            // Change error messages to not include 'id'
+            'category_id' => 'category',
+            'branch_id' => 'branch',
         ]);
 
         // Update product with validated input
