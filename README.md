@@ -49,7 +49,7 @@ Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** inst
 
 ### 4. Migrations & Seeders:
 - Run **php artisan migrate** in terminal
-- Run **php artisan db:seed** (follow the instructions in database\seeders\DatabaseSeeder.php as permissions sometimes doesn't seed properly)
+- Run **php artisan db:seed**
 
 ### 5. Running the website:
 1. Start **XAMPP Apache** & **MySQL**
