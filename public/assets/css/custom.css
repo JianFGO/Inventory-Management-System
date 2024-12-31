@@ -111,6 +111,7 @@ body {
 
 .btn-primary:hover {
     background-color: #FFA408 !important;
+    color: black;
 }
 
 /* Delete button */
