@@ -105,7 +105,7 @@ body {
 .btn-primary {
     background-color: #D18706;
     border-color: #D18706;
-    color: white;
+    color: black;
     font-size: 13px;
 }
 
@@ -170,4 +170,8 @@ h4 {
     padding-bottom: 10px;
 }
 
+/* Login form title */
+h2 {
+    font-size: 22px !important;
+}
 

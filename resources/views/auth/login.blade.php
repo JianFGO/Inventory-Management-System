@@ -1,7 +1,10 @@
 @extends('layouts.auth')
 
+{{-- Browser tab title --}}
+@section('title', 'Login')
+
 @section('content')
-    <section class="section">
+    <main class="section">
         <div class="container mt-5">
             <div class="row">
                 <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-5 offset-lg-5 col-xl-4 offset-xl-4">
@@ -11,7 +14,7 @@
 
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4>Login</h4>
+                            <h2>Login</h2>
                         </div>
 
                         <div class="card-body">
@@ -52,17 +55,15 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" style="font-size: 16px" class="btn btn-primary btn-lg btn-block"
-                                        tabindex="4">
+                                    <button type="submit" style="font-size: 16px" class="btn btn-primary btn-lg btn-block">
                                         Login
                                     </button>
                                 </div>
                             </form>
 
                             <div class="text-center mt-3">
-    <a href="{{ route('password.request') }}">Forgot Your Password?</a>
-</div>
-
+                                <a style="color: darkblue" href="{{ route('password.request') }}">Forgot Your Password?</a>
+                            </div>
 
                         </div>
                     </div>
@@ -75,10 +76,5 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    </div>
-    </div>
-    </div>
-    </div>
+    </main>
 @endsection
