@@ -19,11 +19,10 @@ An inventory management web application for a candy company built using Laravel 
 ## Doing
 - Invoice @SWE-SAM
 - Dashboard @SWE-SAM
+- Testing
 
 ## Need to be Done
 - Reports @sumayyah19
-- Testing
-- Other
 
 ## For Team
 Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** installed, and that you have a **mysql** database created called **candy** in PHPMyAdmin.
