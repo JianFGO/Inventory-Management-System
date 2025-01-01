@@ -47,12 +47,13 @@ Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** inst
 - Username is **root**, and password is empty
 
 ### 4. Migrations & Seeders:
-- Run **php artisan migrate** in terminal
-- Run **php artisan db:seed**
+1. Run **php artisan migrate** in terminal
+2. Run **php artisan db:seed**
 
 ### 5. Install setasign/fpdf package:
-- Remove the semicolon from **;extension=gd** in your **php.ini** file
-- Run **composer require setasign/fpdf** in terminal
+1. Remove the semicolon from **;extension=gd** in your **php.ini** file
+2. Run **composer require setasign/fpdf** in terminal
+- This is for invoices
 
 ### 6. Running the website:
 1. Start **XAMPP Apache** & **MySQL**
