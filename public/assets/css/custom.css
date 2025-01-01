@@ -207,6 +207,16 @@ a {
     color: black;
 }
 
+/* Buttons' icon */
+i {
+    margin-right: 3px;
+}
+
+/* Icons for add/remove product row in order */
+.fa-plus, .fa-minus {
+    margin-right: 0;
+}
+
 
 
 

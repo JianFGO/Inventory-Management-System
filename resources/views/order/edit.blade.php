@@ -11,7 +11,7 @@
 
                     {{-- Page title --}}
                     <div class="card-header">
-                        <h4>{{ $page_title }}</h4>
+                        <h1 class="form-heading">{{ $page_title }}</h1>
                     </div>
 
                     {{-- Form for updating order --}}
@@ -38,7 +38,7 @@
 
                                     {{-- Display Order Number --}}
                                     <div class="form-group">
-                                        <label>Order No</label>
+                                        <label for="order_no">Order No</label>
                                         <input type="text" name="order_no" id="order_no" class="form-control"
                                             value="{{ $order->order_no }}" readonly>
                                     </div>
@@ -47,7 +47,7 @@
                                 {{-- Edit Branch --}}
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Branch</label>
+                                        <label for="branch_id">Branch</label>
                                         <select class="form-control" name="branch_id" id="branch_id">
                                             @foreach ($branches as $branch)
                                                 @if ($branch->id == $order->branch_id)
@@ -69,7 +69,7 @@
                                 {{-- Edit Paid Amount --}}
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Paid Amount</label>
+                                        <label for="paid_amount">Paid Amount</label>
                                         <input type="text" name="paid_amount" id="paid_amount" class="form-control"
                                             value="{{ $order->paid_amount }}">
                                     </div>
@@ -81,16 +81,16 @@
 
                                         {{-- Table headers --}}
                                         <thead>
-                                            <th class="text-center">Category</th>
-                                            <th class="text-center">Product</th>
-                                            <th class="text-center">Quantity</th>
-                                            <th class="text-center">Unit Price</th>
-                                            <th class="text-center">Total Price</th>
-                                            <th class="text-center">
+                                            <th id="category-header" class="text-center">Category</th>
+                                            <th id="product-header" class="text-center">Product</th>
+                                            <th id="quantity-header" class="text-center">Quantity</th>
+                                            <th id="unit-price-header" class="text-center">Unit Price</th>
+                                            <th id="total-price-header" class="text-center">Total Price</th>
+                                            <th aria-label="Add Product Row" class="text-center">
 
                                                 {{-- Add product button --}}
-                                                <button onclick="addProduct()" type="button" class="btn btn-success"><i
-                                                        class="fas fa-plus"></i></button>
+                                                <button onclick="addProduct()" type="button" class="btn btn-success"
+                                                    aria-label="Add Product Row"><i class="fas fa-plus"></i></button>
                                             </th>
                                         </thead>
                                         <tbody class="tbody">
@@ -99,7 +99,8 @@
 
                                                     {{-- Edit category selection --}}
                                                     <td>
-                                                        <select class="form-control category" name="category_id[]"
+                                                        <select class="form-control category"
+                                                            aria-labelledby="category-header" name="category_id[]"
                                                             id="category_1">
                                                             @foreach ($categories as $category)
                                                                 @if ($item->category_id == $category->id)
@@ -115,7 +116,8 @@
 
                                                     {{-- Edit product selection --}}
                                                     <td>
-                                                        <select class="form-control product" name="product_id[]"
+                                                        <select class="form-control product"
+                                                            aria-labelledby="product-header" name="product_id[]"
                                                             id="product_1">
                                                             @foreach ($products as $product)
                                                                 @if ($item->product_id == $product->id)
@@ -130,26 +132,28 @@
                                                     </td>
 
                                                     {{-- Edit order quantity --}}
-                                                    <td><input class="form-control" type="text" name="order_quantity[]"
-                                                            id="quantity_1" placeholder="Enter Quantity"
-                                                            onkeyup="calculateTotal(event)"
+                                                    <td><input class="form-control" aria-labelledby="quantity-header"
+                                                            type="text" name="order_quantity[]" id="quantity_1"
+                                                            placeholder="Enter Quantity" onkeyup="calculateTotal(event)"
                                                             value="{{ $item->order_quantity }}"></td>
 
                                                     {{-- Edit unit price --}}
-                                                    <td><input class="form-control" type="text" name="unit_price[]"
-                                                            id="price_1" placeholder="Enter Unit Price"
-                                                            onkeyup="calculateTotal(event)"
+                                                    <td><input class="form-control" aria-labelledby="unit-price-header"
+                                                            type="text" name="unit_price[]" id="price_1"
+                                                            placeholder="Enter Unit Price" onkeyup="calculateTotal(event)"
                                                             value="{{ $item->unit_price }}"></td>
 
                                                     {{-- Displays Total price of selected product --}}
-                                                    <td><input class="form-control total" type="text" id="total_1"
-                                                            placeholder="Total Price"
+                                                    <td><input class="form-control total"
+                                                            aria-labelledby="total-price-header" type="text"
+                                                            id="total_1" placeholder="Total Price"
                                                             value="{{ $item->order_quantity * $item->unit_price }}"
                                                             disabled></td>
 
                                                     {{-- Remove product button --}}
                                                     <td><button type="button" onclick="removeProduct(event)"
-                                                            class="btn btn-danger"><i class="fas fa-minus"></i></button>
+                                                            class="btn btn-danger" aria-label="Remove Product Row"><i
+                                                                class="fas fa-minus"></i></button>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -157,9 +161,10 @@
                                         <tfoot>
 
                                             {{-- Total price of the order --}}
-                                            <th colspan="4">Total</th>
-                                            <th><input class="form-control" type="text" name="total_amount"
-                                                    id="total" placeholder="Item(s) Total"
+                                            <th colspan="4" id="total-price">Total</th>
+                                            <th aria-label="Total Price"><input class="form-control"
+                                                    aria-labelledby="total-price-header" type="text"
+                                                    name="total_amount" id="total" placeholder="Item(s) Total"
                                                     value="{{ $order->total_amount }}" readonly></th>
                                         </tfoot>
                                     </table>
@@ -193,7 +198,7 @@
             const tr = `
         <tr class="tr">
             <td>
-                <select class="form-control category" name="category_id[]" id="category_${count}">
+                <select class="form-control category" aria-labelledby="category-header" name="category_id[]" id="category_${count}">
                     <option selected>Select Category</option>
                     @foreach ($categories as $category)
                          <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -201,14 +206,14 @@
                 </select>
             </td>
             <td>
-                <select class="form-control" name="product_id[]" id="product_${count}">
+                <select class="form-control" aria-labelledby="product-header" name="product_id[]" id="product_${count}">
                     <option selected>Select Product</option>
                 </select>
             </td>
-            <td><input class="form-control" type="text" name="order_quantity[]" id="quantity_${count}" placeholder="Enter Quantity" onkeyup="calculateTotal(event)" ></td>
-            <td><input class="form-control" type="text" name="unit_price[]" id="price_${count}" placeholder="Enter Unit Price" onkeyup="calculateTotal(event)"></td>
-            <td><input class="form-control total" type="text" id="total_${count}" placeholder="Total Price" disabled></td>
-            <td><button type="button" onclick="removeProduct(event)" class="btn btn-danger"><i class="fas fa-minus"></i></button></td>
+            <td><input class="form-control" aria-labelledby="quantity-header" type="text" name="order_quantity[]" id="quantity_${count}" placeholder="Enter Quantity" onkeyup="calculateTotal(event)" ></td>
+            <td><input class="form-control" aria-labelledby="unit-price-header" type="text" name="unit_price[]" id="price_${count}" placeholder="Enter Unit Price" onkeyup="calculateTotal(event)"></td>
+            <td><input class="form-control total" aria-labelledby="total-price-header" type="text" id="total_${count}" placeholder="Total Price" disabled></td>
+            <td><button type="button" aria-label="Remove Product Row" onclick="removeProduct(event)" class="btn btn-danger"><i class="fas fa-minus"></i></button></td>
             </tr>
         `;
             $('.tbody').append(tr);

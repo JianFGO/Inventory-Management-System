@@ -12,7 +12,7 @@
 
                     {{-- Page title --}}
                     <div class="card-header">
-                        <h4>{{ $page_title }}</h4>
+                        <h1 class="form-heading">{{ $page_title }}</h1>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -20,7 +20,7 @@
                             {{-- View Order Number --}}
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Order No</label>
+                                    <label for="order_no">Order No</label>
                                     <input type="text" name="order_no" id="order_no" class="form-control"
                                         value="{{ $order->order_no }}" disabled>
                                 </div>
@@ -29,8 +29,8 @@
                             {{-- View Branch --}}
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Branch</label>
-                                    <input type="text" name="order_no" id="order_no" class="form-control"
+                                    <label for="branch_id">Branch</label>
+                                    <input type="text" name="branch_id" id="branch_id" class="form-control"
                                         value="{{ $order->branch->name }}" disabled>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                             {{-- View Paid Amount --}}
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Paid Amount</label>
+                                    <label for="paid_amount">Paid Amount</label>
                                     <input type="text" name="paid_amount" id="paid_amount" class="form-control"
                                         value="{{ $order->paid_amount }}">
                                 </div>
@@ -49,11 +49,11 @@
                                 <table class="table table-responsive table-striped">
                                     {{-- Table headers --}}
                                     <thead>
-                                        <th class="text-center">Category</th>
-                                        <th class="text-center">Product</th>
-                                        <th class="text-center">Quantity</th>
-                                        <th class="text-center">Unit Price</th>
-                                        <th class="text-center">Total Price</th>
+                                        <th id="category-header" class="text-center">Category</th>
+                                        <th id="product-header" class="text-center">Product</th>
+                                        <th id="quantity-header" class="text-center">Quantity</th>
+                                        <th id="unit-price-header" class="text-center">Unit Price</th>
+                                        <th id="total-price-header" class="text-center">Total Price</th>
                                     </thead>
                                     <tbody class="tbody">
                                         @foreach ($order->orderDetails as $item)
@@ -61,26 +61,29 @@
 
                                                 {{-- View Category --}}
                                                 <td>
-                                                    <input type="text" id="order_no" class="form-control"
-                                                        value="{{ $item->category->name }}" disabled>
+                                                    <input type="text" aria-labelledby="category-header" id="category_id"
+                                                        class="form-control" value="{{ $item->category->name }}" disabled>
                                                 </td>
 
                                                 {{-- View Product --}}
                                                 <td>
-                                                    <input type="text" id="order_no" class="form-control"
-                                                        value="{{ $item->product->name }}" disabled>
+                                                    <input type="text" aria-labelledby="product-header" id="product"
+                                                        class="form-control" value="{{ $item->product->name }}" disabled>
                                                 </td>
 
                                                 {{-- View Order Quantity --}}
-                                                <td><input type="text" id="order_no" class="form-control"
-                                                        value="{{ $item->order_quantity }}" disabled></td>
+                                                <td><input type="text" aria-labelledby="quantity-header" id="quantity"
+                                                        class="form-control" value="{{ $item->order_quantity }}" disabled>
+                                                </td>
 
                                                 {{-- View Unit Price --}}
-                                                <td><input type="text" id="order_no" class="form-control"
-                                                        value="{{ $item->unit_price }}" disabled></td>
+                                                <td><input type="text" aria-labelledby="unit-price-header"
+                                                        id="unit_price" class="form-control" value="{{ $item->unit_price }}"
+                                                        disabled></td>
 
                                                 {{-- View the Total Price for product --}}
-                                                <td><input type="text" id="order_no" class="form-control"
+                                                <td><input type="text" aria-labelledby="total-price-header"
+                                                        id="total_price" class="form-control"
                                                         value="{{ $item->unit_price * $item->order_quantity }}" disabled>
                                                 </td>
                                             </tr>
@@ -89,8 +92,10 @@
                                     <tfoot>
                                         {{-- View Total Price for the order  --}}
                                         <th colspan="4">Total</th>
-                                        <th><input class="form-control" type="text" name="total_amount" id="total"
-                                                placeholder="Item(s) Total" value="{{ $order->total_amount }}" disabled>
+                                        <th aria-label="Total Price"><input class="form-control"
+                                                aria-labelledby="total-price-header" type="text" name="total_amount"
+                                                id="total" placeholder="Item(s) Total"
+                                                value="{{ $order->total_amount }}" disabled>
                                         </th>
                                     </tfoot>
                                 </table>
