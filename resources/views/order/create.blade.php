@@ -25,7 +25,7 @@
 
                                     {{-- Generate Order Number --}}
                                     <div class="form-group">
-                                        <label>Order No</label>
+                                        <label for="order_no">Order No</label>
                                         <input type="text" name="order_no" id="order_no" class="form-control" readonly
                                             value="{{ $order_no }}">
                                     </div>
@@ -39,7 +39,7 @@
 
                                     {{-- Branch Selection --}}
                                     <div class="form-group">
-                                        <label>Branch</label>
+                                        <label for="branch_id">Branch</label>
                                         <select class="form-control" name="branch_id" id="branch_id">
                                             <option selected>Select Branch</option>
                                             @foreach ($branches as $branch)
@@ -57,7 +57,7 @@
 
                                     {{-- Display Paid Amount --}}
                                     <div class="form-group">
-                                        <label>Paid Amount</label>
+                                        <label for="paid_amount">Paid Amount</label>
                                         <input type="text" name="paid_amount" id="paid_amount" class="form-control">
                                     </div>
 
@@ -72,11 +72,11 @@
                                     <table class="table table-responsive table-striped">
                                         {{-- Table headers --}}
                                         <thead>
-                                            <th class="text-center">Category</th>
-                                            <th class="text-center">Product</th>
-                                            <th class="text-center">Quantity</th>
-                                            <th class="text-center">Unit Price</th>
-                                            <th class="text-center">Total Price</th>
+                                            <th id="category-header" class="text-center">Category</th>
+                                            <th id="product-header" class="text-center">Product</th>
+                                            <th id="quantity-header" class="text-center">Quantity</th>
+                                            <th id="unit-price-header" class="text-center">Unit Price</th>
+                                            <th id="total-price-header" class="text-center">Total Price</th>
                                             <th class="text-center">
 
                                                 {{-- Add product button --}}
@@ -89,8 +89,8 @@
 
                                                 {{-- Category Selection --}}
                                                 <td>
-                                                    <select class="form-control category" name="category_id[]"
-                                                        id="category_1">
+                                                    <select class="form-control category" aria-labelledby="category-header"
+                                                        name="category_id[]" id="category_1">
                                                         <option selected>Select Category</option>
                                                         @foreach ($categories as $category)
                                                             <option value="{{ $category->id }}">{{ $category->name }}
@@ -101,24 +101,26 @@
 
                                                 {{-- Product Selection --}}
                                                 <td>
-                                                    <select class="form-control" name="product_id[]" id="product_1">
+                                                    <select class="form-control" aria-labelledby="product-header"
+                                                        name="product_id[]" id="product_1">
                                                         <option selected>Select Product</option>
                                                     </select>
                                                 </td>
 
                                                 {{-- Input for order quantity --}}
-                                                <td><input class="form-control" type="text" name="order_quantity[]"
-                                                        id="quantity_1" placeholder="Enter Quantity"
-                                                        onkeyup="calculateTotal(event)"></td>
+                                                <td><input class="form-control" aria-labelledby="quantity-header"
+                                                        type="text" name="order_quantity[]" id="quantity_1"
+                                                        placeholder="Enter Quantity" onkeyup="calculateTotal(event)"></td>
 
                                                 {{-- Input for unit price --}}
-                                                <td><input class="form-control" type="text" name="unit_price[]"
-                                                        id="price_1" placeholder="Enter Unit Price"
-                                                        onkeyup="calculateTotal(event)"></td>
+                                                <td><input class="form-control" aria-labelledby="unit-price-header"
+                                                        type="text" name="unit_price[]" id="price_1"
+                                                        placeholder="Enter Unit Price" onkeyup="calculateTotal(event)"></td>
 
                                                 {{-- Displays total price of selected product --}}
-                                                <td><input class="form-control total" type="text" id="total_1"
-                                                        placeholder="Total Price" disabled></td>
+                                                <td><input class="form-control total" aria-labelledby="total-price-header"
+                                                        type="text" id="total_1" placeholder="Total Price" disabled>
+                                                </td>
 
                                                 {{-- Remove product button --}}
                                                 <td><button type="button" onclick="removeProduct(event)"
@@ -127,9 +129,10 @@
                                         </tbody>
                                         <tfoot>
                                             {{-- Total price of the order --}}
-                                            <th colspan="4">Total</th>
-                                            <th><input class="form-control" type="text" name="total_amount"
-                                                    id="total" placeholder="Item(s) Total" readonly></th>
+                                            <th colspan="4" id="total-price">Total</th>
+                                            <th><input class="form-control" aria-labelledby="total-price-header"
+                                                    type="text" name="total_amount" id="total"
+                                                    placeholder="Item(s) Total" readonly></th>
                                         </tfoot>
                                     </table>
                                 </div>

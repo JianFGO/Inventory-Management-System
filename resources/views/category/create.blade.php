@@ -12,7 +12,7 @@
 
                     {{-- Page title --}}
                     <div class="card-header">
-                        <h4>{{ $page_title }}</h4>
+                        <h1 class="form-heading">{{ $page_title }}</h1>
                     </div>
 
                     {{-- Form for adding new category --}}
@@ -24,7 +24,7 @@
 
                             {{-- Name input --}}
                             <div class="form-group">
-                                <label>Name</label>
+                                <label for="name">Name</label>
                                 <input type="text" name="name" id="name" class="form-control">
                             </div>
 

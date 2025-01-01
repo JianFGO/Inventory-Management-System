@@ -85,6 +85,7 @@ body {
 /* Table header colour */
 .table th {
     background-color: #EDCCDE !important;
+    color: black !important;
 }
 
 /* Table row colours */
@@ -155,8 +156,8 @@ label {
 }
 
 /* Form title */
-h4 {
-    font-size: 18px !important;
+.form-heading {
+    font-size: 22px !important;
 }
 
 /* Form error message */
@@ -196,6 +197,11 @@ a {
     color: black !important;
     padding-left: 22px;
 }
+
+.nav-link{
+    cursor: pointer !important;
+}
+
 
 
 

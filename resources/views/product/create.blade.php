@@ -11,7 +11,7 @@
 
                     {{-- Page title --}}
                     <div class="card-header">
-                        <h4>{{ $page_title }}</h4>
+                        <h1 class="form-heading">{{ $page_title }}</h1>
                     </div>
 
                     {{-- Form for adding new product --}}
@@ -23,7 +23,7 @@
 
                             {{-- Name input --}}
                             <div class="form-group">
-                                <label>Name</label>
+                                <label for="name">Name</label>
                                 <input type="text" name="name" id="name" class="form-control">
                             </div>
 
@@ -34,7 +34,7 @@
 
                             {{-- Category selection --}}
                             <div class="form-group">
-                                <label>Category</label>
+                                <label for="category_id">Category</label>
                                 <select class="form-control" name="category_id" id="category_id">
                                     <option value="" disabled selected>Select Category</option>
                                     @foreach ($categories as $category)
@@ -48,7 +48,7 @@
 
                             {{-- Branch selection --}}
                             <div class="form-group">
-                                <label>Branch</label>
+                                <label for="branch_id">Branch</label>
                                 <select class="form-control" name="branch_id" id="branch_id">
                                     <option value="" disabled selected>Select Branch</option>
                                     @foreach ($branches as $branch)
@@ -62,7 +62,7 @@
 
                             {{-- Price input --}}
                             <div class="form-group">
-                                <label>Price</label>
+                                <label for="price">Price</label>
                                 <input type="number" name="price" id="price" min="0" step="0.01"
                                     class="form-control">
                             </div>
@@ -72,7 +72,7 @@
 
                             {{-- Quantity input --}}
                             <div class="form-group">
-                                <label>Quantity</label>
+                                <label for="quantity">Quantity</label>
                                 <input type="number" name="quantity" id="quantity" class="form-control">
                             </div>
                             @error('quantity')

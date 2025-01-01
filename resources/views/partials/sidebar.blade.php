@@ -16,7 +16,7 @@
 
             {{-- Link for categories --}}
             <li class="dropdown {{ request()->is('category/*') || request()->is('category') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-tags"></i><span>Category</span></a>
+                <a class="nav-link has-dropdown"><i class="fas fa-tags"></i><span>Category</span></a>
                 <ul class="dropdown-menu">
                     @role('Admin|Manager')
                         <li class="{{ request()->routeIs('category.create') ? 'active' : '' }}"><a class="nav-link"
@@ -29,7 +29,7 @@
 
             {{-- Link for products --}}
             <li class="dropdown {{ request()->is('product/*') || request()->is('product') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-box-open"></i><span>Products</span></a>
+                <a class="nav-link has-dropdown"><i class="fas fa-box-open"></i><span>Products</span></a>
                 <ul class="dropdown-menu">
                     @role('Admin|Manager')
                         <li class="{{ request()->routeIs('product.create') ? 'active' : '' }}"><a class="nav-link"
@@ -43,7 +43,7 @@
             {{-- Link for orders --}}
             @role('Admin|Manager')
                 <li class="dropdown {{ request()->is('order/*') || request()->is('order') ? 'active' : '' }}">
-                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-receipt"></i><span>Order</span></a>
+                    <a class="nav-link has-dropdown"><i class="fas fa-receipt"></i><span>Order</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ request()->routeIs('order.create') ? 'active' : '' }}"><a class="nav-link"
                                 href="{{ route('order.create') }}">New Order</a></li>
@@ -56,8 +56,7 @@
             {{-- Link for users --}}
             @role('Admin')
                 <li class="dropdown {{ request()->is('user/*') || request()->is('user') ? 'active' : '' }}">
-                    <a href="#" class="nav-link has-dropdown"><i
-                            class="fas fa-user-friends"></i><span>Users</span></a>
+                    <a class="nav-link has-dropdown"><i class="fas fa-user-friends"></i><span>Users</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ request()->routeIs('user.create') ? 'active' : '' }}"><a class="nav-link"
                                 href="{{ route('user.create') }}">Add User</a></li>
