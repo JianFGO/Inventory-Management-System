@@ -176,3 +176,21 @@ h2 {
     font-size: 22px !important;
 }
 
+/* Footer text colour */
+.main-footer {
+    color: black;
+}
+
+/* Link colour */
+a {
+    color: darkblue;
+}
+
+/* Hide unnecessary arrow in navbar dropdown */
+.dropdown-menu-right .dropdown-toggle::after {
+    display: none;
+}
+
+
+
+
