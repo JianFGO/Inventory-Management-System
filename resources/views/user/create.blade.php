@@ -12,7 +12,7 @@
 
                     {{-- Page title --}}
                     <div class="card-header">
-                        <h4>{{ $page_title }}</h4>
+                        <h1 class="form-heading">{{ $page_title }}</h1>
                     </div>
 
                     {{-- Form for adding creating new user details --}}
@@ -24,7 +24,7 @@
 
                             {{-- Full Name input --}}
                             <div class="form-group">
-                                <label>Full Name</label>
+                                <label for="name">Full Name</label>
                                 <input type="text" name="name" id="name" class="form-control">
                             </div>
                             {{-- Display an error message if 'full name' field is invalid --}}
@@ -34,7 +34,7 @@
 
                             {{-- Email input --}}
                             <div class="form-group">
-                                <label>Email Address</label>
+                                <label for="email">Email Address</label>
                                 <input type="email" name="email" id="email" class="form-control">
                             </div>
                             {{-- Display an error message if 'email' field is invalid --}}
@@ -44,8 +44,8 @@
 
                             {{-- Password input --}}
                             <div class="form-group">
-                                <label>Password</label>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control">
                             </div>
                             {{-- Display an error message if 'password' field is invalid --}}
                             @error('password')
@@ -54,7 +54,7 @@
 
                             {{-- Role selection --}}
                             <div class="form-group">
-                                <label>Role</label>
+                                <label for="role">Role</label>
                                 <select name="role" id="role" class="form-control">
                                     <option value="" disabled selected>Select Role</option>
                                     @foreach ($roles as $role)
@@ -69,7 +69,7 @@
 
                             {{-- Branch selection --}}
                             <div class="form-group">
-                                <label>Branch</label>
+                                <label for="branch_id">Branch</label>
                                 <select class="form-control" name="branch_id" id="branch_id">
                                     <option value="" disabled selected>Select Branch</option>
                                     @foreach ($branches as $branch)

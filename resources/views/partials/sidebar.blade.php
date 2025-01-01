@@ -16,7 +16,7 @@
 
             {{-- Link for categories --}}
             <li class="dropdown {{ request()->is('category/*') || request()->is('category') ? 'active' : '' }}">
-                <a class="nav-link has-dropdown"><i class="fas fa-tags"></i><span>Category</span></a>
+                <a class="nav-link has-dropdown"><i class="fas fa-tags"></i><span>Categories</span></a>
                 <ul class="dropdown-menu">
                     @role('Admin|Manager')
                         <li class="{{ request()->routeIs('category.create') ? 'active' : '' }}"><a class="nav-link"
@@ -43,7 +43,7 @@
             {{-- Link for orders --}}
             @role('Admin|Manager')
                 <li class="dropdown {{ request()->is('order/*') || request()->is('order') ? 'active' : '' }}">
-                    <a class="nav-link has-dropdown"><i class="fas fa-receipt"></i><span>Order</span></a>
+                    <a class="nav-link has-dropdown"><i class="fas fa-receipt"></i><span>Orders</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ request()->routeIs('order.create') ? 'active' : '' }}"><a class="nav-link"
                                 href="{{ route('order.create') }}">New Order</a></li>
@@ -69,7 +69,7 @@
             {{-- Link for personal profile --}}
             <li class="dropdown {{ request()->routeIs('profile.show') ? 'active' : '' }}">
                 <a href="{{ route('profile.show') }}" class="nav-link">
-                    <i class="fas fa-user"></i><span>Personal Profile</span>
+                    <i class="fas fa-user"></i><span>Your Profile</span>
                 </a>
             </li>
 

@@ -17,9 +17,36 @@ body {
     background-color: #68777A;
     color: white;
     top: 0;
+    right: 0;
 }
 
-.navbar-bg{
+.navbar .dropdown-item, .navbar .dropdown-item i{
+    font-size: 15px !important;
+}
+
+/* Navbar dropdown icons */
+.navbar .dropdown-item i {
+    margin-right: 13px;
+    margin-top: 2px;
+}
+
+/* Hide unnecessary arrow in navbar dropdown */
+.dropdown-menu-right .dropdown-toggle::after {
+    display: none;
+}
+
+/* Logout link in navbar dropdown */
+.logout-nav-link {
+    color: darkred !important;
+    padding-left: 22px;
+    font-size: 15px !important;
+}
+
+.nav-link{
+    cursor: pointer !important;
+}
+
+.navbar-bg {
     background-color: #EDCCDE;
 }
 
@@ -75,6 +102,11 @@ body {
     padding: 18px;
 }
 
+/* Sidebar icon sizes */
+.sidebar-menu i {
+    font-size: 16px !important;
+}
+
 /* Table borders and text positioning */
 .table th, .table td {
     border: 1px solid #f4d3f4;
@@ -100,6 +132,14 @@ body {
 .table tbody tr:hover {
     background-color: #ffe6f5;
     cursor: pointer;
+}
+
+/* Mobile view of orders */
+@media screen and (max-width: 768px) {
+    .table-input {
+        width: 120px;
+        text-overflow: ellipsis;
+    }
 }
 
 .btn{
@@ -187,21 +227,6 @@ a {
     color: darkblue;
 }
 
-/* Hide unnecessary arrow in navbar dropdown */
-.dropdown-menu-right .dropdown-toggle::after {
-    display: none;
-}
-
-/* Logout link in navbar dropdown */
-.logout-nav-link {
-    color: black !important;
-    padding-left: 22px;
-}
-
-.nav-link{
-    cursor: pointer !important;
-}
-
 /* Success message */
 .custom-success{
     color: black;
@@ -215,6 +240,10 @@ i {
 /* Icons for add/remove product row in order */
 .fa-plus, .fa-minus {
     margin-right: 0;
+}
+
+.modal-body {
+    font-size: 17px;
 }
 
 

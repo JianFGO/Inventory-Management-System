@@ -89,8 +89,9 @@
 
                                                 {{-- Category Selection --}}
                                                 <td>
-                                                    <select class="form-control category" aria-labelledby="category-header"
-                                                        name="category_id[]" id="category_1">
+                                                    <select class="form-control category table-input"
+                                                        aria-labelledby="category-header" name="category_id[]"
+                                                        id="category_1">
                                                         <option selected>Select Category</option>
                                                         @foreach ($categories as $category)
                                                             <option value="{{ $category->id }}">{{ $category->name }}
@@ -101,25 +102,28 @@
 
                                                 {{-- Product Selection --}}
                                                 <td>
-                                                    <select class="form-control" aria-labelledby="product-header"
-                                                        name="product_id[]" id="product_1">
+                                                    <select class="form-control table-input"
+                                                        aria-labelledby="product-header" name="product_id[]" id="product_1">
                                                         <option selected>Select Product</option>
                                                     </select>
                                                 </td>
 
                                                 {{-- Input for order quantity --}}
-                                                <td><input class="form-control" aria-labelledby="quantity-header"
-                                                        type="text" name="order_quantity[]" id="quantity_1"
-                                                        placeholder="Enter Quantity" onkeyup="calculateTotal(event)"></td>
+                                                <td><input class="form-control table-input"
+                                                        aria-labelledby="quantity-header" type="text"
+                                                        name="order_quantity[]" id="quantity_1" placeholder="Enter Quantity"
+                                                        onkeyup="calculateTotal(event)"></td>
 
                                                 {{-- Input for unit price --}}
-                                                <td><input class="form-control" aria-labelledby="unit-price-header"
-                                                        type="text" name="unit_price[]" id="price_1"
-                                                        placeholder="Enter Unit Price" onkeyup="calculateTotal(event)"></td>
+                                                <td><input class="form-control table-input"
+                                                        aria-labelledby="unit-price-header" type="text"
+                                                        name="unit_price[]" id="price_1" placeholder="Enter Unit Price"
+                                                        onkeyup="calculateTotal(event)"></td>
 
                                                 {{-- Displays total price of selected product --}}
-                                                <td><input class="form-control total" aria-labelledby="total-price-header"
-                                                        type="text" id="total_1" placeholder="Total Price" disabled>
+                                                <td><input class="form-control total table-input"
+                                                        aria-labelledby="total-price-header" type="text" id="total_1"
+                                                        placeholder="Total Price" disabled>
                                                 </td>
 
                                                 {{-- Remove product button --}}

@@ -62,28 +62,31 @@
                                                 {{-- View Category --}}
                                                 <td>
                                                     <input type="text" aria-labelledby="category-header" id="category_id"
-                                                        class="form-control" value="{{ $item->category->name }}" disabled>
+                                                        class="form-control table-input" value="{{ $item->category->name }}"
+                                                        disabled>
                                                 </td>
 
                                                 {{-- View Product --}}
                                                 <td>
                                                     <input type="text" aria-labelledby="product-header" id="product"
-                                                        class="form-control" value="{{ $item->product->name }}" disabled>
+                                                        class="form-control table-input" value="{{ $item->product->name }}"
+                                                        disabled>
                                                 </td>
 
                                                 {{-- View Order Quantity --}}
                                                 <td><input type="text" aria-labelledby="quantity-header" id="quantity"
-                                                        class="form-control" value="{{ $item->order_quantity }}" disabled>
+                                                        class="form-control table-input" value="{{ $item->order_quantity }}"
+                                                        disabled>
                                                 </td>
 
                                                 {{-- View Unit Price --}}
                                                 <td><input type="text" aria-labelledby="unit-price-header"
-                                                        id="unit_price" class="form-control" value="{{ $item->unit_price }}"
-                                                        disabled></td>
+                                                        id="unit_price" class="form-control table-input"
+                                                        value="{{ $item->unit_price }}" disabled></td>
 
                                                 {{-- View the Total Price for product --}}
                                                 <td><input type="text" aria-labelledby="total-price-header"
-                                                        id="total_price" class="form-control"
+                                                        id="total_price" class="form-control table-input"
                                                         value="{{ $item->unit_price * $item->order_quantity }}" disabled>
                                                 </td>
                                             </tr>

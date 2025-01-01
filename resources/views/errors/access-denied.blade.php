@@ -10,14 +10,14 @@
                 <div class="card">
 
                     {{-- Page title --}}
-                    <div class="card-header">
-                        <h4>Access Denied</h4>
+                    <div class="card-header" style="justify-content: center">
+                        <h1 class="form-heading">Access Denied</h1>
                     </div>
                     <div class="card-body">
 
                         {{-- Message --}}
                         <div class="alert alert-danger text-center">
-                            <h5>You don't have the required permissions to view this page.</h5>
+                            <p style="font-size: 20px">You don't have the required permissions to view this page.</p>
                         </div>
 
                         {{-- Return Button --}}

@@ -99,7 +99,7 @@
 
                                                     {{-- Edit category selection --}}
                                                     <td>
-                                                        <select class="form-control category"
+                                                        <select class="form-control category table-input"
                                                             aria-labelledby="category-header" name="category_id[]"
                                                             id="category_1">
                                                             @foreach ($categories as $category)
@@ -116,7 +116,7 @@
 
                                                     {{-- Edit product selection --}}
                                                     <td>
-                                                        <select class="form-control product"
+                                                        <select class="form-control product table-input"
                                                             aria-labelledby="product-header" name="product_id[]"
                                                             id="product_1">
                                                             @foreach ($products as $product)
@@ -132,19 +132,21 @@
                                                     </td>
 
                                                     {{-- Edit order quantity --}}
-                                                    <td><input class="form-control" aria-labelledby="quantity-header"
-                                                            type="text" name="order_quantity[]" id="quantity_1"
+                                                    <td><input class="form-control table-input"
+                                                            aria-labelledby="quantity-header" type="text"
+                                                            name="order_quantity[]" id="quantity_1"
                                                             placeholder="Enter Quantity" onkeyup="calculateTotal(event)"
                                                             value="{{ $item->order_quantity }}"></td>
 
                                                     {{-- Edit unit price --}}
-                                                    <td><input class="form-control" aria-labelledby="unit-price-header"
-                                                            type="text" name="unit_price[]" id="price_1"
+                                                    <td><input class="form-control table-input"
+                                                            aria-labelledby="unit-price-header" type="text"
+                                                            name="unit_price[]" id="price_1"
                                                             placeholder="Enter Unit Price" onkeyup="calculateTotal(event)"
                                                             value="{{ $item->unit_price }}"></td>
 
                                                     {{-- Displays Total price of selected product --}}
-                                                    <td><input class="form-control total"
+                                                    <td><input class="form-control total table-input"
                                                             aria-labelledby="total-price-header" type="text"
                                                             id="total_1" placeholder="Total Price"
                                                             value="{{ $item->order_quantity * $item->unit_price }}"
