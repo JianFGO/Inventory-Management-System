@@ -78,19 +78,13 @@ body {
 /* Table borders and text positioning */
 .table th, .table td {
     border: 1px solid #f4d3f4;
-    text-align: left;
-    vertical-align: middle;
+    text-align: left !important;
+    vertical-align: middle !important;
 }
 
 /* Table header colour */
 .table th {
     background-color: #EDCCDE !important;
-}
-
-/* First table column */
-table th:first-child,
-table td:first-child {
-    text-align: left !important;
 }
 
 /* Table row colours */
@@ -111,12 +105,13 @@ table td:first-child {
 .btn-primary {
     background-color: #D18706;
     border-color: #D18706;
-    color: white;
+    color: black;
     font-size: 13px;
 }
 
 .btn-primary:hover {
     background-color: #FFA408 !important;
+    color: black;
 }
 
 /* Delete button */
@@ -176,4 +171,8 @@ h4 {
     padding-bottom: 10px;
 }
 
+/* Login form title */
+h2 {
+    font-size: 22px !important;
+}
 

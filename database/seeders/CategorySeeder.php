@@ -15,11 +15,11 @@ class CategorySeeder extends Seeder
     {
         // Categories to be seeded into database
         $categories = [
-            ['name' => 'Gummy Candy'],
-            ['name' => 'Hard-Boiled Candy'],
-            ['name' => 'Lollipops'],
-            ['name' => 'Nerds Candy'],
-            ['name' => 'Sour Candy']
+            ['id' => 1, 'name' => 'Gummy Candy'],
+            ['id' => 2, 'name' => 'Hard-Boiled Candy'],
+            ['id' => 3, 'name' => 'Lollipops'],
+            ['id' => 4, 'name' => 'Nerds Candy'],
+            ['id' => 5, 'name' => 'Sour Candy']
         ];
 
         // Loop and insert each category into database

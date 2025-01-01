@@ -15,9 +15,9 @@ class BranchSeeder extends Seeder
     {
         // Branches to be seeded into database
         $branches = [
-            ['name' => 'Candy Atlas Sheffield', 'address' => '5 Park Lane S2 1OP'],
-            ['name' => 'Candy Atlas Manchester', 'address' => '2 Count Road, M1 2EB'],
-            ['name' => 'Candy Atlas London', 'address' => '88 Green Street L2 3WN']
+            ['id' => 1, 'name' => 'Candy Atlas Sheffield', 'address' => '5 Park Lane S2 1OP'],
+            ['id' => 2, 'name' => 'Candy Atlas Manchester', 'address' => '2 Count Road, M1 2EB'],
+            ['id' => 3, 'name' => 'Candy Atlas London', 'address' => '88 Green Street L2 3WN']
         ];
 
         // Loop and insert each category into database

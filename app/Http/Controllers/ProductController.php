@@ -25,7 +25,8 @@ class ProductController extends Controller
     public function index()
     {
         $usersBranchId = auth()->user()->branch_id;
-        //Only displays the product in the same branch as the user
+
+        // Only display the product in the same branch as the user
         $products = Product::where('branch_id', $usersBranchId)->get();
         $page_title = "Products";
         return view('product.index', compact('products', 'page_title'));
@@ -35,10 +36,10 @@ class ProductController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {        
-        //Get the users assigned branch by its ID
+    {
+        // Get the user's assigned branch by its ID
         $usersBranchId = auth()->user()->branch_id;
-        $branches = Branch::where('id', $usersBranchId)->get();  
+        $branches = Branch::where('id', $usersBranchId)->get();
 
         $categories = Category::all();
         $page_title = "Add Product";
@@ -52,13 +53,17 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $usersBranchId = auth()->user()->branch_id;
+
         // Validate request to make sure the fields are provided in correct data type
         $request->validate([
             'name' => 'required|string',
-            'category_id' => 'required',
-            'branch_id' => 'required|exists:branches,id|in:' . $usersBranchId,
-            'price' => 'required',
-            'quantity' => 'required'
+            'category_id' => 'required|integer|exists:categories,id',
+            'branch_id' => 'required|integer|exists:branches,id|in:' . $usersBranchId,
+            'price' => 'required|numeric|min:0',
+            'quantity' => 'required|numeric|min:0'
+        ], [], [
+            'category_id' => 'category',
+            'branch_id' => 'branch',
         ]);
 
         // Create new product
@@ -84,7 +89,7 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //Users can only modify the products within the same branch as them
+        // Users can only modify products within the same branch as them
         $usersBranchId = auth()->user()->branch_id;
         $page_title = 'Edit Product';
 
@@ -106,10 +111,14 @@ class ProductController extends Controller
 
         $request->validate([
             'name' => 'required|string',
-            'category_id' => 'required',
-            'branch_id' => 'required|exists:branches,id',
-            'price' => 'required',
-            'quantity' => 'required'
+            'category_id' => 'required|integer|exists:categories,id',
+            'branch_id' => 'required|integer|exists:branches,id|in:' . $usersBranchId,
+            'price' => 'required|numeric|min:0',
+            'quantity' => 'required|numeric|min:0'
+        ], [], [
+            // Change error messages to not include 'id'
+            'category_id' => 'category',
+            'branch_id' => 'branch',
         ]);
 
         // Update product with validated input

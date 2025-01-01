@@ -13,16 +13,16 @@ An inventory management web application for a candy company built using Laravel 
 - Orders @sumayyah19
 - Users @sumayyah19
 - Supporting multiple branches @sumayyah19
+- Personal Profile @JianFGO
+- Forgot Password @JianFGO
   
 ## Doing
 - Invoice @SWE-SAM
 - Dashboard @SWE-SAM
+- Testing
 
 ## Need to be Done
-- Personal Profile @JianFGO
 - Reports @sumayyah19
-- Testing
-- Other
 
 ## For Team
 Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** installed, and that you have a **mysql** database created called **candy** in PHPMyAdmin.
@@ -48,7 +48,7 @@ Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** inst
 
 ### 4. Migrations & Seeders:
 - Run **php artisan migrate** in terminal
-- Run **php artisan db:seed** (follow the instructions in database\seeders\DatabaseSeeder.php as permissions sometimes doesn't seed properly)
+- Run **php artisan db:seed**
 
 ### 5. Running the website:
 1. Start **XAMPP Apache** & **MySQL**
