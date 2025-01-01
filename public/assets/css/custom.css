@@ -102,41 +102,41 @@ body {
     cursor: pointer;
 }
 
-/* Edit & submit button */
-.btn-primary {
-    background-color: #D18706;
-    border-color: #D18706;
-    color: black;
-    font-size: 13px;
+.btn{
+    color: black !important;
+    font-size: 15px;
+    box-shadow: none;
+    margin: 5px;
+    padding: 6px 12px;
+    border-color: black;
 }
 
-.btn-primary:hover {
-    background-color: #FFA408 !important;
-    color: black;
+.btn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Edit & submit button */
+.btn-primary, .btn-primary:hover {
+    background-color: #FFB84C !important;
 }
 
 /* Delete button */
-.btn-danger {
-    background-color: #AD2B1F;
-    border-color: #AD2B1F;
-    color: white;
-    font-size: 13px;
-}
-
-.btn-danger:hover {
-    background-color: #E33829;
+.btn-danger, .btn-danger:hover {
+    background-color: #D86051 !important;
 }
 
 /* Close button */
-.btn-success {
-    background-color: #198754;
-    border-color: #198754;
-    color: white;
-    font-size: 13px;
+.btn-success, .btn-success:hover {
+    background-color: #4CCB94 !important;
+    color: black !important;
 }
 
-.btn-success:hover {
-    background-color: #28D484 !important;
+/* Invoice button */
+.btn-warning, .btn-warning:hover {
+    background-color: #66b3ff !important;
+    color: black !important;
 }
 
 /* Form fields */
@@ -200,6 +200,11 @@ a {
 
 .nav-link{
     cursor: pointer !important;
+}
+
+/* Success message */
+.custom-success{
+    color: black;
 }
 
 

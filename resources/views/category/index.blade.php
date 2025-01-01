@@ -36,11 +36,13 @@
                                                 @role('Admin|Manager')
                                                     {{-- Edit button --}}
                                                     <a class="btn btn-primary"
-                                                        href="{{ route('category.edit', $category->id) }}">Edit</a>
+                                                        href="{{ route('category.edit', $category->id) }}"><i
+                                                            class="fas fa-edit"></i>Edit</a>
 
                                                     {{-- Delete button --}}
                                                     <button type="button" class="btn btn-danger delete" data-toggle="modal"
-                                                        data-target="#categoryModal" id="{{ $category->id }}">
+                                                        data-target="#categoryModal" id="{{ $category->id }}"><i
+                                                            class="fas fa-trash-alt"></i>
                                                         Delete
                                                     </button>
                                                 @endrole
@@ -72,8 +74,9 @@
                         <p>This action will delete the category. Are you sure you want to proceed?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal"><i
+                                class="fas fa-times"></i>Close</button>
                     </div>
                 </div>
             </form>

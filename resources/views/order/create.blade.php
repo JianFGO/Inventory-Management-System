@@ -11,7 +11,7 @@
 
                     {{-- Page title --}}
                     <div class="card-header">
-                        <h4>{{ $page_title }}</h4>
+                        <h1 class="form-heading">{{ $page_title }}</h1>
                     </div>
 
                     {{-- Form for creating new order --}}
@@ -77,11 +77,11 @@
                                             <th id="quantity-header" class="text-center">Quantity</th>
                                             <th id="unit-price-header" class="text-center">Unit Price</th>
                                             <th id="total-price-header" class="text-center">Total Price</th>
-                                            <th class="text-center">
+                                            <th aria-label="Add Product Row" class="text-center">
 
                                                 {{-- Add product button --}}
-                                                <button onclick="addProduct()" type="button" class="btn btn-success"><i
-                                                        class="fas fa-plus"></i></button>
+                                                <button onclick="addProduct()" type="button" class="btn btn-success"
+                                                    aria-label="Add Product Row"><i class="fas fa-plus"></i></button>
                                             </th>
                                         </thead>
                                         <tbody class="tbody">
@@ -124,15 +124,17 @@
 
                                                 {{-- Remove product button --}}
                                                 <td><button type="button" onclick="removeProduct(event)"
-                                                        class="btn btn-danger"><i class="fas fa-minus"></i></button></td>
+                                                        class="btn btn-danger" aria-label="Remove Product Row"><i
+                                                            class="fas fa-minus"></i></button></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             {{-- Total price of the order --}}
                                             <th colspan="4" id="total-price">Total</th>
-                                            <th><input class="form-control" aria-labelledby="total-price-header"
-                                                    type="text" name="total_amount" id="total"
-                                                    placeholder="Item(s) Total" readonly></th>
+                                            <th aria-label="Total Price"><input class="form-control"
+                                                    aria-labelledby="total-price-header" type="text" name="total_amount"
+                                                    id="total" placeholder="Item(s) Total" readonly>
+                                            </th>
                                         </tfoot>
                                     </table>
                                 </div>
@@ -166,7 +168,7 @@
             const tr = `
         <tr class="tr">
             <td>
-                <select class="form-control category" name="category_id[]" id="category_${count}">
+                <select class="form-control category" aria-labelledby="category-header" name="category_id[]" id="category_${count}">
                     <option selected>Select Category</option>
                     @foreach ($categories as $category)
                          <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -174,14 +176,14 @@
                 </select>
             </td>
             <td>
-                <select class="form-control" name="product_id[]" id="product_${count}">
+                <select class="form-control" aria-labelledby="product-header" name="product_id[]" id="product_${count}">
                     <option selected>Select Product</option>
                 </select>
             </td>
-            <td><input class="form-control" type="text" name="order_quantity[]" id="quantity_${count}" placeholder="Enter Quantity" onkeyup="calculateTotal(event)" ></td>
-            <td><input class="form-control" type="text" name="unit_price[]" id="price_${count}" placeholder="Enter Unit Price" onkeyup="calculateTotal(event)"></td>
-            <td><input class="form-control total" type="text" id="total_${count}" placeholder="Total Price" disabled></td>
-            <td><button type="button" onclick="removeProduct(event)" class="btn btn-danger"><i class="fas fa-minus"></i></button></td>
+            <td><input class="form-control" aria-labelledby="quantity-header" type="text" name="order_quantity[]" id="quantity_${count}" placeholder="Enter Quantity" onkeyup="calculateTotal(event)" ></td>
+            <td><input class="form-control" aria-labelledby="unit-price-header" type="text" name="unit_price[]" id="price_${count}" placeholder="Enter Unit Price" onkeyup="calculateTotal(event)"></td>
+            <td><input class="form-control total" aria-labelledby="total-price-header" type="text" id="total_${count}" placeholder="Total Price" disabled></td>
+            <td><button type="button" aria-label="Remove Product Row" onclick="removeProduct(event)" class="btn btn-danger"><i class="fas fa-minus"></i></button></td>
             </tr>
         `;
             $('.tbody').append(tr);

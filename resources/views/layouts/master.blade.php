@@ -60,7 +60,7 @@
 
                     {{-- Success message box --}}
                     @if (session('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success custom-success">
                             {{ session('success') }}
                         </div>
                     @endif

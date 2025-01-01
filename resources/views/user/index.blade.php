@@ -41,12 +41,13 @@
                                             <td>
 
                                                 {{-- Edit button --}}
-                                                <a class="btn btn-primary"
-                                                    href="{{ route('user.edit', $user->id) }}">Edit</a>
+                                                <a class="btn btn-primary" href="{{ route('user.edit', $user->id) }}"><i
+                                                        class="fas fa-edit"></i>Edit</a>
 
                                                 {{-- Delete button --}}
                                                 <button type="button" class="btn btn-danger delete" data-toggle="modal"
-                                                    data-target="#userModal" id="{{ $user->id }}">
+                                                    data-target="#userModal" id="{{ $user->id }}"><i
+                                                        class="fas fa-trash-alt"></i>
                                                     Delete
                                                 </button>
                                             </td>
@@ -77,8 +78,9 @@
                         <p>This action will delete the user. Are you sure you want to proceed?</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal"><i
+                                class="fas fa-times"></i>Close</button>
                     </div>
                 </div>
             </form>
