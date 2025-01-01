@@ -58,6 +58,7 @@ Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** inst
 ### 6. Running the website:
 1. Start **XAMPP Apache** & **MySQL**
 2. Run in terminal **php artisan serve** and **Ctrl + Click** on the link that appears
+3. Manual server launch **php -S 127.0.0.1:8000 -t public**
 - Any antivirus you have active may cause issues
 
 ### 7. To backup your changes:

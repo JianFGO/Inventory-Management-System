@@ -60,14 +60,19 @@ $sql = "SELECT delivery_date, paid_amount FROM orders ORDER BY delivery_date";
 $result = $conn->query($sql);
 
 
-$data = [["Delivery Date", "Paid Amount"]]; 
+$data = [["Delivery Date", "Paid Amount"]];
+
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $data[] = [$row['delivery_date'], (float)$row['paid_amount']];
     }
+} else {
+    
+    $data[] = [null, 0];
 }
 
-$chart_data = json_encode($data); 
+
+$chart_data = json_encode($data);
 $conn->close();
 ?>
 
@@ -175,14 +180,21 @@ $conn->close();
               google.charts.setOnLoadCallback(drawChart);
 
               function drawChart() {
-                  
+                  // Parse the data passed from PHP.
                   var rawData = <?php echo $chart_data; ?>;
 
+                  // Check if there's any meaningful data besides the header row.
+                  if (rawData.length <= 1 || rawData[1][0] === null) {
+                      document.getElementById('curve_chart').innerHTML = '<p>No data available to display yet. Please input Orders in order to track Sales Records.</p>';
+                      return;
+                  }
+
+                  // Prepare the data for the chart.
                   var data = google.visualization.arrayToDataTable(rawData);
 
                   var options = {
                       title: 'Sales Record',
-                      curveType: 'function', 
+                      curveType: 'function',
                       legend: { position: 'bottom' },
                       chartArea: {
                           left: 50,
@@ -195,7 +207,7 @@ $conn->close();
                       hAxis: {
                           title: 'Date',
                           titleTextStyle: { italic: false },
-                          format: 'yyyy-MM-dd' 
+                          format: 'yyyy-MM-dd'
                       },
                       vAxis: {
                           title: 'Sales',
@@ -207,6 +219,8 @@ $conn->close();
                   chart.draw(data, options);
               }
             </script>
+
+
 
             </head>
             <body>
@@ -258,73 +272,7 @@ $conn->close();
             </body>
           </html>
           </div>
-          <div class="card-body">
-            <div class="owl-carousel owl-theme" id="products-carousel">
-              <div>
-                <div class="product-item pb-3">
-                  <div class="product-image">
-                    <img alt="image" src="assets/img/products/product-4-50.png" class="img-fluid">
-                  </div>
-                  <div class="product-details">
-                    <div class="product-name">iBook Pro 2018</div>
-                    <div class="product-review">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="text-muted text-small">67 Sales</div>
-                    <div class="product-cta">
-                      <a href="#" class="btn btn-primary">Detail</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="product-image">
-                    <img alt="image" src="assets/img/products/product-3-50.png" class="img-fluid">
-                  </div>
-                  <div class="product-details">
-                    <div class="product-name">oPhone S9 Limited</div>
-                    <div class="product-review">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half"></i>
-                    </div>
-                    <div class="text-muted text-small">86 Sales</div>
-                    <div class="product-cta">
-                      <a href="#" class="btn btn-primary">Detail</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="product-image">
-                    <img alt="image" src="assets/img/products/product-1-50.png" class="img-fluid">
-                  </div>
-                  <div class="product-details">
-                    <div class="product-name">Headphone Blitz</div>
-                    <div class="product-review">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="far fa-star"></i>
-                    </div>
-                    <div class="text-muted text-small">63 Sales</div>
-                    <div class="product-cta">
-                      <a href="#" class="btn btn-primary">Detail</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
       <div class="col-md-6">
@@ -397,7 +345,7 @@ $conn->close();
           <div class="card-header">
             <h4>Invoices</h4>
             <div class="card-header-action">
-              <a href="#" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
+              <a href="order" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
             </div>
           </div>
           <div class="card-body p-0">
@@ -416,7 +364,7 @@ $conn->close();
                   <td><div class="badge badge-warning">Unpaid</div></td>
                   <td>July 19, 2018</td>
                   <td>
-                    <a href="#" class="btn btn-primary">Detail</a>
+                    <a href="order" class="btn btn-primary">Detail</a>
                   </td>
                 </tr>
                 <tr>
@@ -425,7 +373,7 @@ $conn->close();
                   <td><div class="badge badge-success">Paid</div></td>
                   <td>July 21, 2018</td>
                   <td>
-                    <a href="#" class="btn btn-primary">Detail</a>
+                    <a href="order" class="btn btn-primary">Detail</a>
                   </td>
                 </tr>
                 <tr>
@@ -434,7 +382,7 @@ $conn->close();
                   <td><div class="badge badge-warning">Unpaid</div></td>
                   <td>July 22, 2018</td>
                   <td>
-                    <a href="#" class="btn btn-primary">Detail</a>
+                    <a href="order" class="btn btn-primary">Detail</a>
                   </td>
                 </tr>
                 <tr>
@@ -443,7 +391,7 @@ $conn->close();
                   <td><div class="badge badge-warning">Unpaid</div></td>
                   <td>July 22, 2018</td>
                   <td>
-                    <a href="#" class="btn btn-primary">Detail</a>
+                    <a href="order" class="btn btn-primary">Detail</a>
                   </td>
                 </tr>
                 <tr>
@@ -452,7 +400,7 @@ $conn->close();
                   <td><div class="badge badge-success">Paid</div></td>
                   <td>July 28, 2018</td>
                   <td>
-                    <a href="#" class="btn btn-primary">Detail</a>
+                    <a href="order" class="btn btn-primary">Detail</a>
                   </td>
                 </tr>
               </table>
@@ -466,7 +414,7 @@ $conn->close();
             <div class="card-icon">
               <i class="far fa-question-circle"></i>
             </div>
-            <h4>14</h4>
+            <h4>2</h4>
             <div class="card-description">Customers need help</div>
           </div>
           <div class="card-body p-0">
@@ -491,19 +439,10 @@ $conn->close();
                   <div>2 hours ago</div>
                 </div>
               </a>
-              <a href="#" class="ticket-item">
-                <div class="ticket-title">
-                  <h4>Do you see my mother?</h4>
-                </div>
-                <div class="ticket-info">
-                  <div>Syahdan Ubaidillah</div>
-                  <div class="bullet"></div>
-                  <div>6 hours ago</div>
-                </div>
+              
+                
               </a>
-              <a href="features-tickets.html" class="ticket-item ticket-more">
-                View All <i class="fas fa-chevron-right"></i>
-              </a>
+              
             </div>
           </div>
         </div>
