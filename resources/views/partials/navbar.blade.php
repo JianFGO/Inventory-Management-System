@@ -27,11 +27,12 @@
                     <a href="{{ route('product.index') }}" class="dropdown-item has-icon">
                         <i class="fas fa-box-open"></i> View Products
                     </a>
+
                     <div class="dropdown-divider"></div>
-                    <a href="{{ route('logout') }}" class="nav-link"
+                    <a href="{{ route('logout') }}" class="logout-nav-link"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                        <i class="fas fa-sign-out-alt"></i><span>Log Out</span>
+                        <i class="fas fa-sign-out-alt"></i><span style="padding-left: 13px">Log Out</span>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>

@@ -191,6 +191,12 @@ a {
     display: none;
 }
 
+/* Logout link in navbar dropdown */
+.logout-nav-link {
+    color: black !important;
+    padding-left: 22px;
+}
+
 
 
 
