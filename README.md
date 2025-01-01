@@ -50,12 +50,16 @@ Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** inst
 - Run **php artisan migrate** in terminal
 - Run **php artisan db:seed**
 
-### 5. Running the website:
+### 5. Install setasign/fpdf package:
+- Remove the semicolon from **;extension=gd** in your **php.ini** file
+- Run **composer require setasign/fpdf** in terminal
+
+### 6. Running the website:
 1. Start **XAMPP Apache** & **MySQL**
 2. Run in terminal **php artisan serve** and **Ctrl + Click** on the link that appears
 - Any antivirus you have active may cause issues
 
-### 6. To backup your changes:
+### 7. To backup your changes:
 1. Create a new repository
 2. Run in VSC terminal: **git remote add backup your-backup-repo-url**
 3. Then: **git push --mirror backup** (If your backup repo is added and you haven't newly cloned, just use this step)
