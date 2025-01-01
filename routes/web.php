@@ -36,3 +36,7 @@ Route::middleware(['custom_permission:manage users'])->group(function () {
 Route::get('/access-denied', function () {
     return view('errors.access-denied');
 });
+
+use App\Http\Controllers\OrderController;
+
+Route::get('/order/{id}/invoice', [OrderController::class, 'generateInvoice'])->name('order.invoice');

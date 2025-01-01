@@ -1,4 +1,75 @@
 @extends('layouts.master')
+<?php
+$host = 'localhost';
+$db = 'candy';
+$user = 'root'; 
+$pass = '';     
+
+
+$conn = new mysqli($host, $user, $pass, $db);
+
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+
+$sql_products = "SELECT name, quantity FROM products";
+$result_products = $conn->query($sql_products);
+
+
+$data = [["Product", "Sales"]];
+if ($result_products->num_rows > 0) {
+    while ($row = $result_products->fetch_assoc()) {
+        $data[] = [$row['name'], (int)$row['quantity']];
+    }
+}
+
+// ORDER COUNT
+$sql_orders = "SELECT COUNT(*) as order_count FROM orders";
+$result_orders = $conn->query($sql_orders);
+$order_count = 0;
+
+if ($result_orders->num_rows > 0) {
+    $row = $result_orders->fetch_assoc();
+    $order_count = $row['order_count'];
+}
+
+// SALES COUNT
+$sql_sum = "SELECT SUM(paid_amount) as total_paid FROM orders";
+$result_sum = $conn->query($sql_sum);
+$total_paid = 0;
+
+if ($result_sum->num_rows > 0) {
+    $row = $result_sum->fetch_assoc();
+    $total_paid = $row['total_paid'];
+}
+
+// STOCK SOLD COUNT
+$sql_total_amount = "SELECT SUM(total_amount) as total_amount_sum FROM orders";
+$result_total_amount = $conn->query($sql_total_amount);
+$total_amount_sum = 0;
+
+if ($result_total_amount->num_rows > 0) {
+    $row = $result_total_amount->fetch_assoc();
+    $total_amount_sum = $row['total_amount_sum'];
+}
+
+// SALES GRAPH RECORD
+$sql = "SELECT delivery_date, paid_amount FROM orders ORDER BY delivery_date";
+$result = $conn->query($sql);
+
+
+$data = [["Delivery Date", "Paid Amount"]]; 
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $data[] = [$row['delivery_date'], (float)$row['paid_amount']];
+    }
+}
+
+$chart_data = json_encode($data); 
+$conn->close();
+?>
 
 @section('content')
 <section class="section">
@@ -28,15 +99,15 @@
             </div>
             <div class="card-stats-items">
               <div class="card-stats-item">
-                <div class="card-stats-item-count">24</div>
+                <div class="card-stats-item-count">1</div>
                 <div class="card-stats-item-label">Pending</div>
               </div>
               <div class="card-stats-item">
-                <div class="card-stats-item-count">12</div>
+                <div class="card-stats-item-count">3</div>
                 <div class="card-stats-item-label">Shipping</div>
               </div>
               <div class="card-stats-item">
-                <div class="card-stats-item-count">23</div>
+                <div class="card-stats-item-count">1</div>
                 <div class="card-stats-item-label">Completed</div>
               </div>
             </div>
@@ -49,7 +120,7 @@
               <h4>Total Orders</h4>
             </div>
             <div class="card-body">
-              59
+               <?php echo $order_count; ?>
             </div>
           </div>
         </div>
@@ -64,10 +135,10 @@
           </div>
           <div class="card-wrap">
             <div class="card-header">
-              <h4>Balance</h4>
+              <h4>Profit</h4>
             </div>
             <div class="card-body">
-              $187,13
+              $<?php echo number_format($total_paid, 2); ?>
             </div>
           </div>
         </div>
@@ -82,10 +153,10 @@
           </div>
           <div class="card-wrap">
             <div class="card-header">
-              <h4>Sales</h4>
+              <h4>Stock Sold</h4>
             </div>
             <div class="card-body">
-              4,732
+              <?php echo number_format($total_amount_sum, 0); ?>
             </div>
           </div>
         </div>
@@ -95,125 +166,77 @@
       <div class="col-lg-8">
         <div class="card">
           <div class="card-header">
-            <h4>Budget vs Sales</h4>
+            <h4></h4>
+            <html>
+            <head>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+              google.charts.load('current', { packages: ['corechart'] });
+              google.charts.setOnLoadCallback(drawChart);
+
+              function drawChart() {
+                  
+                  var rawData = <?php echo $chart_data; ?>;
+
+                  var data = google.visualization.arrayToDataTable(rawData);
+
+                  var options = {
+                      title: 'Sales Record',
+                      curveType: 'function', 
+                      legend: { position: 'bottom' },
+                      chartArea: {
+                          left: 50,
+                          top: 20,
+                          right: 20,
+                          bottom: 50,
+                          width: '80%',
+                          height: '70%'
+                      },
+                      hAxis: {
+                          title: 'Date',
+                          titleTextStyle: { italic: false },
+                          format: 'yyyy-MM-dd' 
+                      },
+                      vAxis: {
+                          title: 'Sales',
+                          titleTextStyle: { italic: false }
+                      }
+                  };
+
+                  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                  chart.draw(data, options);
+              }
+            </script>
+
+            </head>
+            <body>
+              <div id="curve_chart" style="width: 800px; height: 450px"></div>
+            </body>
+          </html>
           </div>
-          <div class="card-body">
-            <canvas id="myChart" height="158"></canvas>
-          </div>
+          
         </div>
       </div>
       <div class="col-lg-4">
         <div class="card gradient-bottom">
           <div class="card-header">
-            <h4>Top 5 Products</h4>
-            <div class="card-header-action dropdown">
-              <a href="#" data-toggle="dropdown" class="btn btn-danger dropdown-toggle">Month</a>
-              <ul class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                <li class="dropdown-title">Select Period</li>
-                <li><a href="#" class="dropdown-item">Today</a></li>
-                <li><a href="#" class="dropdown-item">Week</a></li>
-                <li><a href="#" class="dropdown-item active">Month</a></li>
-                <li><a href="#" class="dropdown-item">This Year</a></li>
-              </ul>
-            </div>
+            <h4>Employee Count</h4>
+            
           </div>
           <div class="card-body" id="top-5-scroll">
             <ul class="list-unstyled list-unstyled-border">
               <li class="media">
-                <img class="mr-3 rounded" width="55" src="assets/img/products/product-3-50.png" alt="product">
-                <div class="media-body">
-                  <div class="float-right"><div class="font-weight-600 text-muted text-small">86 Sales</div></div>
-                  <div class="media-title">oPhone S9 Limited</div>
-                  <div class="mt-1">
-                    <div class="budget-price">
-                      <div class="budget-price-square bg-primary" data-width="64%"></div>
-                      <div class="budget-price-label">$68,714</div>
-                    </div>
-                    <div class="budget-price">
-                      <div class="budget-price-square bg-danger" data-width="43%"></div>
-                      <div class="budget-price-label">$38,700</div>
-                    </div>
-                  </div>
-                </div>
+                <div id="bar_chart" style="width: 800px; height: 400px;"></div>
               </li>
-              <li class="media">
-                <img class="mr-3 rounded" width="55" src="assets/img/products/product-4-50.png" alt="product">
-                <div class="media-body">
-                  <div class="float-right"><div class="font-weight-600 text-muted text-small">67 Sales</div></div>
-                  <div class="media-title">iBook Pro 2018</div>
-                  <div class="mt-1">
-                    <div class="budget-price">
-                      <div class="budget-price-square bg-primary" data-width="84%"></div>
-                      <div class="budget-price-label">$107,133</div>
-                    </div>
-                    <div class="budget-price">
-                      <div class="budget-price-square bg-danger" data-width="60%"></div>
-                      <div class="budget-price-label">$91,455</div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="media">
-                <img class="mr-3 rounded" width="55" src="assets/img/products/product-1-50.png" alt="product">
-                <div class="media-body">
-                  <div class="float-right"><div class="font-weight-600 text-muted text-small">63 Sales</div></div>
-                  <div class="media-title">Headphone Blitz</div>
-                  <div class="mt-1">
-                    <div class="budget-price">
-                      <div class="budget-price-square bg-primary" data-width="34%"></div>
-                      <div class="budget-price-label">$3,717</div>
-                    </div>
-                    <div class="budget-price">
-                      <div class="budget-price-square bg-danger" data-width="28%"></div>
-                      <div class="budget-price-label">$2,835</div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="media">
-                <img class="mr-3 rounded" width="55" src="assets/img/products/product-3-50.png" alt="product">
-                <div class="media-body">
-                  <div class="float-right"><div class="font-weight-600 text-muted text-small">28 Sales</div></div>
-                  <div class="media-title">oPhone X Lite</div>
-                  <div class="mt-1">
-                    <div class="budget-price">
-                      <div class="budget-price-square bg-primary" data-width="45%"></div>
-                      <div class="budget-price-label">$13,972</div>
-                    </div>
-                    <div class="budget-price">
-                      <div class="budget-price-square bg-danger" data-width="30%"></div>
-                      <div class="budget-price-label">$9,660</div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="media">
-                <img class="mr-3 rounded" width="55" src="assets/img/products/product-5-50.png" alt="product">
-                <div class="media-body">
-                  <div class="float-right"><div class="font-weight-600 text-muted text-small">19 Sales</div></div>
-                  <div class="media-title">Old Camera</div>
-                  <div class="mt-1">
-                    <div class="budget-price">
-                      <div class="budget-price-square bg-primary" data-width="35%"></div>
-                      <div class="budget-price-label">$7,391</div>
-                    </div>
-                    <div class="budget-price">
-                      <div class="budget-price-square bg-danger" data-width="28%"></div>
-                      <div class="budget-price-label">$5,472</div>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              
             </ul>
           </div>
           <div class="card-footer pt-3 d-flex justify-content-center">
             <div class="budget-price justify-content-center">
-              <div class="budget-price-square bg-primary" data-width="20"></div>
-              <div class="budget-price-label">Selling Price</div>
+              
             </div>
             <div class="budget-price justify-content-center">
-              <div class="budget-price-square bg-danger" data-width="20"></div>
-              <div class="budget-price-label">Budget Price</div>
+              
             </div>
           </div>
         </div>
@@ -223,7 +246,17 @@
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">
-            <h4>Best Products</h4>
+            <h4></h4>
+            <html>
+            <head>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            
+
+            </head>
+            <body>
+              <div id="piechart" style="width: 900px; height: 400px;"></div>
+            </body>
+          </html>
           </div>
           <div class="card-body">
             <div class="owl-carousel owl-theme" id="products-carousel">
@@ -476,5 +509,147 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+// EMPLOYEE BAR CHART
+        function drawChart() {
+            
+            var data = google.visualization.arrayToDataTable([
+                ['Branch', 'Employees'],
+                <?php
+                
+                $host = 'localhost';
+                $db = 'candy';
+                $user = 'root'; 
+                $pass = '';     
+
+                
+                $conn = new mysqli($host, $user, $pass, $db);
+
+                
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                
+                $branches = [
+                    1 => 'Sheffield',
+                    2 => 'Manchester',
+                    3 => 'London'
+                ];
+                $data_array = [];
+                foreach ($branches as $id => $name) {
+                    $sql = "SELECT COUNT(*) as count FROM users WHERE branch_id = $id";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        $data_array[] = "['$name', {$row['count']}]";
+                    }
+                }
+                echo implode(",\n", $data_array);
+                $conn->close();
+                ?>
+            ]);
+
+            var options = {
+                title: 'Number of Employees in Each Branch',
+                hAxis: {
+                    title: 'Branch',
+                    titleTextStyle: { italic: false }
+                },
+                vAxis: {
+                    title: 'Employees',
+                    titleTextStyle: { italic: false },
+                    viewWindow: { min: 0 }
+                },
+                legend: { position: 'none' },
+                bar: { groupWidth: '50%' }, 
+                chartArea: {
+                    left: 70,
+                    top: 50,
+                    right: 20,
+                    bottom: 50,
+                    width: '80%',
+                    height: '70%'
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('bar_chart'));
+            chart.draw(data, options);
+        }
+    </script>
+    <?php
+ 
+  $host = 'localhost';
+  $db = 'candy';
+  $user = 'root'; 
+  $pass = '';     
+
+  
+  $conn = new mysqli($host, $user, $pass, $db);
+
+  
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+
+  // PIE CHART PRODUCTS
+  $sql = "SELECT name, quantity FROM products WHERE quantity > 200";
+  $result = $conn->query($sql);
+
+  
+  $data = [["Product", "Quantity"]];
+
+  if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+          $data[] = [$row['name'], (int)$row['quantity']];
+      }
+  }
+
+  $conn->close();
+  ?>
+
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      
+      const data = <?php echo json_encode($data); ?>;
+
+     
+      const googleData = google.visualization.arrayToDataTable(data);
+
+      const options = {
+      title: 'Best Products',
+      is3D: true, 
+      pieSliceText: 'label',
+      tooltip: { isHtml: true },
+      legend: {
+        position: 'right',
+        textStyle: {
+          fontSize: 12,
+          maxLines: 3
+        }
+      },
+      chartArea: {
+        left: 0,         
+        top: 20,         
+        right: 0,        
+        bottom: 20,      
+        width: '70%',
+        height: '50%'
+      }
+      };
+
+
+      const chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(googleData, options);
+    }
+  </script>
+</body>
+</html>
   </section>
 @endsection

@@ -10,6 +10,7 @@
         "laravel/framework": "^11.34",
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.6",
+        "setasign/fpdf": "^1.8",
         "spatie/laravel-permission": "^6.10"
     },
     "require-dev": {

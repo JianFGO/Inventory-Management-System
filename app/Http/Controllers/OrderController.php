@@ -8,6 +8,8 @@ use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Branch;
 use Illuminate\Http\Request;
+use FPDF;
+
 
 class OrderController extends Controller
 {
@@ -194,4 +196,81 @@ class OrderController extends Controller
         $products = Product::where('category_id', $id)->get();
         return response()->json($products);
     }
+    public function generateInvoice($id)
+    {
+        
+        $order = Order::with('orderDetails')->findOrFail($id); 
+
+        $pdf = new FPDF();
+
+        
+        $pdf->AddPage();
+
+        // company details
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(0, 10, 'Candy Atlas Corporation', 0, 1, 'C'); 
+        $pdf->SetFont('Arial', '', 12);
+        $pdf->Cell(0, 10, 'Candy Atlas Sheffield 5 Park Lane S2 1OP', 0, 1, 'C'); 
+
+       
+        $pdf->Ln(10);
+
+       
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Cell(0, 10, 'Invoice', 0, 1, 'C');
+        $pdf->Ln(10);
+
+        
+        $pdf->SetFont('Arial', '', 12);
+
+       
+        $pdf->Cell(60, 10, 'Order Number:', 1, 0);
+        $pdf->Cell(60, 10, $order->order_no, 1, 1);
+
+        $pdf->Cell(60, 10, 'Paid Amount:', 1, 0);
+        $pdf->Cell(60, 10, '£' . number_format($order->paid_amount, 2), 1, 1);
+
+        $pdf->Cell(60, 10, 'Expected Delivery:', 1, 0);
+        $pdf->Cell(60, 10, \DateTime::createFromFormat('Y-m-d', $order->delivery_date)->format('d F Y'), 1, 1);
+
+        $pdf->Ln(10); 
+
+        
+        if ($order->orderDetails && $order->orderDetails->isNotEmpty()) {
+            
+            $pdf->SetFont('Arial', 'B', 12);
+            $pdf->Cell(40, 10, 'Product', 1, 0);
+            $pdf->Cell(40, 10, 'Quantity', 1, 0);
+            $pdf->Cell(40, 10, 'Unit Price', 1, 0);
+            $pdf->Cell(40, 10, 'Total', 1, 1);
+
+            
+            $pdf->SetFont('Arial', '', 12);
+            foreach ($order->orderDetails as $orderDetail) {
+                $productName = $orderDetail->product ? $orderDetail->product->name : 'N/A'; 
+                $pdf->Cell(40, 10, $productName, 1, 0);
+                $pdf->Cell(40, 10, $orderDetail->order_quantity, 1, 0);
+                $pdf->Cell(40, 10, '£' . number_format($orderDetail->unit_price, 2), 1, 0);
+                $pdf->Cell(40, 10, '£' . number_format($orderDetail->order_quantity * $orderDetail->unit_price, 2), 1, 1);
+            }
+        } else {
+            
+            $pdf->Cell(0, 10, 'No items found for this order.', 0, 1, 'C');
+        }
+
+        $pdf->Ln(10); 
+
+        
+        $pdf->SetFont('Arial', 'I', 10);
+        $pdf->Cell(0, 10, 'For any inquiries, contact us at: contact@candyatlas.com', 0, 1, 'C');
+
+        
+        $pdf->Output();
+        exit;
+    }
+
+
+
+    
+
 }

@@ -45,6 +45,8 @@
                                                 {{-- View Order Details button --}}
                                                 <a class="btn btn-success" href="{{ route('order.show', $order->id) }}">View
                                                     Details</a>
+                                                {{-- Generate Invoice button --}}
+                                                <a class="btn btn-warning" href="{{ route('order.invoice', $order->id) }}">Invoice</a>
                                             </td>
                                         </tr>
                                     @endforeach
