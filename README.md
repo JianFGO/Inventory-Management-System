@@ -22,7 +22,6 @@ An inventory management web application for a candy company built using Laravel 
 - Testing
 
 ## Need to be Done
-- Reports @sumayyah19
 
 ## For Team
 Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** installed, and that you have a **mysql** database created called **candy** in PHPMyAdmin.
