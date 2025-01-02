@@ -260,7 +260,11 @@ i {
 
 .card-stats-title {
     font-size: 18px !important;
-    border-radius: 10px;
+    border-radius: 10px !important;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
 }
 
 #curve_chart, #bar_chart, #piechart {

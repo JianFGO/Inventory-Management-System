@@ -183,14 +183,18 @@ $conn->close();
                                     var data = google.visualization.arrayToDataTable(rawData);
 
                                     var options = {
-                                        title: 'Sales Record',
+                                        title: 'Sales',
+                                        titleTextStyle: {
+                                            fontSize: 18,
+                                            fontName: 'Arial'
+                                        },
                                         curveType: 'function',
                                         legend: {
                                             position: 'bottom'
                                         },
                                         chartArea: {
                                             left: 50,
-                                            top: 20,
+                                            top: 50,
                                             right: 20,
                                             bottom: 50,
                                             width: '80%',
@@ -247,7 +251,6 @@ $conn->close();
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h4></h4>
                         <html>
 
                         <head>
@@ -267,7 +270,7 @@ $conn->close();
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Top Countries</h4>
+                        <h4 class="card-stats-title">Top Countries</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -276,7 +279,7 @@ $conn->close();
                                 <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/id.svg" alt="image"
+                                            src="assets/modules/flag-icon-css/flags/4x3/id.svg" alt="Flag of Indonesia"
                                             width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Indonesia</div>
@@ -286,7 +289,7 @@ $conn->close();
                                     </li>
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/my.svg" alt="image"
+                                            src="assets/modules/flag-icon-css/flags/4x3/my.svg" alt="Flag of Malaysia"
                                             width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Malaysia</div>
@@ -296,8 +299,8 @@ $conn->close();
                                     </li>
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/us.svg" alt="image"
-                                            width="40">
+                                            src="assets/modules/flag-icon-css/flags/4x3/us.svg"
+                                            alt="Flag of the United States" width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">United States</div>
                                             <div class="text-small text-muted">1,576 <i
@@ -311,7 +314,7 @@ $conn->close();
                                 <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/id.svg" alt="image"
+                                            src="assets/modules/flag-icon-css/flags/4x3/id.svg" alt="Flag of Indonesia"
                                             width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Indonesia</div>
@@ -321,7 +324,7 @@ $conn->close();
                                     </li>
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/ps.svg" alt="image"
+                                            src="assets/modules/flag-icon-css/flags/4x3/ps.svg" alt="Flag of Palestine"
                                             width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Palestine</div>
@@ -331,7 +334,7 @@ $conn->close();
                                     </li>
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/de.svg" alt="image"
+                                            src="assets/modules/flag-icon-css/flags/4x3/de.svg" alt="Flag of Germany"
                                             width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Germany</div>
@@ -347,84 +350,86 @@ $conn->close();
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Invoices</h4>
-                        <div class="card-header-action">
-                            <a href="order" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
+            @role('Admin|Manager')
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-stats-title">Invoices</h4>
+                            <div class="card-header-action">
+                                <a href="order" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="table-responsive table-invoice">
-                            <table class="table table-striped">
-                                <tr>
-                                    <th>Invoice ID</th>
-                                    <th>Customer</th>
-                                    <th>Status</th>
-                                    <th>Due Date</th>
-                                    <th>Action</th>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">INV-87239</a></td>
-                                    <td class="font-weight-600">Kusnadi</td>
-                                    <td>
-                                        <div class="badge badge-warning">Unpaid</div>
-                                    </td>
-                                    <td>July 19, 2018</td>
-                                    <td>
-                                        <a href="order" class="btn btn-primary">Detail</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">INV-48574</a></td>
-                                    <td class="font-weight-600">Hasan Basri</td>
-                                    <td>
-                                        <div class="badge badge-success">Paid</div>
-                                    </td>
-                                    <td>July 21, 2018</td>
-                                    <td>
-                                        <a href="order" class="btn btn-primary">Detail</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">INV-76824</a></td>
-                                    <td class="font-weight-600">Muhamad Nuruzzaki</td>
-                                    <td>
-                                        <div class="badge badge-warning">Unpaid</div>
-                                    </td>
-                                    <td>July 22, 2018</td>
-                                    <td>
-                                        <a href="order" class="btn btn-primary">Detail</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">INV-84990</a></td>
-                                    <td class="font-weight-600">Agung Ardiansyah</td>
-                                    <td>
-                                        <div class="badge badge-warning">Unpaid</div>
-                                    </td>
-                                    <td>July 22, 2018</td>
-                                    <td>
-                                        <a href="order" class="btn btn-primary">Detail</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">INV-87320</a></td>
-                                    <td class="font-weight-600">Ardian Rahardiansyah</td>
-                                    <td>
-                                        <div class="badge badge-success">Paid</div>
-                                    </td>
-                                    <td>July 28, 2018</td>
-                                    <td>
-                                        <a href="order" class="btn btn-primary">Detail</a>
-                                    </td>
-                                </tr>
-                            </table>
+                        <div class="card-body p-0">
+                            <div class="table-responsive table-invoice">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Invoice ID</th>
+                                        <th>Customer</th>
+                                        <th>Status</th>
+                                        <th>Due Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">INV-87239</a></td>
+                                        <td class="font-weight-600">Kusnadi</td>
+                                        <td>
+                                            <div class="badge badge-warning">Unpaid</div>
+                                        </td>
+                                        <td>July 19, 2018</td>
+                                        <td>
+                                            <a href="order" class="btn btn-primary">Detail</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">INV-48574</a></td>
+                                        <td class="font-weight-600">Hasan Basri</td>
+                                        <td>
+                                            <div class="badge badge-success">Paid</div>
+                                        </td>
+                                        <td>July 21, 2018</td>
+                                        <td>
+                                            <a href="order" class="btn btn-primary">Detail</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">INV-76824</a></td>
+                                        <td class="font-weight-600">Muhamad Nuruzzaki</td>
+                                        <td>
+                                            <div class="badge badge-warning">Unpaid</div>
+                                        </td>
+                                        <td>July 22, 2018</td>
+                                        <td>
+                                            <a href="order" class="btn btn-primary">Detail</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">INV-84990</a></td>
+                                        <td class="font-weight-600">Agung Ardiansyah</td>
+                                        <td>
+                                            <div class="badge badge-warning">Unpaid</div>
+                                        </td>
+                                        <td>July 22, 2018</td>
+                                        <td>
+                                            <a href="order" class="btn btn-primary">Detail</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">INV-87320</a></td>
+                                        <td class="font-weight-600">Ardian Rahardiansyah</td>
+                                        <td>
+                                            <div class="badge badge-success">Paid</div>
+                                        </td>
+                                        <td>July 28, 2018</td>
+                                        <td>
+                                            <a href="order" class="btn btn-primary">Detail</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endrole
             <div class="col-md-4">
                 <div class="card card-hero">
                     <div class="card-header">
@@ -436,7 +441,7 @@ $conn->close();
                     </div>
                     <div class="card-body p-0">
                         <div class="tickets-list">
-                            <a href="#" class="ticket-item">
+                            <div class="ticket-item">
                                 <div class="ticket-title">
                                     <h4>My order hasn't arrived yet</h4>
                                 </div>
@@ -445,8 +450,8 @@ $conn->close();
                                     <div class="bullet"></div>
                                     <div class="text-primary">1 min ago</div>
                                 </div>
-                            </a>
-                            <a href="#" class="ticket-item">
+                            </div>
+                            <div class="ticket-item">
                                 <div class="ticket-title">
                                     <h4>Please cancel my order</h4>
                                 </div>
@@ -455,11 +460,7 @@ $conn->close();
                                     <div class="bullet"></div>
                                     <div>2 hours ago</div>
                                 </div>
-                            </a>
-
-
-                            </a>
-
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -588,6 +589,10 @@ $conn->close();
 
                 const options = {
                     title: 'Best Products',
+                    titleTextStyle: {
+                        fontSize: 18,
+                        fontName: 'Arial'
+                    },
                     is3D: true,
                     pieSliceText: 'label',
                     tooltip: {
@@ -602,11 +607,11 @@ $conn->close();
                     },
                     chartArea: {
                         left: 0,
-                        top: 20,
+                        top: 50,
                         right: 0,
                         bottom: 20,
                         width: '70%',
-                        height: '50%'
+                        height: '70%'
                     }
                 };
 
