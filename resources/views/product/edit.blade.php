@@ -11,7 +11,7 @@
 
                     {{-- Page title --}}
                     <div class="card-header">
-                        <h4>{{ $page_title }}</h4>
+                        <h1 class="form-heading">{{ $page_title }}</h1>
                     </div>
 
                     {{-- Form for updating product --}}
@@ -24,7 +24,7 @@
 
                             {{-- Name input --}}
                             <div class="form-group">
-                                <label>Name</label>
+                                <label for="name">Name</label>
                                 <input type="text" name="name" id="name" class="form-control"
                                     value="{{ $product->name }}">
                             </div>
@@ -36,7 +36,7 @@
 
                             {{-- Category selection --}}
                             <div class="form-group">
-                                <label>Category</label>
+                                <label for="category_id">Category</label>
                                 <select class="form-control" name="category_id" id="category_id">
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}"
@@ -51,7 +51,7 @@
 
                             {{-- Branch selection --}}
                             <div class="form-group">
-                                <label>Branch</label>
+                                <label for="branch_id">Branch</label>
                                 <select class="form-control" name="branch_id" id="branch_id">
                                     @foreach ($branches as $branch)
                                         <option value="{{ $branch->id }}"
@@ -66,7 +66,7 @@
 
                             {{-- Price input --}}
                             <div class="form-group">
-                                <label>Price</label>
+                                <label for="price">Price</label>
                                 <input type="text" name="price" id="price" class="form-control"
                                     value="{{ $product->price }}">
                             </div>
@@ -76,7 +76,7 @@
 
                             {{-- Quantity input --}}
                             <div class="form-group">
-                                <label>Quantity</label>
+                                <label for="quantity">Quantity</label>
                                 <input type="text" name="quantity" id="quantity" class="form-control"
                                     value="{{ $product->quantity }}">
                             </div>
