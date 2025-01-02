@@ -22,7 +22,7 @@ class OrderController extends Controller
 
         // Only display the orders made within the same branch as the users
         $orders = Order::where('branch_id', $usersBranchId)->get();
-        $page_title = 'All Orders';
+        $page_title = 'Orders';
         return view('order.index', compact('orders', 'page_title'));
     }
 
@@ -203,32 +203,32 @@ class OrderController extends Controller
     }
     public function generateInvoice($id)
     {
-        
-        $order = Order::with('orderDetails')->findOrFail($id); 
+
+        $order = Order::with('orderDetails')->findOrFail($id);
 
         $pdf = new FPDF();
 
-        
+
         $pdf->AddPage();
 
         // company details
         $pdf->SetFont('Arial', 'B', 16);
-        $pdf->Cell(0, 10, 'Candy Atlas Corporation', 0, 1, 'C'); 
+        $pdf->Cell(0, 10, 'Candy Atlas Corporation', 0, 1, 'C');
         $pdf->SetFont('Arial', '', 12);
-        $pdf->Cell(0, 10, 'Candy Atlas Sheffield 5 Park Lane S2 1OP', 0, 1, 'C'); 
+        $pdf->Cell(0, 10, 'Candy Atlas Sheffield 5 Park Lane S2 1OP', 0, 1, 'C');
 
-       
+
         $pdf->Ln(10);
 
-       
+
         $pdf->SetFont('Arial', 'B', 14);
         $pdf->Cell(0, 10, 'Invoice', 0, 1, 'C');
         $pdf->Ln(10);
 
-        
+
         $pdf->SetFont('Arial', '', 12);
 
-       
+
         $pdf->Cell(60, 10, 'Order Number:', 1, 0);
         $pdf->Cell(60, 10, $order->order_no, 1, 1);
 
@@ -238,44 +238,39 @@ class OrderController extends Controller
         $pdf->Cell(60, 10, 'Expected Delivery:', 1, 0);
         $pdf->Cell(60, 10, \DateTime::createFromFormat('Y-m-d', $order->delivery_date)->format('d F Y'), 1, 1);
 
-        $pdf->Ln(10); 
+        $pdf->Ln(10);
 
-        
+
         if ($order->orderDetails && $order->orderDetails->isNotEmpty()) {
-            
+
             $pdf->SetFont('Arial', 'B', 12);
             $pdf->Cell(40, 10, 'Product', 1, 0);
             $pdf->Cell(40, 10, 'Quantity', 1, 0);
             $pdf->Cell(40, 10, 'Unit Price', 1, 0);
             $pdf->Cell(40, 10, 'Total', 1, 1);
 
-            
+
             $pdf->SetFont('Arial', '', 12);
             foreach ($order->orderDetails as $orderDetail) {
-                $productName = $orderDetail->product ? $orderDetail->product->name : 'N/A'; 
+                $productName = $orderDetail->product ? $orderDetail->product->name : 'N/A';
                 $pdf->Cell(40, 10, $productName, 1, 0);
                 $pdf->Cell(40, 10, $orderDetail->order_quantity, 1, 0);
                 $pdf->Cell(40, 10, '£' . number_format($orderDetail->unit_price, 2), 1, 0);
                 $pdf->Cell(40, 10, '£' . number_format($orderDetail->order_quantity * $orderDetail->unit_price, 2), 1, 1);
             }
         } else {
-            
+
             $pdf->Cell(0, 10, 'No items found for this order.', 0, 1, 'C');
         }
 
-        $pdf->Ln(10); 
+        $pdf->Ln(10);
 
-        
+
         $pdf->SetFont('Arial', 'I', 10);
         $pdf->Cell(0, 10, 'For any inquiries, contact us at: contact@candyatlas.com', 0, 1, 'C');
 
-        
+
         $pdf->Output();
         exit;
     }
-
-
-
-    
-
 }

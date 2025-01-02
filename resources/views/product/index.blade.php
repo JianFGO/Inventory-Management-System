@@ -11,7 +11,7 @@
 
                     {{-- Page title --}}
                     <div class="card-header">
-                        <h4>{{ $page_title }}</h4>
+                        <h4 class="form-heading">{{ $page_title }}</h4>
                     </div>
                     <div class="card-body">
 
