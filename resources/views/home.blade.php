@@ -75,6 +75,9 @@ $conn->close();
 
 @section('content')
     <section class="section">
+
+        {{-- Page title --}}
+        <h1 id="dashboard-heading">Dashboard</h1>
         <div class="row">
 
             {{-- Order statistics box --}}
@@ -102,7 +105,7 @@ $conn->close();
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4 class="dashboard-text">Total Orders</h4>
+                            <h2 class="dashboard-text">Total Orders</h2>
                         </div>
                         <div class="card-body">
                             <?php echo $order_count; ?>
@@ -122,7 +125,7 @@ $conn->close();
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4 class="dashboard-text">Profit</h4>
+                            <h2 class="dashboard-text">Profit</h2>
                         </div>
                         <div class="card-body">
                             $<?php echo number_format($total_paid, 2); ?>
@@ -142,7 +145,7 @@ $conn->close();
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4 class="dashboard-text">Stock Sold</h4>
+                            <h2 class="dashboard-text">Stock Sold</h2>
                         </div>
                         <div class="card-body">
                             <?php echo number_format($total_amount_sum, 0); ?>
@@ -234,7 +237,7 @@ $conn->close();
             <div class="col-lg-4">
                 <div class="card gradient-bottom">
                     <div class="card-header">
-                        <h4 class="card-stats-title">Employee Count</h4>
+                        <h2 class="card-stats-title">Employee Count</h2>
                     </div>
                     <div class="card-body" id="top-5-scroll">
                         <ul class="list-unstyled list-unstyled-border">
@@ -270,7 +273,7 @@ $conn->close();
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-stats-title">Top Countries</h4>
+                        <h2 class="card-stats-title">Top Countries</h2>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -353,8 +356,9 @@ $conn->close();
             @role('Admin|Manager')
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-stats-title">Invoices</h4>
+                        <div class="card-header" style= "justify-content: space-between;">
+                            <h2 class="card-stats-title">
+                                Invoices</h2>
                             <div class="card-header-action">
                                 <a href="order" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
                             </div>
@@ -367,7 +371,6 @@ $conn->close();
                                         <th>Customer</th>
                                         <th>Status</th>
                                         <th>Due Date</th>
-                                        <th>Action</th>
                                     </tr>
                                     <tr>
                                         <td><a href="#">INV-87239</a></td>
@@ -375,10 +378,7 @@ $conn->close();
                                         <td>
                                             <div class="badge badge-warning">Unpaid</div>
                                         </td>
-                                        <td>July 19, 2018</td>
-                                        <td>
-                                            <a href="order" class="btn btn-primary">Detail</a>
-                                        </td>
+                                        <td>January 19, 2025</td>
                                     </tr>
                                     <tr>
                                         <td><a href="#">INV-48574</a></td>
@@ -386,10 +386,7 @@ $conn->close();
                                         <td>
                                             <div class="badge badge-success">Paid</div>
                                         </td>
-                                        <td>July 21, 2018</td>
-                                        <td>
-                                            <a href="order" class="btn btn-primary">Detail</a>
-                                        </td>
+                                        <td>January 21, 2025</td>
                                     </tr>
                                     <tr>
                                         <td><a href="#">INV-76824</a></td>
@@ -397,10 +394,7 @@ $conn->close();
                                         <td>
                                             <div class="badge badge-warning">Unpaid</div>
                                         </td>
-                                        <td>July 22, 2018</td>
-                                        <td>
-                                            <a href="order" class="btn btn-primary">Detail</a>
-                                        </td>
+                                        <td>January 22, 2025</td>
                                     </tr>
                                     <tr>
                                         <td><a href="#">INV-84990</a></td>
@@ -408,10 +402,7 @@ $conn->close();
                                         <td>
                                             <div class="badge badge-warning">Unpaid</div>
                                         </td>
-                                        <td>July 22, 2018</td>
-                                        <td>
-                                            <a href="order" class="btn btn-primary">Detail</a>
-                                        </td>
+                                        <td>January 22, 2025</td>
                                     </tr>
                                     <tr>
                                         <td><a href="#">INV-87320</a></td>
@@ -419,10 +410,7 @@ $conn->close();
                                         <td>
                                             <div class="badge badge-success">Paid</div>
                                         </td>
-                                        <td>July 28, 2018</td>
-                                        <td>
-                                            <a href="order" class="btn btn-primary">Detail</a>
-                                        </td>
+                                        <td>January 28, 2025</td>
                                     </tr>
                                 </table>
                             </div>
@@ -436,7 +424,7 @@ $conn->close();
                         <div class="card-icon">
                             <i class="far fa-question-circle"></i>
                         </div>
-                        <h4>2</h4>
+                        <h3>2</h3>
                         <div class="card-description">Customers need help</div>
                     </div>
                     <div class="card-body p-0">

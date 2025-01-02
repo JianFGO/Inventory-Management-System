@@ -254,7 +254,7 @@ i {
 
 /* Dashboard boxes */
 .row {
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 .card {
@@ -305,6 +305,13 @@ text[text-anchor="middle"] {
 /* Dashboard table button text */
 .badge {
     color: black !important;
+}
+
+/* Dashboard h1 */
+#dashboard-heading {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 15px;
 }
 
 
