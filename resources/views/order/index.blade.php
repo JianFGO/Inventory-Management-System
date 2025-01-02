@@ -11,13 +11,13 @@
 
                     {{-- Page title --}}
                     <div class="card-header">
-                        <h4 class="form-heading">{{ $page_title }}</h4>
+                        <h1 class="form-heading">{{ $page_title }}</h1>
                     </div>
                     <div class="card-body">
 
                         {{-- All Orders table --}}
                         <div class="table-responsive">
-                            <table id="categoryTable" class="table table-striped">
+                            <table id="orderTable" class="table table-striped">
 
                                 {{-- Table headers --}}
                                 <thead>

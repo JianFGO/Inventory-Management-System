@@ -12,7 +12,7 @@
                         <h1 style="font-weight: bold; font-size: 26px; color: #333;">Candy Atlas</h1>
                     </div>
 
-                    <div class="card card-primary">
+                    <div class="card card-primary login-card">
                         <div class="card-header">
                             <h2>Login</h2>
                         </div>

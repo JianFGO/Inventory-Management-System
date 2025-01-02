@@ -102,7 +102,7 @@ $conn->close();
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Total Orders</h4>
+                            <h4 class="dashboard-text">Total Orders</h4>
                         </div>
                         <div class="card-body">
                             <?php echo $order_count; ?>
@@ -122,7 +122,7 @@ $conn->close();
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Profit</h4>
+                            <h4 class="dashboard-text">Profit</h4>
                         </div>
                         <div class="card-body">
                             $<?php echo number_format($total_paid, 2); ?>
@@ -142,7 +142,7 @@ $conn->close();
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Stock Sold</h4>
+                            <h4 class="dashboard-text">Stock Sold</h4>
                         </div>
                         <div class="card-body">
                             <?php echo number_format($total_amount_sum, 0); ?>
@@ -283,8 +283,8 @@ $conn->close();
                                             width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Indonesia</div>
-                                            <div class="text-small text-muted">3,282 <i
-                                                    class="fas fa-caret-down text-danger"></i></div>
+                                            <div class="text-small">3,282 <i class="fas fa-caret-down text-danger"></i>
+                                            </div>
                                         </div>
                                     </li>
                                     <li class="media">
@@ -293,8 +293,8 @@ $conn->close();
                                             width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Malaysia</div>
-                                            <div class="text-small text-muted">2,976 <i
-                                                    class="fas fa-caret-down text-danger"></i></div>
+                                            <div class="text-small">2,976 <i class="fas fa-caret-down text-danger"></i>
+                                            </div>
                                         </div>
                                     </li>
                                     <li class="media">
@@ -303,8 +303,8 @@ $conn->close();
                                             alt="Flag of the United States" width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">United States</div>
-                                            <div class="text-small text-muted">1,576 <i
-                                                    class="fas fa-caret-up text-success"></i></div>
+                                            <div class="text-small">1,576 <i class="fas fa-caret-up text-success"></i>
+                                            </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -318,8 +318,8 @@ $conn->close();
                                             width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Indonesia</div>
-                                            <div class="text-small text-muted">3,486 <i
-                                                    class="fas fa-caret-up text-success"></i></div>
+                                            <div class="text-small">3,486 <i class="fas fa-caret-up text-success"></i>
+                                            </div>
                                         </div>
                                     </li>
                                     <li class="media">
@@ -328,8 +328,8 @@ $conn->close();
                                             width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Palestine</div>
-                                            <div class="text-small text-muted">3,182 <i
-                                                    class="fas fa-caret-up text-success"></i></div>
+                                            <div class="text-small">3,182 <i class="fas fa-caret-up text-success"></i>
+                                            </div>
                                         </div>
                                     </li>
                                     <li class="media">
@@ -338,8 +338,8 @@ $conn->close();
                                             width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Germany</div>
-                                            <div class="text-small text-muted">2,317 <i
-                                                    class="fas fa-caret-down text-danger"></i></div>
+                                            <div class="text-small">2,317 <i class="fas fa-caret-down text-danger"></i>
+                                            </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -448,7 +448,7 @@ $conn->close();
                                 <div class="ticket-info">
                                     <div>Laila Tazkiah</div>
                                     <div class="bullet"></div>
-                                    <div class="text-primary">1 min ago</div>
+                                    <div class="text-primary time-text">1 min ago</div>
                                 </div>
                             </div>
                             <div class="ticket-item">
@@ -458,7 +458,7 @@ $conn->close();
                                 <div class="ticket-info">
                                     <div>Rizal Fakhri</div>
                                     <div class="bullet"></div>
-                                    <div>2 hours ago</div>
+                                    <div class="time-text">2 hours ago</div>
                                 </div>
                             </div>
                         </div>

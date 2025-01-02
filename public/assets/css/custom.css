@@ -217,6 +217,11 @@ h2 {
     font-size: 22px !important;
 }
 
+/* Login box */
+.login-card {
+    height: auto !important;
+}
+
 /* Footer text colour */
 .main-footer {
     color: black;
@@ -285,6 +290,21 @@ text[text-anchor="middle"] {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     display: block;
+}
+
+.dashboard-text {
+    color: #68777A !important;
+    font-size: 15px !important;
+}
+
+/* Timestamp in customer enquiry box */
+.time-text {
+    color: darkblue !important;
+}
+
+/* Dashboard table button text */
+.badge {
+    color: black !important;
 }
 
 
