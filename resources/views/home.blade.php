@@ -218,7 +218,9 @@ $conn->close();
                         </head>
 
                         <body>
-                            <div id="curve_chart" style="width: 800px; height: 450px"></div>
+                            <div class="chart-container">
+                                <div id="curve_chart" style="width: 800px; height: 450px"></div>
+                            </div>
                         </body>
 
                         </html>
@@ -228,12 +230,13 @@ $conn->close();
             <div class="col-lg-4">
                 <div class="card gradient-bottom">
                     <div class="card-header">
-                        <h4>Employee Count</h4>
+                        <h4 class="card-stats-title">Employee Count</h4>
                     </div>
                     <div class="card-body" id="top-5-scroll">
                         <ul class="list-unstyled list-unstyled-border">
                             <li class="media">
-                                <div id="bar_chart" style="width: 800px; height: 400px;"></div>
+                                <div id="bar_chart" style="width: 800px; height: 400px;">
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -252,7 +255,9 @@ $conn->close();
                         </head>
 
                         <body>
-                            <div id="piechart" style="width: 900px; height: 400px;"></div>
+                            <div class="chart-container">
+                                <div id="piechart" style="width: 900px; height: 400px;"></div>
+                            </div>
                         </body>
 
                         </html>

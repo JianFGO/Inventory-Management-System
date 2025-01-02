@@ -247,10 +247,44 @@ i {
     font-size: 17px;
 }
 
-/* Dashboard */
-.row{
+/* Dashboard boxes */
+.row {
     padding-top: 30px;
 }
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 95%;
+}
+
+.card-stats-title {
+    font-size: 18px !important;
+    border-radius: 10px;
+}
+
+#curve_chart, #bar_chart, #piechart {
+    padding: 10px;
+    width: 800px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+/* Graph text */
+text[text-anchor="middle"] {
+    font-size: 13px !important;
+    font-weight: bold;
+}
+
+.chart-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+}
+
+
+
 
 
 
