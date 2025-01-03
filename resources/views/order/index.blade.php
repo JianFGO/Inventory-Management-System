@@ -55,10 +55,11 @@
                                                         class="fas fa-eye"></i>View
                                                     Details</a>
 
-                                                {{-- Generate Invoice button --}}
-                                                <a class="btn btn-warning"
-                                                    href="{{ route('order.invoice', $order->id) }}"><i
-                                                        class="fas fa-file-invoice"></i>Invoice</a>
+                                                    {{-- Generate Invoice button --}}
+                                                    <a class="btn btn-warning" href="{{ route('order.invoice', $order->id) }}" target="_blank">
+                                                        <i class="fas fa-file-invoice"></i>Invoice
+                                                    </a>
+
                                             </td>
                                         </tr>
                                     @endforeach

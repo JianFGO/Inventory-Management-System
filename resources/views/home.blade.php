@@ -125,7 +125,7 @@ $conn->close();
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h2 class="dashboard-text">Profit</h2>
+                            <h2 class="dashboard-text">Total Expenditure</h2>
                         </div>
                         <div class="card-body">
                             $<?php echo number_format($total_paid, 2); ?>
@@ -365,54 +365,7 @@ $conn->close();
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive table-invoice">
-                                <table class="table table-striped">
-                                    <tr>
-                                        <th>Invoice ID</th>
-                                        <th>Customer</th>
-                                        <th>Status</th>
-                                        <th>Due Date</th>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">INV-87239</a></td>
-                                        <td class="font-weight-600">Kusnadi</td>
-                                        <td>
-                                            <div class="badge badge-warning">Unpaid</div>
-                                        </td>
-                                        <td>January 19, 2025</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">INV-48574</a></td>
-                                        <td class="font-weight-600">Hasan Basri</td>
-                                        <td>
-                                            <div class="badge badge-success">Paid</div>
-                                        </td>
-                                        <td>January 21, 2025</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">INV-76824</a></td>
-                                        <td class="font-weight-600">Muhamad Nuruzzaki</td>
-                                        <td>
-                                            <div class="badge badge-warning">Unpaid</div>
-                                        </td>
-                                        <td>January 22, 2025</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">INV-84990</a></td>
-                                        <td class="font-weight-600">Agung Ardiansyah</td>
-                                        <td>
-                                            <div class="badge badge-warning">Unpaid</div>
-                                        </td>
-                                        <td>January 22, 2025</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">INV-87320</a></td>
-                                        <td class="font-weight-600">Ardian Rahardiansyah</td>
-                                        <td>
-                                            <div class="badge badge-success">Paid</div>
-                                        </td>
-                                        <td>January 28, 2025</td>
-                                    </tr>
-                                </table>
+                                
                             </div>
                         </div>
                     </div>
@@ -500,7 +453,7 @@ $conn->close();
                 var options = {
                     title: 'Number of Employees in Each Branch',
                     hAxis: {
-                        title: 'Branch',
+                        title: 'Locations',
                         titleTextStyle: {
                             italic: false
                         }
