@@ -5,14 +5,15 @@ An inventory management web application for a candy company built using Laravel 
 ## Done
 - Usability testing @Shelly855
 - Product unit test @Shelly855
+- Order unit test @sumayyah19
   
 ## Doing
 - Security testing & explaining security measures took @JianFGO
+- Performance testing @sumayyah19
 
 ## Need to be Done
 - Stress testing @SWE-SAM
-- Performance testing @sumayyah19
-- Other unit tests (1 each) @SWE-SAM, @sumayyah19, @JianFGO
+- Other unit tests (1 each) @SWE-SAM, @JianFGO
 - User acceptance testing @everyone
 - Defect report @everyone
 
