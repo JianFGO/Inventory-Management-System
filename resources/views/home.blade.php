@@ -386,17 +386,17 @@ $chart_data = json_encode($data);
                                             $orderId = htmlspecialchars($row['id']);
                                     
                                             echo "<tr>
-                                                                                                                                                <td>{$orderNo}</td>
-                                                                                                                                                <td class='font-weight-600'>£" .
+                                    <td>{$orderNo}</td>
+                                    <td class='font-weight-600'>£" .
                                                 number_format($paidAmount, 2) .
                                                 "</td>
-                                                                                                                                                <td>{$deliveryDate}</td>
-                                                                                                                                                <td>
-                                                                                                                                                <a href=\"" .
+                                    <td>{$deliveryDate}</td>
+                                    <td>
+                                    <a href=\"" .
                                                 route('order.show', ['order' => $orderId]) .
                                                 "\" class='btn btn-primary'>Detail</a>
-                                                                                                                                                </td>
-                                                                                                                                                </tr>";
+                                    </td>
+                                    </tr>";
                                         }
                                     } else {
                                         echo "<tr><td colspan='4'>No records found</td></tr>";
