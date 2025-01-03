@@ -24,8 +24,8 @@
                                     <th>Product ID</th>
                                     <th>Name</th>
                                     <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
+                                    <th>Price (£)</th>
+                                    <th>Quantity (pieces)</th>
                                     <th>Action</th>
                                 </thead>
 

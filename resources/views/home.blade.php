@@ -368,7 +368,7 @@ $chart_data = json_encode($data);
                                 <table class="table table-striped">
                                     <tr>
                                         <th>Order No</th>
-                                        <th>Paid Amount(£)</th>
+                                        <th>Paid Amount (£)</th>
                                         <th>Delivery Date</th>
                                         <th>Action</th>
                                     </tr>
