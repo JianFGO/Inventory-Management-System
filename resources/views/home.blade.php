@@ -211,7 +211,7 @@ $chart_data = json_encode($data);
                                             format: 'yyyy-MM-dd'
                                         },
                                         vAxis: {
-                                            title: 'Paid Amount',
+                                            title: 'Paid Amount (£)',
                                             titleTextStyle: {
                                                 italic: false
                                             }
@@ -368,7 +368,7 @@ $chart_data = json_encode($data);
                                 <table class="table table-striped">
                                     <tr>
                                         <th>Order No</th>
-                                        <th>Paid Amount</th>
+                                        <th>Paid Amount(£)</th>
                                         <th>Delivery Date</th>
                                         <th>Action</th>
                                     </tr>
@@ -386,17 +386,17 @@ $chart_data = json_encode($data);
                                             $orderId = htmlspecialchars($row['id']);
                                     
                                             echo "<tr>
-                                                                                                            <td>{$orderNo}</td>
-                                                                                                            <td class='font-weight-600'>£" .
+                                    <td>{$orderNo}</td>
+                                    <td class='font-weight-600'>" .
                                                 number_format($paidAmount, 2) .
                                                 "</td>
-                                                                                                            <td>{$deliveryDate}</td>
-                                                                                                            <td>
-                                                                                                            <a href=\"" .
+                                    <td>{$deliveryDate}</td>
+                                    <td>
+                                    <a href=\"" .
                                                 route('order.show', ['order' => $orderId]) .
                                                 "\" class='btn btn-primary'>Detail</a>
-                                                                                                            </td>
-                                                                                                            </tr>";
+                                    </td>
+                                    </tr>";
                                         }
                                     } else {
                                         echo "<tr><td colspan='4'>No records found</td></tr>";
