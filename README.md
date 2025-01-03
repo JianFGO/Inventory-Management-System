@@ -15,10 +15,11 @@ An inventory management web application for a candy company built using Laravel 
 - Supporting multiple branches @sumayyah19
 - Personal Profile @JianFGO
 - Forgot Password @JianFGO
-  
-## Doing
 - Invoice @SWE-SAM
 - Dashboard @SWE-SAM
+- Usability Testing @Shelly855
+  
+## Doing
 - Testing
 
 ## Need to be Done
