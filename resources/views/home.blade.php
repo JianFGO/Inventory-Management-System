@@ -239,7 +239,7 @@ $chart_data = json_encode($data);
                     <div class="card-header">
                         <h2 class="card-stats-title">Employee Count</h2>
                     </div>
-                    <div class="card-body" id="top-5-scroll">
+                    <div class="card-body" id="top-5-scroll" tabindex="0">
                         <ul class="list-unstyled list-unstyled-border">
                             <li class="media">
                                 <div id="bar_chart" style="width: 800px; height: 400px;">
