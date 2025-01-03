@@ -35,7 +35,7 @@ if ($result_orders->num_rows > 0) {
     $order_count = $row['order_count'];
 }
 
-// SALES COUNT
+// EXPENDITURE COUNT
 $sql_sum = 'SELECT SUM(paid_amount) as total_paid FROM orders';
 $result_sum = $conn->query($sql_sum);
 $total_paid = 0;
@@ -45,7 +45,7 @@ if ($result_sum->num_rows > 0) {
     $total_paid = $row['total_paid'];
 }
 
-// STOCK SOLD COUNT
+// STOCK ORDERED COUNT
 $sql_total_amount = 'SELECT SUM(total_amount) as total_amount_sum FROM orders';
 $result_total_amount = $conn->query($sql_total_amount);
 $total_amount_sum = 0;
@@ -55,7 +55,7 @@ if ($result_total_amount->num_rows > 0) {
     $total_amount_sum = $row['total_amount_sum'];
 }
 
-// SALES GRAPH RECORD
+// ORDERS GRAPH RECORD
 $sql = 'SELECT delivery_date, paid_amount FROM orders ORDER BY delivery_date';
 $result = $conn->query($sql);
 
@@ -114,7 +114,7 @@ $chart_data = json_encode($data);
                 </div>
             </div>
 
-            {{-- Profit box --}}
+            {{-- Expenditure box --}}
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-statistic-2">
                     <div class="card-chart">
@@ -134,7 +134,7 @@ $chart_data = json_encode($data);
                 </div>
             </div>
 
-            {{-- Stock sold box --}}
+            {{-- Stock ordered box --}}
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="card card-statistic-2">
                     <div class="card-chart">
@@ -145,7 +145,7 @@ $chart_data = json_encode($data);
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h2 class="dashboard-text">Stock Sold</h2>
+                            <h2 class="dashboard-text">Stock Ordered</h2>
                         </div>
                         <div class="card-body">
                             <?php echo number_format($total_amount_sum, 0); ?>
@@ -186,7 +186,7 @@ $chart_data = json_encode($data);
                                     var data = google.visualization.arrayToDataTable(rawData);
 
                                     var options = {
-                                        title: 'Sales',
+                                        title: 'Orders',
                                         titleTextStyle: {
                                             fontSize: 18,
                                             fontName: 'Arial'
@@ -211,7 +211,7 @@ $chart_data = json_encode($data);
                                             format: 'yyyy-MM-dd'
                                         },
                                         vAxis: {
-                                            title: 'Sales',
+                                            title: 'Amount of Stock Ordered',
                                             titleTextStyle: {
                                                 italic: false
                                             }
@@ -358,7 +358,7 @@ $chart_data = json_encode($data);
                     <div class="card">
                         <div class="card-header" style= "justify-content: space-between;">
                             <h2 class="card-stats-title">
-                                Invoices</h2>
+                                Orders</h2>
                             <div class="card-header-action">
                                 <a href="order" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
                             </div>
@@ -374,24 +374,29 @@ $chart_data = json_encode($data);
                                     </tr>
                                     <?php
                                     // Fetch data from the 'orders' table
-                                    $query = "SELECT order_no, paid_amount, delivery_date FROM orders";
+                                    $query = 'SELECT id, order_no, paid_amount, delivery_date FROM orders';
                                     $result = $conn->query($query);
-
+                                    
                                     if ($result && $result->num_rows > 0) {
                                         // Loop through each row and display it
                                         while ($row = $result->fetch_assoc()) {
                                             $orderNo = htmlspecialchars($row['order_no']);
                                             $paidAmount = htmlspecialchars($row['paid_amount']);
                                             $deliveryDate = htmlspecialchars($row['delivery_date']);
-                                            
+                                            $orderId = htmlspecialchars($row['id']);
+                                    
                                             echo "<tr>
-                                                <td><a href='#'>{$orderNo}</a></td>
-                                                <td class='font-weight-600'>£" . number_format($paidAmount, 2) . "</td>
-                                                <td>{$deliveryDate}</td>
-                                                <td>
-                                                    <a href='#' class='btn btn-primary'>Detail</a>
-                                                </td>
-                                            </tr>";
+                                                                                                                                                <td>{$orderNo}</td>
+                                                                                                                                                <td class='font-weight-600'>£" .
+                                                number_format($paidAmount, 2) .
+                                                "</td>
+                                                                                                                                                <td>{$deliveryDate}</td>
+                                                                                                                                                <td>
+                                                                                                                                                <a href=\"" .
+                                                route('order.show', ['order' => $orderId]) .
+                                                "\" class='btn btn-primary'>Detail</a>
+                                                                                                                                                </td>
+                                                                                                                                                </tr>";
                                         }
                                     } else {
                                         echo "<tr><td colspan='4'>No records found</td></tr>";
@@ -410,26 +415,26 @@ $chart_data = json_encode($data);
                             <i class="far fa-question-circle"></i>
                         </div>
                         <h3>2</h3>
-                        <div class="card-description">Customers need help</div>
+                        <div class="card-description">Staff members need assistance</div>
                     </div>
                     <div class="card-body p-0">
                         <div class="tickets-list">
                             <div class="ticket-item">
                                 <div class="ticket-title">
-                                    <h4>My order hasn't arrived yet</h4>
+                                    <h4>Customer requesting refund for damaged product</h4>
                                 </div>
                                 <div class="ticket-info">
-                                    <div>Laila Tazkiah</div>
+                                    <div>Sal Clarkson</div>
                                     <div class="bullet"></div>
                                     <div class="text-primary time-text">1 min ago</div>
                                 </div>
                             </div>
                             <div class="ticket-item">
                                 <div class="ticket-title">
-                                    <h4>Please cancel my order</h4>
+                                    <h4>Pending: Team performance review from last month</h4>
                                 </div>
                                 <div class="ticket-info">
-                                    <div>Rizal Fakhri</div>
+                                    <div>Sue Pervisor</div>
                                     <div class="bullet"></div>
                                     <div class="time-text">2 hours ago</div>
                                 </div>
@@ -451,18 +456,18 @@ $chart_data = json_encode($data);
                 var data = google.visualization.arrayToDataTable([
                     ['Locations', 'Employees'],
                     <?php
-
+                    
                     $host = 'localhost';
                     $db = 'candy';
                     $user = 'root';
                     $pass = '';
-
+                    
                     $conn = new mysqli($host, $user, $pass, $db);
-
+                    
                     if ($conn->connect_error) {
                         die('Connection failed: ' . $conn->connect_error);
                     }
-
+                    
                     $branches = [
                         1 => 'Sheffield',
                         2 => 'Manchester',
@@ -520,30 +525,30 @@ $chart_data = json_encode($data);
             }
         </script>
         <?php
-
+        
         $host = 'localhost';
         $db = 'candy';
         $user = 'root';
         $pass = '';
-
+        
         $conn = new mysqli($host, $user, $pass, $db);
-
+        
         if ($conn->connect_error) {
             die('Connection failed: ' . $conn->connect_error);
         }
-
+        
         // PIE CHART PRODUCTS
         $sql = 'SELECT name, quantity FROM products WHERE quantity > 200';
         $result = $conn->query($sql);
-
+        
         $data = [['Product', 'Quantity']];
-
+        
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $data[] = [$row['name'], (int) $row['quantity']];
             }
         }
-
+        
         $conn->close();
         ?>
 
