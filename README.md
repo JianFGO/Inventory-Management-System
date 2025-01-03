@@ -2,35 +2,19 @@
 
 An inventory management web application for a candy company built using Laravel and Bootstrap.
 
-## Done (Testing)
+## Done
 - Usability testing @Shelly855
 - Product unit test @Shelly855
   
-## Doing (Functionality/Testing)
+## Doing
 - Security testing & explaining security measures took @JianFGO
 
-## Need to be Done (Functionality/Testing)
+## Need to be Done
 - Stress testing @SWE-SAM
 - Performance testing @sumayyah19
 - Other unit tests (1 each) @SWE-SAM, @sumayyah19, @JianFGO
 - User acceptance testing @everyone
 - Defect report @everyone
-
-## Done (Functionality)
-- Template remastering @Shelly855
-- Category @Shelly855
-- Products @Shelly855
-- Supporting multiple users @Shelly855
-- Styling @Shelly855
-- Login page mastering @JianFGO
-- Authentication @JianFGO
-- Orders @sumayyah19
-- Users @sumayyah19
-- Supporting multiple branches @sumayyah19
-- Personal Profile @JianFGO
-- Forgot Password @JianFGO
-- Invoice @SWE-SAM
-- Dashboard @SWE-SAM
 
 ## For Team
 Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** installed.
