@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\ContentSecurityPolicy;
 
 // Default Login Page
 Route::get('/', function () {
@@ -38,11 +39,16 @@ Route::get('/access-denied', function () {
 });
 
 // Profile Routes
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', ContentSecurityPolicy::class])->group(function () {
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
 
+// Order Invoice
 use App\Http\Controllers\OrderController;
-
 Route::get('/order/{id}/invoice', [OrderController::class, 'generateInvoice'])->name('order.invoice');
+
+// Apply CSP Middleware Globally to All Routes
+Route::middleware([ContentSecurityPolicy::class])->group(function () {
+    // Place routes here if you want the middleware applied only to specific areas.
+});
