@@ -70,7 +70,7 @@ if ($result->num_rows > 0) {
 }
 
 $chart_data = json_encode($data);
-$conn->close();
+//$conn->close();
 ?>
 
 @section('content')
@@ -365,7 +365,39 @@ $conn->close();
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive table-invoice">
-                                
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Order No</th>
+                                        <th>Paid Amount</th>
+                                        <th>Delivery Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    <?php
+                                    // Fetch data from the 'orders' table
+                                    $query = "SELECT order_no, paid_amount, delivery_date FROM orders";
+                                    $result = $conn->query($query);
+
+                                    if ($result && $result->num_rows > 0) {
+                                        // Loop through each row and display it
+                                        while ($row = $result->fetch_assoc()) {
+                                            $orderNo = htmlspecialchars($row['order_no']);
+                                            $paidAmount = htmlspecialchars($row['paid_amount']);
+                                            $deliveryDate = htmlspecialchars($row['delivery_date']);
+                                            
+                                            echo "<tr>
+                                                <td><a href='#'>{$orderNo}</a></td>
+                                                <td class='font-weight-600'>£" . number_format($paidAmount, 2) . "</td>
+                                                <td>{$deliveryDate}</td>
+                                                <td>
+                                                    <a href='#' class='btn btn-primary'>Detail</a>
+                                                </td>
+                                            </tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='4'>No records found</td></tr>";
+                                    }
+                                    ?>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -417,7 +449,7 @@ $conn->close();
             function drawChart() {
 
                 var data = google.visualization.arrayToDataTable([
-                    ['Branch', 'Employees'],
+                    ['Locations', 'Employees'],
                     <?php
 
                     $host = 'localhost';
