@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class ContentSecurityPolicy
+class AntiClickjacking
 {
     /**
      * Handle an incoming request.
@@ -18,8 +18,9 @@ class ContentSecurityPolicy
     {
         $response = $next($request);
 
-        // Set CSP headers
-        $response->headers->set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:");
+        // Add anti-clickjacking headers
+        $response->headers->set('X-Frame-Options', 'DENY');
+        $response->headers->set('Content-Security-Policy', "frame-ancestors 'none';");
 
         return $response;
     }
