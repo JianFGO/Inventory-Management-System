@@ -38,7 +38,7 @@
                             {{-- View Paid Amount --}}
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="paid_amount">Paid Amount</label>
+                                    <label for="paid_amount">Paid Amount (£)</label>
                                     <input type="text" name="paid_amount" id="paid_amount" class="form-control"
                                         value="{{ $order->paid_amount }}">
                                 </div>
@@ -51,9 +51,9 @@
                                     <thead>
                                         <th id="category-header" class="text-center">Category</th>
                                         <th id="product-header" class="text-center">Product</th>
-                                        <th id="quantity-header" class="text-center">Quantity</th>
-                                        <th id="unit-price-header" class="text-center">Unit Price</th>
-                                        <th id="total-price-header" class="text-center">Total Price</th>
+                                        <th id="quantity-header" class="text-center">Quantity (pieces)</th>
+                                        <th id="unit-price-header" class="text-center">Unit Price (£)</th>
+                                        <th id="total-price-header" class="text-center">Total Price (£)</th>
                                     </thead>
                                     <tbody class="tbody">
                                         @foreach ($order->orderDetails as $item)

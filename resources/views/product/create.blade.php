@@ -62,7 +62,7 @@
 
                             {{-- Price input --}}
                             <div class="form-group">
-                                <label for="price">Price</label>
+                                <label for="price">Price (£)</label>
                                 <input type="number" name="price" id="price" min="0" step="0.01"
                                     class="form-control">
                             </div>
@@ -72,7 +72,7 @@
 
                             {{-- Quantity input --}}
                             <div class="form-group">
-                                <label for="quantity">Quantity</label>
+                                <label for="quantity">Quantity (pieces)</label>
                                 <input type="number" name="quantity" id="quantity" class="form-control">
                             </div>
                             @error('quantity')

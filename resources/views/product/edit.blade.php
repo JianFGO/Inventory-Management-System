@@ -66,7 +66,7 @@
 
                             {{-- Price input --}}
                             <div class="form-group">
-                                <label for="price">Price</label>
+                                <label for="price">Price (£)</label>
                                 <input type="text" name="price" id="price" class="form-control"
                                     value="{{ $product->price }}">
                             </div>
@@ -76,7 +76,7 @@
 
                             {{-- Quantity input --}}
                             <div class="form-group">
-                                <label for="quantity">Quantity</label>
+                                <label for="quantity">Quantity (pieces)</label>
                                 <input type="text" name="quantity" id="quantity" class="form-control"
                                     value="{{ $product->quantity }}">
                             </div>

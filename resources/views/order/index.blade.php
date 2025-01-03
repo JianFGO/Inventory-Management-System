@@ -23,7 +23,7 @@
                                 <thead>
                                     <th>Order ID</th>
                                     <th>Order No</th>
-                                    <th>Paid Amount</th>
+                                    <th>Paid Amount (£)</th>
                                     <th>Expected Delivery</th>
                                     <th>Action</th>
                                 </thead>
@@ -56,9 +56,11 @@
                                                     Details</a>
 
                                                 {{-- Generate Invoice button --}}
-                                                <a class="btn btn-warning"
-                                                    href="{{ route('order.invoice', $order->id) }}"><i
-                                                        class="fas fa-file-invoice"></i>Invoice</a>
+                                                <a class="btn btn-warning" href="{{ route('order.invoice', $order->id) }}"
+                                                    target="_blank">
+                                                    <i class="fas fa-file-invoice"></i>Invoice
+                                                </a>
+
                                             </td>
                                         </tr>
                                     @endforeach
