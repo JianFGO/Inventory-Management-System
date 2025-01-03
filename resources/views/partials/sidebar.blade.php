@@ -1,4 +1,4 @@
-<div class="main-sidebar sidebar-style-2">
+<div class="main-sidebar sidebar-style-2" tabindex="0">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <a href="{{ route('home') }}">Candy Atlas</a>

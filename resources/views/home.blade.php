@@ -121,14 +121,14 @@ $chart_data = json_encode($data);
                         <canvas id="balance-chart" height="80"></canvas>
                     </div>
                     <div class="card-icon shadow-primary bg-primary">
-                        <i class="fas fa-dollar-sign"></i>
+                        <i class="fas fa-pound-sign"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
                             <h2 class="dashboard-text">Total Expenditure</h2>
                         </div>
                         <div class="card-body">
-                            $<?php echo number_format($total_paid, 2); ?>
+                            £<?php echo number_format($total_paid, 2); ?>
                         </div>
                     </div>
                 </div>
@@ -211,7 +211,7 @@ $chart_data = json_encode($data);
                                             format: 'yyyy-MM-dd'
                                         },
                                         vAxis: {
-                                            title: 'Amount of Stock Ordered',
+                                            title: 'Paid Amount',
                                             titleTextStyle: {
                                                 italic: false
                                             }
@@ -386,17 +386,17 @@ $chart_data = json_encode($data);
                                             $orderId = htmlspecialchars($row['id']);
                                     
                                             echo "<tr>
-                                    <td>{$orderNo}</td>
-                                    <td class='font-weight-600'>£" .
+                                                                                                            <td>{$orderNo}</td>
+                                                                                                            <td class='font-weight-600'>£" .
                                                 number_format($paidAmount, 2) .
                                                 "</td>
-                                    <td>{$deliveryDate}</td>
-                                    <td>
-                                    <a href=\"" .
+                                                                                                            <td>{$deliveryDate}</td>
+                                                                                                            <td>
+                                                                                                            <a href=\"" .
                                                 route('order.show', ['order' => $orderId]) .
                                                 "\" class='btn btn-primary'>Detail</a>
-                                    </td>
-                                    </tr>";
+                                                                                                            </td>
+                                                                                                            </tr>";
                                         }
                                     } else {
                                         echo "<tr><td colspan='4'>No records found</td></tr>";
