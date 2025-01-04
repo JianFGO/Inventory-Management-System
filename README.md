@@ -16,6 +16,7 @@ An inventory management web application for a candy company built using Laravel 
 - Other unit tests (1 each) @SWE-SAM, @JianFGO
 - User acceptance testing @everyone
 - Defect report @everyone
+- Invite all module tutors to GitHub repo @JianFGO
 
 ## For Team
 Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** installed.
