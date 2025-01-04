@@ -12,9 +12,6 @@
                         <h3 class="mb-0">Personal Profile</h3>
                     </div>
                     <div class="card-body">
-                        @if (session('success'))
-                            <div class="alert alert-success">{{ session('success') }}</div>
-                        @endif
 
                         <form action="{{ route('profile.update') }}" method="POST">
                             @csrf
