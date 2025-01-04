@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class OrderDetails extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'order_id','category_id','product_id','order_quantity','unit_price'
     ];
@@ -18,6 +21,10 @@ class OrderDetails extends Model
     public function product()
     {
         return $this->belongsTo('App\Models\Product');
+    }
+    public function order()
+    {
+        return $this->belongsTo('App\Models\Order');
     }
 }
 
