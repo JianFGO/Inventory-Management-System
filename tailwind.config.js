@@ -8,6 +8,8 @@ export default {
         './resources/**/*.blade.php',
         './resources/**/*.js',
         './resources/**/*.vue',
+        './resources/**/*.scss',
+
     ],
     theme: {
         extend: {
@@ -17,4 +19,5 @@ export default {
         },
     },
     plugins: [],
+    mode: 'jit',
 };
