@@ -46,9 +46,13 @@ Route::middleware(['auth', ContentSecurityPolicy::class])->group(function () {
 
 // Order Invoice
 use App\Http\Controllers\OrderController;
+
 Route::get('/order/{id}/invoice', [OrderController::class, 'generateInvoice'])->name('order.invoice');
 
 // Apply CSP Middleware Globally to All Routes
 Route::middleware([ContentSecurityPolicy::class])->group(function () {
     // Place routes here if you want the middleware applied only to specific areas.
 });
+
+// Logout Route
+Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
