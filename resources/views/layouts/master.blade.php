@@ -7,8 +7,8 @@
     <title>@yield('title')</title> <!--dynamic title-->
 
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}" rel="preload" as="style">
 
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('assets/modules/jqvmap/dist/jqvmap.min.css') }}">
@@ -88,23 +88,23 @@
     </div>
 
     <!-- General JS Scripts -->
-    <script src="{{ asset('assets/modules/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/modules/popper.js') }}"></script>
-    <script src="{{ asset('assets/modules/tooltip.js') }}"></script>
-    <script src="{{ asset('assets/modules/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
-    <script src="{{ asset('assets/modules/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/js/stisla.js') }}"></script>
+    <script src="{{ asset('assets/modules/jquery.min.js') }}" ></script>
+    <script src="{{ asset('assets/modules/popper.js') }}" defer></script>
+    <script src="{{ asset('assets/modules/tooltip.js') }}" defer></script>
+    <script src="{{ asset('assets/modules/bootstrap/js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('assets/modules/nicescroll/jquery.nicescroll.min.js') }}" defer></script>
+    <script src="{{ asset('assets/modules/moment.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/stisla.js') }}" defer></script>
 
     <!-- JS Libraries -->
-    <script src="{{ asset('assets/modules/jquery.sparkline.min.js') }}"></script>
-    <script src="{{ asset('assets/modules/chart.min.js') }}"></script>
-    <script src="{{ asset('assets/modules/owlcarousel2/dist/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/modules/summernote/summernote-bs4.js') }}"></script>
-    <script src="{{ asset('assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+    <script src="{{ asset('assets/modules/jquery.sparkline.min.js') }}" defer></script>
+    <script src="{{ asset('assets/modules/chart.min.js') }}" defer></script>
+    <script src="{{ asset('assets/modules/owlcarousel2/dist/owl.carousel.min.js') }}" defer></script>
+    <script src="{{ asset('assets/modules/summernote/summernote-bs4.js') }}" defer></script>
+    <script src="{{ asset('assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}" defer></script>
 
     <!-- Page Specific JS File -->
-    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> <!--cdn link-->
+    <script async src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> <!--cdn link-->
 
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
