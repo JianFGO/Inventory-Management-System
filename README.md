@@ -13,7 +13,7 @@ Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** inst
 ### 2. npm install & npm run dev:
 1. Run **npm install**
 2. Run **npm run dev**
-3. Keep this terminal. When running the website, create a *separate* VSC terminal using the + icon
+3. Keep this terminal. When running the website, create a separate VSC terminal using the + icon
 
 ### 3. Database:
 - Create a MySQL database called **candy** in PHPMyAdmin
