@@ -38,6 +38,7 @@ Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** inst
 2. Run in terminal **php artisan serve** and **Ctrl + Click** on the link that appears
 3. If that does not work, manually launch the server using **php -S 127.0.0.1:8000 -t public**
 
+## Login Details
 ### Admin Login (Sheffield Branch):
 - Email: **adel@gmail.com**
 - Password: **Password1**
