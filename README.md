@@ -2,6 +2,15 @@
 
 An inventory management web application for a candy company built using Laravel and Bootstrap.
 
+## Tech Stack
+
+- **Backend**: Laravel
+- **Frontend**: HTML, CSS, JavaScript, Bootstrap
+- **Database**: MySQL
+- **Testing**: WAVE Evaluation, Lighthouse, PHPUnit, OWASP ZAP
+- **Environment**: Visual Studio Code
+- **Version Control**: Git & GitHub
+
 ## How To Run
 Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** installed.
 
