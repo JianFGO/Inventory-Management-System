@@ -2,6 +2,19 @@
 
 An inventory management web application for a candy company built using Laravel and Bootstrap.
 
+## Table of Contents
+- [Tech Stack](#tech-stack)
+- [Agile Roles](#agile-roles)
+- [How To Run](#how-to-run)
+  - [1. Setup](#1-after-cloning-into-htdocs-folder-run-in-vsc-terminal-open-using-ctrl--j-if-you-have-windows)
+  - [2. npm Install & Dev](#2-npm-install--npm-run-dev)
+  - [3. Database Setup](#3-database)
+  - [4. Environment File](#4-make-sure-env-file-is-linked-to-the-mysql-database)
+  - [5. Migrations & Seeders](#4-migrations--seeders)
+  - [6. Running the Website](#6-running-the-website)
+- [Login Details](#login-details)
+- [Acknowledgements](#acknowledgements)
+
 ## Tech Stack
 
 - **Backend**: Laravel
@@ -10,6 +23,17 @@ An inventory management web application for a candy company built using Laravel 
 - **Testing**: WAVE Evaluation, Lighthouse, PHPUnit, OWASP ZAP
 - **Environment**: Visual Studio Code
 - **Version Control**: Git & GitHub
+
+## Agile Roles
+
+- **Sprint 1**
+  - Scrum Master: [@SWE-SAM](https://github.com/SWE-SAM)
+  - Product Owner: [@sumayyah19](https://github.com/sumayyah19)
+
+- **Sprint 2**
+  - Scrum Master: [@JianFGO](https://github.com/JianFGO)
+  - Product Owner: [@Shelly855](https://github.com/Shelly855)
+
 
 ## How To Run
 Make sure to have **Laravel Artisan (v11)**, **composer**, **node.js etc.** installed.
