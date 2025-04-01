@@ -6,20 +6,21 @@ This folder contains requirements, planning, diagrams, and testing documentation
 
 ## General
 
--   [overview.pdf](./overview.pdf) – Project context, methodology, and requirements
--   [users.pdf](./users.pdf) - User roles, user stories, personas, use case descriptions
--   [sprint-plans.pdf](./sprint-plans.pdf) – Sprint 1 & 2 plans
+-   [Overview](./overview.pdf) – Project context, methodology, and requirements
+-   [Users](./users.pdf) - User roles, user stories, personas, use case descriptions
+-   [Sprint Plans](./sprint-plans.pdf) – Sprint 1 & 2 plans
 
 ## Diagrams
 
--   [class-diagram.png](./diagrams/class-diagram.png)
--   [component-diagram.png](./diagrams/component-diagram.png)
--   [container-diagram.png](./diagrams/container-diagram.png)
--   [context-diagram.png](./diagrams/context-diagram.png)
--   [erd.png](./diagrams/erd.png)
--   [use-case-diagram.png](./diagrams/use-case-diagram.png)
+-   [Class Diagram](./diagrams/class-diagram.png)
+-   [Component Diagram](./diagrams/component-diagram.png)
+-   [Container Diagram](./diagrams/container-diagram.png)
+-   [Context Diagram](./diagrams/context-diagram.png)
+-   [ERD](./diagrams/erd.png)
+-   [Use Case Diagram](./diagrams/use-case-diagram.png)
 
 ## Testing
 
--   [defect-report.pdf](./testing/defect-report.pdf)
--   [zap-security-scan-report.pdf](./testing/zap-security-scan-report.pdf)
+-   [Testing Plan](./testing/testing-plan.pdf)
+-   [Defect Report](./testing/defect-report.pdf)
+-   [OWASP ZAP Security Scan Report](./testing/zap-security-scan-report.pdf)
