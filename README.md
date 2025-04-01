@@ -2,12 +2,10 @@
 
 An inventory management web application for a candy company built using Laravel and Bootstrap.
 
-**Documentation is available in the [`/docs`](./docs) folder.**
-
 ## Table of Contents
 
--   [Tech Stack](#tech-stack)
 -   [Agile Roles](#agile-roles)
+-   [Tech Stack](#tech-stack)
 -   [How To Run](#how-to-run)
     -   [1. Setup](#1-after-cloning-into-htdocs-folder-run-in-vsc-terminal-open-using-ctrl--j-if-you-have-windows)
     -   [2. npm Install & Dev](#2-npm-install--npm-run-dev)
@@ -18,14 +16,7 @@ An inventory management web application for a candy company built using Laravel 
 -   [Login Details](#login-details)
 -   [Acknowledgements](#acknowledgements)
 
-## Tech Stack
-
--   **Backend**: Laravel
--   **Frontend**: HTML, CSS, JavaScript, Bootstrap
--   **Database**: MySQL
--   **Testing**: WAVE Evaluation, Lighthouse, PHPUnit, OWASP ZAP
--   **Environment**: Visual Studio Code
--   **Version Control**: Git & GitHub
+**Documentation is available in the [`/docs`](./docs) folder.**
 
 ## Agile Roles
 
@@ -37,6 +28,15 @@ An inventory management web application for a candy company built using Laravel 
 -   **Sprint 2**
     -   Scrum Master: [@JianFGO](https://github.com/JianFGO)
     -   Product Owner: [@Shelly855](https://github.com/Shelly855)
+
+## Tech Stack
+
+-   **Backend**: Laravel
+-   **Frontend**: HTML, CSS, JavaScript, Bootstrap
+-   **Database**: MySQL
+-   **Testing**: WAVE Evaluation, Lighthouse, PHPUnit, OWASP ZAP
+-   **Environment**: Visual Studio Code
+-   **Version Control**: Git & GitHub
 
 ## How To Run
 
