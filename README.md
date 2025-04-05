@@ -1,4 +1,5 @@
 # Candy Atlas Inventory Management System
+**Project Duration:** Sep 2024 - Jan 2025
 
 An inventory management web application for a candy company built using Laravel and Bootstrap.
 
